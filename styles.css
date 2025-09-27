@@ -2,7 +2,6 @@
 body {
   width: 100vw;
   overflow-x: hidden;
-  background: yellow !important;
   background: url("images/bg_v3.png")
       repeat center top,
   background-size: contain;
