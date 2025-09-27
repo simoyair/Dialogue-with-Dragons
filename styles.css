@@ -2,7 +2,7 @@
 body {
   width: 100vw;
   overflow-x: hidden;
-  background: url("file:/C:/Users/SIMO YAIR/Downloads/DwD/landing site/bg_v3.png")
+  background: url("assets/bg_v3.png")
       repeat center top,
     linear-gradient(135deg, #222042 0%, #ede6fc 85%);
   background-size: contain;
