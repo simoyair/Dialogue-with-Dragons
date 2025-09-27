@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- BEGIN HEAD META, TITLE, AND FONTS -->
+  <meta charset="UTF-8" />
+  <title>Dialogue with Dragons</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Alegreya:700|Quattrocento:400,700|Almendra:700&display=swap" rel="stylesheet" />
+  <!-- END HEAD META, TITLE, AND FONTS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- BEGIN NAVIGATION BAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-logo">
+      <img src="assets/logo_v1.png" alt="DwD Logo" />
+    </div>
+    <div class="navbar-links">
+      <a href="#program">PROGRAM</a>
+      <a href="#how-it-works">How to Join</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#faq">FAQ</a>
+      <button class="navbar-apply-btn" onclick="scrollToSection('contact')">Join Now</button>
+    </div>
+      </div>
+</nav>
+    <!-- END NAVIGATION BAR -->
+<!-- BEGIN BANNER IMAGE -->
+<div class="banner-wrap">
+  <img class="banner-image" 
+       src="assets/Banner_v3_center_text.png" 
+       alt="Dialogue with Dragons Banner" />
+</div>
+<!-- END BANNER IMAGE -->
+
+  <!-- BEGIN MAIN CARD SECTION -->
+  <div class="main-container">
+  <h2>Learn English Through Role-playing Adventures</h2>
+  <p>Small groups. Real conversations. Build confidence speaking English.</p>
+  <!-- BEGIN CAROUSEL -->
+  <div class="carousel-container" id="carousel">
+    <div class="carousel-slide active">Build confidence speaking English naturally</div>
+    <div class="carousel-slide">Make international friends through shared adventures</div>
+    <div class="carousel-slide">Learn through exciting stories, not textbooks</div>
+    <div class="carousel-slide">Small groups of 4-5 students maximum</div>
+  </div>
+  <div class="carousel-dots" id="dots"></div>
+  <!-- END CAROUSEL -->
+<!-- BEGIN MAGICAL CALL TO ACTION SECTION -->
+<div class="cta-section">
+<button class="mystic-btn">
+<span class="mystic-btn-label">
+  <span class="cta-heading">Special Offer for First Students</span><br>
+  <span class="cta-note">Be part of our first English learning group. Get lower prices for all future lessons when you start with us now.  </span>
+</span>
+  </button>
+  <div class="pill-btn-row">
+    <button class="pill-btn" onclick="scrollToSection('contact')">Get Your Free Chat</button>
+    <button class="pill-btn" onclick="scrollToSection('how-it-works')">Learn How it Works</button>
+  </div>
+</div>
+<!-- END MAGICAL CALL TO ACTION SECTION (last card ends) -->
+</div> <!-- If you see a missing end to the previous container, add this closing tag here! -->
+
+<!-- BEGIN TRUST CREDIBILITY SECTION -->
+<section class="trust-section" id="trust">
+  <h2 class="trust-title">Why This Method Works</h2>
+  <div class="trust-collapsible-container">
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Your Teacher</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Professional English teacher with 5 years experience</div>
+        <div>Expert Game Master guiding your adventure</div>
+        <div>Special focus on confidence building for language learners</div>
+        <div>Personal attention promised – no large classes ever</div>
+      </div>
+    </div>
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Learning Method</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Based on research combining language learning + storytelling</div>
+        <div>Safe practice space – mistakes become part of the story</div>
+        <div>Real conversation practice in fun contexts</div>
+        <div>Step by step confidence building through character development</div>
+      </div>
+    </div>
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Student Success</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Small group promise – maximum 4-5 students per adventure</div>
+        <div>Personal lessons included in every chapter</div>
+        <div>Flexible scheduling for busy professionals and students</div>
+        <div>Money-back promise after your first lesson</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END TRUST CREDIBILITY SECTION -->
+
+<!-- BEGIN PROGRAM OVERVIEW SECTION -->
+<section class="trust-section" id="program">
+  <h2 class="trust-title">Your English Adventure Journey</h2>
+  <div class="trust-collapsible-container">
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Chapter 0: Try It First</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div><strong>What You Get:</strong></div>
+        <div>2 sessions to experience our method</div>
+        <div>Meet your teacher</div>
+        <div>Learn basic D&D in English</div>
+        <div>Create your first character with help</div>
+        <div style="margin-top: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
+          <div><strong>Investment:</strong> $[X] per session (Try before you buy)</div>
+          <div><strong>Money-back Promise:</strong> Full refund available until 24 hours before session 2</div>
+        </div>
+        <div style="margin-top: 15px; font-style: italic; color: #8a4fbd;">
+          Personal character development sessions, party formation workshop, basic D&D mechanics in English, character art creation
+        </div>
+      </div>
+    </div>
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Chapter 1: Learn the Basics</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div><strong>What You Get:</strong></div>
+        <div>4 weeks of weekly learning sessions</div>
+        <div>Group sessions with your party + personal lessons</div>
+        <div>Build your English foundation through character stories</div>
+        <div>Make friends with international classmates</div>
+        <div style="margin-top: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
+          <div><strong>Investment:</strong> $[X] per week (Early adopter special rate)</div>
+          <div><strong>What's Included:</strong> 8 total sessions + ongoing support + community access</div>
+          <div><strong>Money-back Promise:</strong> Full refund available at the end of the 1st week</div>
+        </div>
+        <div style="margin-top: 15px; font-style: italic; color: #8a4fbd;">
+          Personal character development sessions, party formation workshop, basic D&D mechanics in English, character art creation
+        </div>
+      </div>
+    </div>
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Chapter 2: Begin Your Adventure</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div><strong>What You Get:</strong></div>
+        <div>8 weeks of weekly adventures</div>
+        <div>Group sessions with your party + personal lessons</div>
+        <div>Real English practice through team storytelling</div>
+        <div>Build lasting friendships with international classmates</div>
+        <div style="margin-top: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
+          <div><strong>Investment:</strong> $[X] per week (Early adopter special rate)</div>
+          <div><strong>What's Included:</strong> 16 total sessions + ongoing support + community access</div>
+          <div><strong>Money-back Promise:</strong> Full refund available at the end of the 1st week</div>
+        </div>
+        <div style="margin-top: 15px; font-style: italic; color: #8a4fbd;">
+          Weekly adventure progression, personal skill development tracking, community participation guidelines
+        </div>
+      </div>
+    </div>
+    <div class="collapsible-card" style="opacity: 0.7;">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Chapters 3-4: Advanced Adventures</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Advanced storytelling techniques</div>
+        <div>Leadership development through party coordination</div>
+        <div>Creative projects and content creation</div>
+        <div>Expanded adventure worlds and complex challenges</div>
+        <div style="margin-top: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
+          <div><strong>Early Access:</strong> Founding group members get first notification when available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END PROGRAM OVERVIEW SECTION -->
+
+<!-- BEGIN BENEFITS SECTION -->
+<section class="trust-section" id="benefits" style="background: linear-gradient(var(--ethereal-pink), white);">
+  <h2 class="trust-title">What You'll Achieve</h2>
+  <div class="trust-collapsible-container">
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Speaking Confidence</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Speak English naturally in group conversations</div>
+        <div>Express your personality and humor in English</div>
+        <div>Feel comfortable in international conversations</div>
+        <div>Handle unexpected questions with confidence</div>
+      </div>
+    </div>
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">International Network</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Make genuine friends from different countries</div>
+        <div>Practice English with supportive classmates</div>
+        <div>Join global D&D and gaming communities</div>
+        <div>Build relationships that last beyond the program</div>
+      </div>
+    </div>
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Creative English Skills</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Describe characters and stories in detail</div>
+        <div>Use imagination to practice new vocabulary</div>
+        <div>Learn through exciting contexts, not boring exercises</div>
+        <div>Express creativity and emotions in English</div>
+      </div>
+    </div>
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Professional Growth</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Improve presentation and leadership skills</div>
+        <div>Practice problem-solving in English</div>
+        <div>Build confidence for international work opportunities</div>
+        <div>Develop teamwork and communication skills</div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top: 60px; text-align: center; background: #fff; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 30px;">
+    <h3 style="color: #8a4fbd; font-family: Almendra, serif; margin-bottom: 20px;">Student Success Stories</h3>
+    <p style="font-style: italic; color: #cf8660;">Success stories coming soon from our founding group members!</p>
+  </div>
+</section>
+<!-- END BENEFITS SECTION -->
+
+<!-- BEGIN HOW IT WORKS SECTION -->
+<section class="trust-section" id="how-it-works" style="background: var(--light-blue);">
+  <h2 class="trust-title">Simple 4-Step Process</h2>
+  <div class="card" style="max-width: 800px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 40px; text-align: center;">
+    <div style="display: flex; flex-direction: column; gap: 30px; margin-bottom: 40px;">
+      <div style="text-align: center;">
+        <div style="width: 60px; height: 60px; background: #8a4fbd; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; margin: 0 auto 20px;">1</div>
+        <h3 style="color: #8a4fbd; font-family: Almendra, serif; margin-bottom: 15px;">Apply</h3>
+        <p style="color: #2e3b59; font-family: Alegreya, serif;">Fill out our simple form and chat with us on KakaoTalk or LINE to discuss your goals and answer all your questions</p>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 60px; height: 60px; background: #8a4fbd; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; margin: 0 auto 20px;">2</div>
+        <h3 style="color: #8a4fbd; font-family: Almendra, serif; margin-bottom: 15px;">Try Chapter 0</h3>
+        <p style="color: #2e3b59; font-family: Alegreya, serif;">Experience our method with 2 trial sessions. Meet your group members, create your character, and see if you like our teaching method</p>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 60px; height: 60px; background: #8a4fbd; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; margin: 0 auto 20px;">3</div>
+        <h3 style="color: #8a4fbd; font-family: Almendra, serif; margin-bottom: 15px;">Join Your Adventure</h3>
+        <p style="color: #2e3b59; font-family: Alegreya, serif;">Start your main program with your party. Weekly group sessions plus personal lessons to build confidence step by step</p>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 60px; height: 60px; background: #8a4fbd; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; margin: 0 auto 20px;">4</div>
+        <h3 style="color: #8a4fbd; font-family: Almendra, serif; margin-bottom: 15px;">Continue Growing</h3>
+        <p style="color: #2e3b59; font-family: Alegreya, serif;">Complete chapters and advance to new adventures. Build lasting friendships and real English confidence</p>
+      </div>
+    </div>
+    <div class="pill-btn-row" style="justify-content: center;">
+      <button class="pill-btn" onclick="scrollToSection('contact')" style="background: linear-gradient(90deg, #9d73ec 0%, #c07efc 100%); color: #fff9ef; box-shadow: 0 1.5px 12px 0 #ba84eb42; padding: 0.75em 2.3em; font-family: Alegreya, serif; font-size: 1.07em; font-weight: 700; letter-spacing: 0.03em; border: none; border-radius: 23px; cursor: pointer; transition: background 0.22s, color 0.16s, box-shadow 0.16s;">Apply</button>
+    </div>
+  </div>
+</section>
+<!-- END HOW IT WORKS SECTION -->
+
+<!-- BEGIN EARLY ADOPTER BENEFITS SECTION -->
+<section class="trust-section" id="early-adopter">
+  <h2 class="trust-title">Early Adopter Benefits</h2>
+  <div class="card" style="background: linear-gradient(135deg, #cf8660, #c07efc); color: white; text-align: center; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 40px;">
+    <h3 style="color: white; margin-bottom: 30px; font-family: Almendra, serif; font-size: 2.2em;">Join Our Founding Group</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px;">
+      <div>
+        <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Special Pricing</h4>
+        <p style="color: white; font-family: Alegreya, serif;">Get founding member rates on all current and future chapters</p>
+      </div>
+      <div>
+        <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Bonus Content</h4>
+        <p style="color: white; font-family: Alegreya, serif;">Exclusive materials and early access to new adventures</p>
+      </div>
+      <div>
+        <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Direct Access</h4>
+        <p style="color: white; font-family: Alegreya, serif;">Personal feedback sessions with the game master</p>
+      </div>
+      <div>
+        <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Community Founding</h4>
+        <p style="color: white; font-family: Alegreya, serif;">Help shape our community and program development</p>
+      </div>
+    </div>
+    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 8px;">
+      <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 10px;">Early Adopter Deadline</h4>
+      <p style="color: white; font-family: Alegreya, serif;"><strong>Special pricing available until [Date] - limited founding group spots</strong></p>
+    </div>
+  </div>
+</section>
+<!-- END EARLY ADOPTER BENEFITS SECTION -->
+
+<!-- BEGIN GUARANTEE SECTION -->
+<section class="trust-section" id="guarantee">
+  <h2 class="trust-title">Our Promise to You</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+    <div class="card" style="text-align: center; border: 2px solid #cf8660; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 30px;">
+      <h3 style="color: #cf8660; font-family: Almendra, serif; margin-bottom: 20px;">Money-Back Guarantee</h3>
+      <p style="color: #2e3b59; font-family: Alegreya, serif; margin-bottom: 20px;">If you're not satisfied after your first week of any chapter, get a full refund. No questions asked.</p>
+      <div style="background: #fff1ff; padding: 15px; border-radius: 8px;">
+        <strong style="color: #8a4fbd; font-family: Alegreya, serif;">Simple Process:</strong> <span style="color: #2e3b59; font-family: Alegreya, serif;">Just email us within 7 days of your first lesson</span>
+      </div>
+    </div>
+    <div class="card" style="text-align: center; border: 2px solid #8a4fbd; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 30px;">
+      <h3 style="color: #8a4fbd; font-family: Almendra, serif; margin-bottom: 20px;">Small Group Promise</h3>
+      <p style="color: #2e3b59; font-family: Alegreya, serif; margin-bottom: 20px;">Maximum 4-5 students per adventure group. We'll never put you in a large, impersonal class.</p>
+      <div style="background: #fff1ff; padding: 15px; border-radius: 8px;">
+        <strong style="color: #8a4fbd; font-family: Alegreya, serif;">Personal Attention:</strong> <span style="color: #2e3b59; font-family: Alegreya, serif;">Every student gets individual support</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END GUARANTEE SECTION -->
+
+<!-- BEGIN FAQ SECTION -->
+<section class="trust-section" id="faq">
+  <h2 class="trust-title">Frequently Asked Questions</h2>
+  <div style="max-width: 800px; margin: 0 auto;">
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Do I need to know anything about D&D to join?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>No experience needed! We teach you everything step by step. Many of our students have never played D&D before. We focus on using D&D as a fun way to practice English, not on becoming D&D experts.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">What English level do I need?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Our program is designed for B1-B2 level students. You should be able to have basic conversations in English but want to improve your confidence and fluency. We'll assess your level during the consultation.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">How do the online sessions work?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>We use Discord for voice chat and screen sharing. You'll need a computer or tablet with internet connection. We'll help you set everything up before your first session.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">What if I can't attend a session?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>We understand life happens! You can reschedule with 24 hours notice. We also record key learning points so you won't miss important content.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">How much does it cost?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Pricing varies by chapter. Early adopters get special founding member rates. We'll discuss exact pricing during your free consultation based on which chapters you're interested in.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END FAQ SECTION -->
+
+<!-- BEGIN CONTACT SECTION -->
+<section class="trust-section" id="contact">
+  <h2 class="trust-title">Ready to Start Your Adventure?</h2>
+  <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 40px; background: rgba(255, 255, 255, 0.95);">
+    <h3 style="color: #8a4fbd; font-family: Almendra, serif; margin-bottom: 30px;">Free Consultation Process</h3>
+    <div style="text-align: left; margin: 30px 0;">
+      <div style="display: flex; align-items: center; margin: 15px 0;">
+        <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">1</div>
+        <div style="color: #2e3b59; font-family: Alegreya, serif;">We review your information (within 1 working day)</div>
+      </div>
+      <div style="display: flex; align-items: center; margin: 15px 0;">
+        <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">2</div>
+        <div style="color: #2e3b59; font-family: Alegreya, serif;">Schedule your free consultation</div>
+      </div>
+      <div style="display: flex; align-items: center; margin: 15px 0;">
+        <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">3</div>
+        <div style="color: #2e3b59; font-family: Alegreya, serif;">Discuss your goals and answer all your questions</div>
+      </div>
+      <div style="display: flex; align-items: center; margin: 15px 0;">
+        <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">4</div>
+        <div style="color: #2e3b59; font-family: Alegreya, serif;">Decide together if the program is right for you</div>
+      </div>
+    </div>
+    
+    <div style="background: #fff1ff; padding: 20px; border-radius: 8px; margin: 30px 0;">
+      <strong style="color: #8a4fbd; font-family: Alegreya, serif;">Response Time Promise:</strong> <span style="color: #2e3b59; font-family: Alegreya, serif;">1 working day on weekdays, 2 days on weekends</span>
+    </div>
+
+    <div class="pill-btn-row" style="margin-top: 40px; justify-content: center; gap: 20px;">
+      <button class="pill-btn" style="background: linear-gradient(90deg, #9d73ec 0%, #c07efc 100%); color: #fff9ef; box-shadow: 0 1.5px 12px 0 #ba84eb42; padding: 0.75em 2.3em; font-family: Alegreya, serif; font-size: 1.07em; font-weight: 700; letter-spacing: 0.03em; border: none; border-radius: 23px; cursor: pointer; transition: background 0.22s, color 0.16s, box-shadow 0.16s;">Apply for Free Consultation</button>
+      <button class="pill-btn" style="background: linear-gradient(90deg, #cf8660 0%, #e8b293 100%); color: #fff9ef; box-shadow: 0 1.5px 12px 0 #cf866042; padding: 0.75em 2.3em; font-family: Alegreya, serif; font-size: 1.07em; font-weight: 700; letter-spacing: 0.03em; border: none; border-radius: 23px; cursor: pointer; transition: background 0.22s, color 0.16s, box-shadow 0.16s;">Message on KakaoTalk</button>
+      <button class="pill-btn" style="background: linear-gradient(90deg, #2e3b59 0%, #6061b8 100%); color: #fff9ef; box-shadow: 0 1.5px 12px 0 #2e3b5942; padding: 0.75em 2.3em; font-family: Alegreya, serif; font-size: 1.07em; font-weight: 700; letter-spacing: 0.03em; border: none; border-radius: 23px; cursor: pointer; transition: background 0.22s, color 0.16s, box-shadow 0.16s;">Chat on LINE</button>
+    </div>
+  </div>
+</section>
+<!-- END CONTACT SECTION -->
+
+</div>
+
+  <!-- END MAIN CARD SECTION -->
+
+  <!-- BEGIN FOOTER/BOTTOM BAR -->
+  <div class="contact-bar">
+  <button title="KakaoTalk">K</button>
+  <button title="LINE">L</button>
+  <button title="Email">✉</button>
+</div>
+  <!-- END FOOTER/BOTTOM BAR -->
+
+  <!-- BEGIN SCRIPTS -->
+  <script>
+    // === BEGIN JS: CAROUSEL FUNCTIONALITY ===
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dotsContainer = document.getElementById('dots');
+    let currentIndex = 0;
+    let slideInterval;
+    function activateSlide(idx) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === idx);
+      });
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) =>
+        dot.classList.toggle('active', i === idx)
+      );
+    }
+    // Create dots for slides
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = i === 0 ? 'carousel-dot active' : 'carousel-dot';
+      dot.setAttribute('aria-label', 'Show slide ' + (i + 1));
+      dot.addEventListener('click', () => {
+        currentIndex = i;
+        activateSlide(currentIndex);
+        resetSlideInterval();
+      });
+      dotsContainer.appendChild(dot);
+    });
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      activateSlide(currentIndex);
+    }
+    function resetSlideInterval() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, 3700);
+    }
+    activateSlide(currentIndex);
+    slideInterval = setInterval(nextSlide, 3700);
+    // === END JS: CAROUSEL FUNCTIONALITY ===
+  </script>
+  <!-- END SCRIPTS -->
+   <script>
+function toggleCollapsible(btn) {
+  // Individual collapsible - each card opens/closes independently
+  var content = btn.nextElementSibling;
+  if(content.style.display === "block") {
+    content.style.display = "none";
+    btn.classList.remove('active');
+  } else {
+    content.style.display = "block";
+    btn.classList.add('active');
+  }
+}
+
+function scrollToSection(sectionId) {
+  const target = document.getElementById(sectionId);
+  if (target) {
+    const headerHeight = 150; // Height of fixed header
+    const targetPosition = target.offsetTop - headerHeight;
+    
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  }
+}
+
+// Smooth scrolling for anchor links with header offset
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const headerHeight = 150; // Height of fixed header
+      const targetPosition = target.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Add scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-on-scroll');
+    }
+  });
+}, observerOptions);
+
+// Observe all cards and sections
+document.querySelectorAll('.card, .trust-section').forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
