@@ -4,7 +4,6 @@ body {
   overflow-x: hidden;
   background: url("images/bg_v3.png")
       repeat center top,
-    linear-gradient(135deg, #222042 0%, #ede6fc 85%);
   background-size: contain;
   background-attachment: scroll;
   min-height: 100vh;
