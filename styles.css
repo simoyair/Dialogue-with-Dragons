@@ -2,7 +2,7 @@
 body {
   width: 100vw;
   overflow-x: hidden;
-  background: url("images/bg_v3.png")
+  background: url("images/bg_v3.png") repeat center top, yellow;
       repeat center top,
   background-size: contain;
   background-attachment: scroll;
