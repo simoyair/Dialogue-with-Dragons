@@ -187,7 +187,7 @@ body {
 /* === BEGIN CSS: HERO SECTION === */
 .hero-bg {
   width: 100vw;
-  background: linear-gradient(100deg, #1a0639 0, #6061b8 50%, #fff1ff 100%);
+  background: linear-gradient(100deg, #1a0639 0, #6061b8 50%, #fff1ff 60%);
   min-height: 260px;
   padding-top: 32px;
   display: flex;
@@ -272,7 +272,7 @@ h3,
   font-size: 1.07em;
   color: #52387a;
   font-weight: 700;
-  background: linear-gradient(90deg, #e8b29311 0%, #dfadff11 100%);
+  background: linear-gradient(90deg, #e8b29311 0%, #dfadff11 60%);
   min-height: 40px;
   box-shadow: 0 2px 14px 0 #c07efc16;
   overflow: hidden;
