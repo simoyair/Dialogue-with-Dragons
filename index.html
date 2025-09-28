@@ -35,6 +35,8 @@
        src="images\DwD_title.png" 
        alt="Dialogue with Dragons Title" />
 </div>
+<!-- Spacer to prevent layout jump when banner becomes sticky -->
+<div class="banner-spacer" aria-hidden="true"></div>
 <!-- END BANNER IMAGE -->
 
   <!-- BEGIN MAIN CARD SECTION -->
@@ -549,17 +551,43 @@ document.querySelectorAll('.card, .trust-section').forEach(el => {
   observer.observe(el);
 });
 
-// Banner sticky behavior
-window.addEventListener('scroll', function() {
+// Banner sticky behavior with spacer to prevent layout shift
+(function() {
   const banner = document.querySelector('.banner-wrap');
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-  if (scrollTop > 70) {
-    banner.classList.add('sticky');
-  } else {
-    banner.classList.remove('sticky');
+  const spacer = document.querySelector('.banner-spacer');
+  if (!banner || !spacer) return;
+
+  const STICKY_OFFSET = 70; // px
+
+  function updateSpacerHeight() {
+    // When not sticky, spacer height is 0; when sticky, match banner height
+    const bannerHeight = banner.offsetHeight;
+    spacer.style.height = banner.classList.contains('sticky') ? bannerHeight + 'px' : '0px';
   }
-});
+
+  function onScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > STICKY_OFFSET) {
+      if (!banner.classList.contains('sticky')) {
+        banner.classList.add('sticky');
+        updateSpacerHeight();
+      }
+    } else {
+      if (banner.classList.contains('sticky')) {
+        banner.classList.remove('sticky');
+        updateSpacerHeight();
+      }
+    }
+  }
+
+  // Update spacer on resize as banner height may change
+  window.addEventListener('resize', updateSpacerHeight);
+  window.addEventListener('scroll', onScroll);
+
+  // Initial set
+  updateSpacerHeight();
+  onScroll();
+})();
 </script>
 
 </body>
