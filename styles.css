@@ -2,7 +2,7 @@
 body {
   width: 100vw;
   overflow-x: hidden;
-  background: url("Assets/bg_v3.png") repeat-y center top, yellow;
+  background: url("Assets/bg_v3.png") repeat-y center top, rgba(42, 32, 104, 0.91);
   background-size: 100% auto;
   background-attachment: scroll;
   min-height: 100vh;
@@ -52,6 +52,7 @@ body {
   margin-right: 24px;
   position: absolute; /* let links center */
   left: 12px;
+  width: 64px; /* reserve horizontal space so text doesn't overlap */
 }
 .navbar-logo img {
   height: 44px; /* Constrain height to fit navbar */
@@ -118,6 +119,7 @@ body {
   font-weight: 700;
   font-size: 1.15em;
 }
+.navbar-links a[href="#benefits"] { display: none; }
 
 .navbar-links a {
   color: #fff;
