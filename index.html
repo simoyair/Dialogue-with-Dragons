@@ -557,7 +557,7 @@ document.querySelectorAll('.card, .trust-section').forEach(el => {
   const spacer = document.querySelector('.banner-spacer');
   if (!banner || !spacer) return;
 
-  const STICKY_OFFSET = 70; // px
+  const STICKY_OFFSET = -70; // px
 
   function updateSpacerHeight() {
     // When not sticky, spacer height is 0; when sticky, match banner height
