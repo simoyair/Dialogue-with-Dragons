@@ -560,22 +560,21 @@ document.querySelectorAll('.card, .trust-section').forEach(el => {
   const STICKY_OFFSET = 70; // px
 
   function updateSpacerHeight() {
-    // When sticky and moved up by 70px, subtract 70px from spacer to keep layout stable
-    const bannerHeight = banner.offsetHeight;
-    const sticky = banner.classList.contains('sticky');
-    spacer.style.height = sticky ? Math.max(0, bannerHeight - STICKY_OFFSET) + 'px' : '0px';
+    // Spacer only needs to be 70px when raised, 0 otherwise
+    const raised = banner.classList.contains('is-raised');
+    spacer.style.height = raised ? STICKY_OFFSET + 'px' : '0px';
   }
 
   function onScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > STICKY_OFFSET) {
-      if (!banner.classList.contains('sticky')) {
-        banner.classList.add('sticky');
+      if (!banner.classList.contains('is-raised')) {
+        banner.classList.add('is-raised');
         updateSpacerHeight();
       }
     } else {
-      if (banner.classList.contains('sticky')) {
-        banner.classList.remove('sticky');
+      if (banner.classList.contains('is-raised')) {
+        banner.classList.remove('is-raised');
         updateSpacerHeight();
       }
     }

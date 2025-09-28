@@ -161,13 +161,15 @@ body {
   width: 100vw;
   max-width: 100vw;
   overflow: hidden;
-  position: relative;
+  position: sticky;
+  top: 0; /* starts at top */
   z-index: 9;
   background: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: transform 0.28s ease;
 }
 
 .banner-image {
@@ -194,17 +196,13 @@ body {
   transition: transform 0.28s ease, max-width 0.28s ease, opacity 0.28s ease;
 }
 
-/* Sticky behavior for banner after 70px scroll */
-.banner-wrap.sticky {
-  position: fixed;
-  top: -70px; /* shift banner 70px higher (less visible) */
-  left: 0;
-  right: 0;
-  z-index: 9;
+/* Raised state after 70px scroll */
+.banner-wrap.is-raised {
+  transform: translateY(-70px); /* move banner 70px up */
 }
 
 /* Title adjustments when sticky: move down by 70px and scale a bit smaller */
-.banner-wrap.sticky .banner-title {
+.banner-wrap.is-raised .banner-title {
   transform: translate(-50%, calc(-50% + 70px)) scale(0.9);
   max-width: 70%;
 }
