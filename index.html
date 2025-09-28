@@ -29,8 +29,11 @@
 <!-- BEGIN BANNER IMAGE -->
 <div class="banner-wrap">
   <img class="banner-image" 
-       src="images/Banner_v3_center_text.png" 
+       src="images\Banner_bg_only.png" 
        alt="Dialogue with Dragons Banner" />
+  <img class="banner-title" 
+       src="images\DwD_title.png" 
+       alt="Dialogue with Dragons Title" />
 </div>
 <!-- END BANNER IMAGE -->
 
@@ -544,6 +547,18 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all cards and sections
 document.querySelectorAll('.card, .trust-section').forEach(el => {
   observer.observe(el);
+});
+
+// Banner sticky behavior
+window.addEventListener('scroll', function() {
+  const banner = document.querySelector('.banner-wrap');
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  if (scrollTop > 70) {
+    banner.classList.add('sticky');
+  } else {
+    banner.classList.remove('sticky');
+  }
 });
 </script>
 
