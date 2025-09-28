@@ -12,27 +12,25 @@
 <body>
   <!-- BEGIN NAVIGATION BAR -->
 <nav class="navbar">
-  <div class="navbar-inner">
-    <div class="navbar-logo">
-      <img src="images/logo_v1.png" alt="DwD Logo" />
-    </div>
-    <div class="navbar-links">
-      <a href="#program">PROGRAM</a>
-      <a href="#how-it-works">How to Join</a>
-      <a href="#benefits">Benefits</a>
-      <a href="#faq">FAQ</a>
-      <button class="navbar-apply-btn" onclick="scrollToSection('contact')">Join Now</button>
-    </div>
+    <div class="navbar-inner">
+      <div class="navbar-logo">
+        <img src="Assets/logo_v1.png" alt="DwD Logo" />
       </div>
+      <div class="navbar-links">
+        <a href="#program">PROGRAM</a>
+        <a href="#how-it-works">How to Join</a>
+        <a href="#benefits">Benefits</a>
+      </div>
+        </div>
 </nav>
     <!-- END NAVIGATION BAR -->
 <!-- BEGIN BANNER IMAGE -->
 <div class="banner-wrap">
   <img class="banner-image" 
-       src="images\Banner_bg_only.png" 
+       src="Assets\Banner_bg_only.png" 
        alt="Dialogue with Dragons Banner" />
   <img class="banner-title" 
-       src="images\DwD_title.png" 
+       src="Assets\DwD_title.png" 
        alt="Dialogue with Dragons Title" />
 </div>
 <!-- Spacer to prevent layout jump when banner becomes sticky -->
@@ -40,29 +38,26 @@
 <!-- END BANNER IMAGE -->
 
   <!-- BEGIN MAIN CARD SECTION -->
+  <h2 class="trust-title" style="margin-top: 20px;">Learn English Through Role-playing Adventures</h2>
   <div class="main-container">
-  <h2>Learn English Through Role-playing Adventures</h2>
   <p>Small groups. Real conversations. Build confidence speaking English.</p>
   <!-- BEGIN CAROUSEL -->
   <div class="carousel-container" id="carousel">
     <div class="carousel-slide active">Build confidence speaking English naturally</div>
     <div class="carousel-slide">Make international friends through shared adventures</div>
     <div class="carousel-slide">Learn through exciting stories, not textbooks</div>
-    <div class="carousel-slide">Small groups of 4-5 students maximum</div>
+    <div class="carousel-slide">4-5 students maximum in a group</div>
   </div>
   <div class="carousel-dots" id="dots"></div>
   <!-- END CAROUSEL -->
 <!-- BEGIN MAGICAL CALL TO ACTION SECTION -->
 <div class="cta-section">
-<button class="mystic-btn">
-<span class="mystic-btn-label">
-  <span class="cta-heading">Special Offer for First Students</span><br>
-  <span class="cta-note">Be part of our first English learning group. Get lower prices for all future lessons when you start with us now.  </span>
-</span>
-  </button>
+  <div class="card" style="max-width: 700px; text-align: center; background: #fff; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 22px 20px;">
+    <div class="cta-heading" style="display:block; margin-bottom:6px;">Special Offer for First Students</div>
+    <div class="cta-note" style="display:block;">Be part of our first English learning group. Get lower prices for your learning adventure.</div>
+  </div>
   <div class="pill-btn-row">
     <button class="pill-btn" onclick="scrollToSection('contact')">Get Your Free Chat</button>
-    <button class="pill-btn" onclick="scrollToSection('how-it-works')">Learn How it Works</button>
   </div>
 </div>
 <!-- END MAGICAL CALL TO ACTION SECTION (last card ends) -->
@@ -443,17 +438,15 @@
 
   <!-- BEGIN FOOTER/BOTTOM BAR -->
   <div class="contact-bar">
-  <button title="KakaoTalk">K</button>
-  <button title="LINE">L</button>
-  <button title="Email">✉</button>
-</div>
+    <button class="join-now-footer" onclick="scrollToSection('contact')">Join Now</button>
+  </div>
   <!-- END FOOTER/BOTTOM BAR -->
 
   <!-- BEGIN SCRIPTS -->
   <script>
     // === BEGIN JS: CAROUSEL FUNCTIONALITY ===
     const slides = document.querySelectorAll('.carousel-slide');
-    const dotsContainer = document.getElementById('dots');
+  const dotsContainer = document.getElementById('dots');
     let currentIndex = 0;
     let slideInterval;
     function activateSlide(idx) {
@@ -557,7 +550,7 @@ document.querySelectorAll('.card, .trust-section').forEach(el => {
   const spacer = document.querySelector('.banner-spacer');
   if (!banner || !spacer) return;
 
-  const STICKY_OFFSET = -70; // px
+  const STICKY_OFFSET = 70; // px
 
   function updateSpacerHeight() {
     // Spacer only needs to be 70px when raised, 0 otherwise
@@ -588,6 +581,14 @@ document.querySelectorAll('.card, .trust-section').forEach(el => {
   updateSpacerHeight();
   onScroll();
 })();
+
+// Open all collapsible cards by default
+document.querySelectorAll('.collapsible-content').forEach(el => {
+  el.style.display = 'block';
+});
+document.querySelectorAll('.collapsible-header').forEach(btn => {
+  btn.classList.add('active');
+});
 </script>
 
 </body>

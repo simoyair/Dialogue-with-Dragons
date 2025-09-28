@@ -21,7 +21,7 @@ body {
   width: 100vw;
   background: rgba(46, 59, 89, 0.65); /* more translucent to show banner underneath */
   color: #fff1ff;
-  height: 70px;
+  height: 56px; /* thinner on mobile */
   box-shadow: 0 3px 22px -12px #5e3788cc;
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@ body {
   max-width: 1100px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* center links */
   padding: 0 16px;
 }
 .navbar-logo {
@@ -50,6 +50,8 @@ body {
   letter-spacing: 0.05em;
   color: #fff1ff;
   margin-right: 24px;
+  position: absolute; /* let links center */
+  left: 12px;
 }
 .navbar-logo img {
   height: 44px; /* Constrain height to fit navbar */
@@ -362,25 +364,24 @@ h3,
   z-index: 13;
   box-shadow: 0 -2px 16px -4px #c07efc55;
 }
-.contact-bar button {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #fff1ff;
-  color: #8a4fbd;
+.contact-bar .join-now-footer {
   border: none;
-  font-size: 1.7em;
-  font-family: inherit;
-  font-weight: bold;
-  box-shadow: 0 1.5px 9px 0px #8a4fbd33;
-  margin: 0 6px;
+  border-radius: 23px;
+  background: linear-gradient(90deg, #9d73ec 0%, #c07efc 100%);
+  color: #fff9ef;
+  box-shadow: 0 1.5px 12px 0 #ba84eb42;
+  padding: 0.75em 2.3em;
+  font-family: Alegreya, serif;
+  font-size: 1.07em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s, transform 0.3s;
+  transition: background 0.22s, color 0.16s, box-shadow 0.16s;
 }
-.contact-bar button:hover {
-  background: #e8b293;
-  color: #fff1ff;
-  transform: scale(1.1);
+.contact-bar .join-now-footer:hover {
+  background: linear-gradient(90deg, #c07efc 0%, #fcdebe 97%);
+  color: #8a4fbd;
+  box-shadow: 0 2px 17px 3px #cf866070;
 }
 /* === END CSS: FOOTER BAR === */
 
@@ -394,7 +395,8 @@ h3,
 }
 
 .navbar-links {
-  display: none; /* Hide nav links on mobile by default */
+  display: flex;
+  gap: 22px;
 }
 
 .navbar-apply-btn {
@@ -408,6 +410,7 @@ h3,
 
 /* Tablet styles */
 @media (min-width: 768px) {
+  .navbar { height: 70px; }
   .main-container {
     max-width: 580px;
     border-radius: 32px;
@@ -415,7 +418,7 @@ h3,
   }
   
   .navbar-links {
-    display: flex; /* Show nav links on tablet and up */
+    display: flex; /* links remain */
   }
   
   .banner-title {
