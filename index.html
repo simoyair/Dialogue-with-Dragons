@@ -557,12 +557,13 @@ document.querySelectorAll('.card, .trust-section').forEach(el => {
   const spacer = document.querySelector('.banner-spacer');
   if (!banner || !spacer) return;
 
-  const STICKY_OFFSET = -70; // px
+  const STICKY_OFFSET = 70; // px
 
   function updateSpacerHeight() {
-    // When not sticky, spacer height is 0; when sticky, match banner height
+    // When sticky and moved up by 70px, subtract 70px from spacer to keep layout stable
     const bannerHeight = banner.offsetHeight;
-    spacer.style.height = banner.classList.contains('sticky') ? bannerHeight + 'px' : '0px';
+    const sticky = banner.classList.contains('sticky');
+    spacer.style.height = sticky ? Math.max(0, bannerHeight - STICKY_OFFSET) + 'px' : '0px';
   }
 
   function onScroll() {

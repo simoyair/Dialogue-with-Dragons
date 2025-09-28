@@ -197,7 +197,7 @@ body {
 /* Sticky behavior for banner after 70px scroll */
 .banner-wrap.sticky {
   position: fixed;
-  top: 70px;
+  top: -70px; /* shift banner 70px higher (less visible) */
   left: 0;
   right: 0;
   z-index: 9;
