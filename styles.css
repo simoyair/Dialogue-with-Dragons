@@ -2,7 +2,7 @@
 body {
   width: 100vw;
   overflow-x: hidden;
-  background: url("images/bg_v3.png") repeat-y center top, yellow;
+  background: url("Assets/bg_v3.png") repeat-y center top, yellow;
   background-size: 100% auto;
   background-attachment: scroll;
   min-height: 100vh;
@@ -113,7 +113,7 @@ body {
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: 24px;
   font-family: "Alegreya", serif;
   font-weight: 700;
   font-size: 1.15em;
@@ -396,7 +396,9 @@ h3,
 
 .navbar-links {
   display: flex;
-  gap: 22px;
+  gap: 16px;
+  font-size: 1.02em;
+  white-space: nowrap;
 }
 
 .navbar-apply-btn {
@@ -448,6 +450,21 @@ h3,
   align-items: center;
   margin: 24px 0 20px 0;
   gap: 14px;
+}
+
+/* CTA texts inside main card */
+.cta-inline {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+.cta-inline .cta-heading {
+  color: #52387a; /* dark purple like carousel */
+  text-shadow: none;
+  margin-bottom: 6px;
+}
+.cta-inline .cta-note {
+  color: #52387a;
 }
 
 .mystic-btn {
@@ -905,7 +922,7 @@ h3,
 }
 .trust-title {
   font-family: Almendra, serif;
-  font-size: 2.2em;
+  font-size: 1.9em;
   color: #8a4fbd;
   font-weight: bold;
   margin-bottom: 44px;
