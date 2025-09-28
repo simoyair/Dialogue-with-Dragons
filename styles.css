@@ -268,7 +268,7 @@ h3,
 }
 
 .main-container {
-  background: rgba(255, 241, 255, 0.96);
+  background: rgba(255, 241, 255, 0.6);
   max-width: 580px; /* Limit max width */
   width: 96vw; /* Allow it to shrink further on very small screens */
   margin: 28px auto 0 auto;
@@ -936,7 +936,7 @@ h3,
   gap: 28px;
 }
 .collapsible-card {
-  background: rgba(255, 241, 255, 0.96);
+  background: rgba(255, 241, 255, 0.6);
   border-radius: 16px;
   box-shadow: 0 2px 14px rgba(138, 79, 189, 0.1);
   border: 1px solid rgba(138, 79, 189, 0.1);
@@ -982,7 +982,7 @@ h3,
 .collapsible-content {
   display: none;
   padding: 20px 26px;
-  background: rgba(255, 241, 255, 0.96);
+  background: rgba(255, 241, 255, 0.6);
   border-radius: 0 0 16px 16px;
 }
 .collapsible-content > div {
