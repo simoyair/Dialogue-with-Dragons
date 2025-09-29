@@ -936,7 +936,7 @@ h3,
   gap: 28px;
 }
 .collapsible-card {
-  background: rgba(255, 241, 255, 0.6);
+  background: rgba(255, 241, 255, 0.4);
   border-radius: 16px;
   box-shadow: 0 2px 14px rgba(138, 79, 189, 0.1);
   border: 1px solid rgba(138, 79, 189, 0.1);
