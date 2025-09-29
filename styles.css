@@ -1025,6 +1025,12 @@ h3,
     max-width: none;
   }
 }
+/* FAQ section CSS */
+.faq-collapsible-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
 /* === END CSS: MEDIA QUERIES === */
 
 /* === BEGIN CSS: ANIMATIONS === */
