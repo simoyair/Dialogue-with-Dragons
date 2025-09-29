@@ -879,7 +879,7 @@ h3,
   justify-content: center;
 }
 .card.trust-card {
-  background: #fff;
+  background: rgba(255, 241, 255, 0.6);
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(138, 79, 189, 0.12);
   padding: 30px 22px 28px 22px;
