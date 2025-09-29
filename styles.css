@@ -1030,6 +1030,8 @@ h3,
   display: flex;
   flex-direction: column;
   gap: 28px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 /* === END CSS: MEDIA QUERIES === */
 
