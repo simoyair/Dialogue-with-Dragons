@@ -1104,14 +1104,6 @@ h3,
   z-index: 1;
 }
 
-/* Desktop: normal background */
-@media (min-width: 768px) {
-  .special-pricing-card {
-    background: url('Assets/rectangle background.png') no-repeat center center;
-    background-size: contain;
-  }
-}
-
 /* Mobile: sticky background effect */
 @media (max-width: 767px) {
   .special-pricing-card {
@@ -1119,28 +1111,28 @@ h3,
     min-height: 100vh;
   }
   
-  /* Background layer */
+  /* Background layer that scrolls then sticks */
   .special-pricing-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
     height: 100vh;
-    background: url('Assets/rectangle background.png') no-repeat center center;
-    background-size: cover;
+    background: url('Assets/rectangle background.png') no-repeat center top;
+    background-size: contain;
     z-index: -1;
+    transition: position 0.1s ease;
   }
   
   /* When scrolling through card - background becomes fixed */
   .special-pricing-card.sticky-active::before {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100vw;
   }
   
-  /* When at bottom - background stays at bottom */
+  /* When at bottom - background stays at bottom of card */
   .special-pricing-card.sticky-bottom::before {
     position: absolute;
     top: auto;
