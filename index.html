@@ -515,7 +515,7 @@ function scrollToSection(sectionId) {
   const target = document.getElementById(sectionId);
   if (target) {
     const headerHeight = 150; // Height of fixed header
-    const targetPosition = target.offsetTop - headerHeight;
+    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
     
     window.scrollTo({
       top: targetPosition,
