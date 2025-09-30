@@ -1108,10 +1108,10 @@ h3,
 @media (max-width: 767px) {
   .special-pricing-card {
     position: relative;
-    min-height: 100vh;
+    min-height: 150vh; /* Taller to accommodate all content */
   }
   
-  /* Background layer that scrolls then sticks */
+  /* Background layer that covers all content */
   .special-pricing-card::before {
     content: '';
     position: absolute;
@@ -1119,24 +1119,29 @@ h3,
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: 100vh;
+    height: 150vh; /* Match the card height */
     background: url('Assets/rectangle background.png') no-repeat center top;
-    background-size: contain;
+    background-size: 100% 100%; /* Stretch to fill the entire height */
     z-index: -1;
-    transition: position 0.1s ease;
   }
   
   /* When scrolling through card - background becomes fixed */
   .special-pricing-card.sticky-active::before {
     position: fixed;
     top: 0;
+    height: 100vh; /* Fixed height when sticky */
+    background-size: contain;
+    background-position: center center;
   }
   
-  /* When at bottom - background stays at bottom of card */
+  /* When at bottom - background returns to bottom of card */
   .special-pricing-card.sticky-bottom::before {
     position: absolute;
     top: auto;
     bottom: 0;
+    height: 100vh;
+    background-size: contain;
+    background-position: center center;
   }
   
   /* Keep text above background */
