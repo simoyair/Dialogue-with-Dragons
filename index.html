@@ -611,21 +611,32 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
   if (window.innerWidth <= 767) {
     const specialPricingCard = document.querySelector('.special-pricing-card');
     const cardStartMarker = document.getElementById('special-pricing-card-start');
-    const earlyAdopterSection = document.getElementById('early-adopter');
     
-    if (!specialPricingCard || !cardStartMarker || !earlyAdopterSection) return;
+    if (!specialPricingCard || !cardStartMarker) return;
     
     function updateStickyBackground() {
+      const cardRect = specialPricingCard.getBoundingClientRect();
       const markerRect = cardStartMarker.getBoundingClientRect();
-      const sectionRect = earlyAdopterSection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
       
-      // Start showing when the card start marker enters viewport
-      // Stop showing when section bottom leaves viewport
-      if (markerRect.top <= window.innerHeight * 0.8 && sectionRect.bottom > 0) {
-        specialPricingCard.classList.add('sticky-bg');
-      } else {
-        specialPricingCard.classList.remove('sticky-bg');
+      // Calculate positions
+      const cardTop = cardRect.top;
+      const cardBottom = cardRect.bottom;
+      
+      // Remove all classes first
+      specialPricingCard.classList.remove('sticky-active', 'sticky-bottom');
+      
+      // Case 1: Card top is above viewport top (we're scrolled into the card)
+      // AND card bottom is still below viewport bottom (more content to scroll)
+      if (cardTop <= 0 && cardBottom > viewportHeight) {
+        specialPricingCard.classList.add('sticky-active');
       }
+      // Case 2: Card bottom is at or above viewport bottom (reached the end)
+      else if (cardBottom <= viewportHeight && cardTop < 0) {
+        specialPricingCard.classList.add('sticky-bottom');
+      }
+      // Case 3: Card hasn't entered viewport yet, or has scrolled completely past
+      // (no class needed - background scrolls naturally with card)
     }
     
     window.addEventListener('scroll', updateStickyBackground);
