@@ -367,23 +367,15 @@ h3,
   box-shadow: 0 -2px 16px -4px #c07efc55;
 }
 .contact-bar .join-now-footer {
-  border: none;
-  border-radius: 23px;
-  background: linear-gradient(90deg, #9d73ec 0%, #c07efc 100%);
-  color: #fff9ef;
-  box-shadow: 0 1.5px 12px 0 #ba84eb42;
-  padding: 0.75em 2.3em;
-  font-family: Alegreya, serif;
-  font-size: 1.07em;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  height: 60px;
+  width: auto;
+  object-fit: contain;
   cursor: pointer;
-  transition: background 0.22s, color 0.16s, box-shadow 0.16s;
+  transition: transform 0.2s, filter 0.2s;
 }
 .contact-bar .join-now-footer:hover {
-  background: linear-gradient(90deg, #c07efc 0%, #fcdebe 97%);
-  color: #8a4fbd;
-  box-shadow: 0 2px 17px 3px #cf866070;
+  transform: translateY(-2px);
+  filter: brightness(1.1);
 }
 /* === END CSS: FOOTER BAR === */
 
@@ -1104,44 +1096,26 @@ h3,
   z-index: 1;
 }
 
-/* Mobile: sticky background effect */
+/* Mobile: smooth scrolling background */
 @media (max-width: 767px) {
   .special-pricing-card {
     position: relative;
-    min-height: 150vh; /* Taller to accommodate all content */
+    min-height: auto;
+    padding-bottom: 40px;
   }
   
-  /* Background layer that covers all content */
+  /* Background layer that scrolls with content */
   .special-pricing-card::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: -100px;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: 150vh; /* Match the card height */
+    height: calc(100% + 200px);
     background: url('Assets/rectangle background.png') no-repeat center top;
-    background-size: 100% 100%; /* Stretch to fill the entire height */
+    background-size: 100% auto;
     z-index: -1;
-  }
-  
-  /* When scrolling through card - background becomes fixed */
-  .special-pricing-card.sticky-active::before {
-    position: fixed;
-    top: 0;
-    height: 100vh; /* Fixed height when sticky */
-    background-size: contain;
-    background-position: center center;
-  }
-  
-  /* When at bottom - background returns to bottom of card */
-  .special-pricing-card.sticky-bottom::before {
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    height: 100vh;
-    background-size: contain;
-    background-position: center center;
   }
   
   /* Keep text above background */
