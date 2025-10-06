@@ -1111,37 +1111,29 @@ h3,
 
 /* Mobile: sticky background effect */
 @media (max-width: 767px) {
+  /* Add padding-top to the section to make space for title */
+  #early-adopter {
+    padding-top: 0;
+  }
+  
   .special-pricing-card {
     position: relative;
-    min-height: 100vh;
+    min-height: 150vh; /* Make card tall enough for all content */
+    margin-top: -20px; /* Pull it up slightly to start after title */
   }
   
   /* Background layer that will be sticky */
   .special-pricing-card::before {
     content: '';
-    position: absolute;
-    top: -80px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: sticky;
+    top: 56px; /* Stick below navbar */
+    display: block;
     width: 100vw;
-    height: 150vh;
+    height: 100vh;
+    margin-left: calc(-50vw + 50%);
     background: url('Assets/rectangle background.png') no-repeat center center;
     background-size: contain;
     z-index: -1;
-  }
-  
-  /* When scrolling through card - background becomes fixed */
-  .special-pricing-card.sticky-active::before {
-    position: fixed;
-    top: 0;
-    height: 100vh;
-  }
-  
-  /* When at bottom - background stays at bottom */
-  .special-pricing-card.sticky-bottom::before {
-    position: absolute;
-    top: auto;
-    bottom: 0;
   }
   
   /* Keep text above background */
@@ -1149,5 +1141,4 @@ h3,
     position: relative;
     z-index: 2;
   }
-}
-/* === END CSS: SPECIAL PRICING STICKY BACKGROUND === */
+}/* === END CSS: SPECIAL PRICING STICKY BACKGROUND === */
