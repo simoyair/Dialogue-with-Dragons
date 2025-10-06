@@ -292,7 +292,7 @@
 
 <!-- BEGIN EARLY ADOPTER BENEFITS SECTION -->
 <section class="trust-section" id="early-adopter">
-  <h2 class="trust-title">What You Get as One of Our First Students </h2>
+  <h2 class="trust-title" style="margin-bottom: 20px;">What You Get as One of Our First Students </h2>
   <div id="special-pricing-card-start"></div>
   <div class="card card-white-text-outline special-pricing-card" style="color: white; text-align: center; border-radius: 16px; box-shadow: none; padding: 40px;">
   <!---- <h3 style="color: white; margin-bottom: 30px; font-family: Almendra, serif; font-size: 2.2em;">Join Our Founding Group</h3>  -->
@@ -587,34 +587,38 @@ document.querySelectorAll('.card, .trust-section').forEach(el => {
 
 // Open all collapsible cards by default
 // Sticky background behavior for special pricing card
+// Sticky background behavior for special pricing card
 (function() {
   if (window.innerWidth <= 767) {
     const card = document.querySelector('.special-pricing-card');
     if (!card) return;
     
+    let ticking = false;
+    
     function updateBackground() {
       const cardRect = card.getBoundingClientRect();
-      const cardTop = cardRect.top;
-      const cardBottom = cardRect.bottom;
       const viewportHeight = window.innerHeight;
-      const navbarHeight = 56;
-      
-      // Calculate when image would naturally end (after 1 viewport of scrolling)
-      const imageNaturalEnd = cardTop + viewportHeight;
       
       card.classList.remove('bg-sticky', 'bg-bottom');
       
-      // If we've scrolled past where image would naturally end, and card still has content below
-      if (imageNaturalEnd <= navbarHeight && cardBottom > viewportHeight) {
+      if (cardRect.top <= 60 && cardRect.bottom > viewportHeight + 50) {
         card.classList.add('bg-sticky');
       }
-      // If we've reached the bottom of the card
-      else if (cardBottom <= viewportHeight + 100) {
+      else if (cardRect.bottom <= viewportHeight + 50) {
         card.classList.add('bg-bottom');
+      }
+      
+      ticking = false;
+    }
+    
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateBackground);
+        ticking = true;
       }
     }
     
-    window.addEventListener('scroll', updateBackground, { passive: true });
+    window.addEventListener('scroll', requestTick, { passive: true });
     window.addEventListener('resize', updateBackground);
     updateBackground();
   }
