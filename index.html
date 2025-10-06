@@ -658,6 +658,26 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
   updateStickyBackground();
 })();
 </script>
-
+<script>
+  // TEMPORARY - Measure card height
+  setTimeout(function() {
+    const card = document.querySelector('.special-pricing-card');
+    if (card) {
+      const height = card.offsetHeight;
+      const width = card.offsetWidth;
+      
+      // Create a visible alert box
+      const alertBox = document.createElement('div');
+      alertBox.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: black; color: lime; padding: 30px; font-size: 18px; z-index: 99999; border: 3px solid lime; border-radius: 10px; text-align: center;';
+      alertBox.innerHTML = '<strong>CARD MEASUREMENTS</strong><br><br>HEIGHT: ' + height + 'px<br>WIDTH: ' + width + 'px<br><br>(Screenshot this!)';
+      document.body.appendChild(alertBox);
+      
+      console.log('=== CARD MEASUREMENTS ===');
+      console.log('Height:', height, 'px');
+      console.log('Width:', width, 'px');
+      console.log('========================');
+    }
+  }, 2000); // Wait 2 seconds for page to load
+  </script>
 </body>
 </html>
