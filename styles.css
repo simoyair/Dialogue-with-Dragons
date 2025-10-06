@@ -1109,7 +1109,7 @@ h3,
   }
 }
 
-/* Mobile: sticky background with scroll-based behavior */
+/* Mobile: smooth scrolling background */
 @media (max-width: 767px) {
   .special-pricing-card {
     position: relative;
@@ -1117,33 +1117,18 @@ h3,
     padding-bottom: 40px;
   }
   
-  /* Background layer - default state */
+  /* Background layer that scrolls with content */
   .special-pricing-card::before {
     content: '';
     position: absolute;
-    top: 0px;
-    left: 0;
-    width: 100%;
-    height: 150vh; 
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: calc(100% + 250px);
     background: url('Assets/rectangle background.png') no-repeat center top;
-    background-size: contain;
+    background-size: 100% auto;
     z-index: -1;
-  }
-  
-  /* When sticky - background becomes fixed */
-  .special-pricing-card.bg-sticky::before {
-    position: fixed;
-    top: 56px; /* Below navbar */
-    left: 0;
-    width: 100%;
-  }
-  
-  /* When at bottom - background positioned at card bottom */
-  .special-pricing-card.bg-bottom::before {
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 0;
   }
   
   /* Keep text above background */
@@ -1153,3 +1138,111 @@ h3,
   }
 }
 /* === END CSS: SPECIAL PRICING STICKY BACKGROUND === */
+/* === BEGIN CSS: DUAL-LAYER CTA BUTTON === */
+.btn-dual-layer {
+  position: relative;
+  background: linear-gradient(135deg, #8A4FBD 0%, #C07EFC 100%);
+  border: 2px solid #CF8660;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 18px 50px;
+  min-height: 48px;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(138, 79, 189, 0.4);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+  overflow: hidden;
+  font-family: "Alegreya", serif;
+  letter-spacing: 0.03em;
+}
+
+/* Background texture layer - this is where your image will go */
+.btn-dual-layer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('Assets/CTA_bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Elevated text with shadow for readability */
+.btn-dual-layer .text {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Sparkle particles */
+.btn-dual-layer .sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #FFF1FF;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #FFF1FF;
+  animation: sparkle 2s infinite;
+  z-index: 2;
+}
+
+.btn-dual-layer .sparkle:nth-child(1) {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.btn-dual-layer .sparkle:nth-child(2) {
+  top: 70%;
+  left: 80%;
+  animation-delay: 0.7s;
+}
+
+.btn-dual-layer .sparkle:nth-child(3) {
+  top: 30%;
+  right: 10%;
+  animation-delay: 1.4s;
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Hover state */
+.btn-dual-layer:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(138, 79, 189, 0.5);
+}
+
+/* Active/pressed state */
+.btn-dual-layer:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .btn-dual-layer {
+    font-size: 18px;
+    padding: 16px 40px;
+    min-width: 280px;
+  }
+}
+/* === END CSS: DUAL-LAYER CTA BUTTON === */
