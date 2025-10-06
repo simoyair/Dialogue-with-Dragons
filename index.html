@@ -12,10 +12,9 @@
 <body>
   <!-- BEGIN NAVIGATION BAR -->
 <nav class="navbar">
-    <div class="navbar-inner">
-      <div class="navbar-logo">
-        <img src="Assets/logo_v1.png" alt="DwD Logo" />
-      </div>
+  <div class="navbar-logo">
+    <img src="Assets/logo_v2.png?v=12345" alt="DwD Logo" />
+  </div>
       <div class="navbar-links">
         <a href="#program">PROGRAM</a>
         <a href="#how-it-works">How to Join</a>
@@ -561,42 +560,29 @@ document.querySelectorAll('.card, .trust-section').forEach(el => {
   observer.observe(el);
 });
 
-// Banner sticky behavior with spacer to prevent layout shift
+// Banner sticky behavior - position below navbar when scrolling
 (function() {
   const banner = document.querySelector('.banner-wrap');
-  const spacer = document.querySelector('.banner-spacer');
-  if (!banner || !spacer) return;
+  if (!banner) return;
 
-  const STICKY_OFFSET = 70; // px
+  const STICKY_OFFSET = 10; // Small offset to trigger the change
 
-  function updateSpacerHeight() {
-    // Spacer only needs to be 70px when raised, 0 otherwise
-    const raised = banner.classList.contains('is-raised');
-    spacer.style.height = raised ? STICKY_OFFSET + 'px' : '0px';
-  }
-
-  function onScroll() {
+  function updateBannerPosition() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
     if (scrollTop > STICKY_OFFSET) {
       if (!banner.classList.contains('is-raised')) {
         banner.classList.add('is-raised');
-        updateSpacerHeight();
       }
     } else {
       if (banner.classList.contains('is-raised')) {
         banner.classList.remove('is-raised');
-        updateSpacerHeight();
       }
     }
   }
 
-  // Update spacer on resize as banner height may change
-  window.addEventListener('resize', updateSpacerHeight);
-  window.addEventListener('scroll', onScroll);
-
-  // Initial set
-  updateSpacerHeight();
-  onScroll();
+  window.addEventListener('scroll', updateBannerPosition);
+  updateBannerPosition();
 })();
 
 // Open all collapsible cards by default
