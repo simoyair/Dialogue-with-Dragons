@@ -166,7 +166,7 @@ body {
   max-width: 100vw;
   overflow: hidden;
   position: sticky;
-  top: 60; /* starts at top */
+  top: 56px; /* stick just below the 56px navbar */
   z-index: 9;
   background: none !important;
   display: flex;
