@@ -1101,26 +1101,46 @@ h3,
   z-index: 1;
 }
 
-/* Mobile: smooth scrolling background */
+/* Desktop: normal background */
+@media (min-width: 768px) {
+  .special-pricing-card {
+    background: url('Assets/rectangle background.png') no-repeat center center;
+    background-size: contain;
+  }
+}
+
+/* Mobile: sticky background effect */
 @media (max-width: 767px) {
   .special-pricing-card {
     position: relative;
-    min-height: auto;
-    padding-bottom: 40px;
+    min-height: 100vh;
   }
   
-  /* Background layer that scrolls with content */
+  /* Background layer that will be sticky */
   .special-pricing-card::before {
     content: '';
     position: absolute;
-    top: -100px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: calc(100% + 200px);
-    background: url('Assets/rectangle background.png') no-repeat center top;
-    background-size: 100% auto;
+    height: 100vh;
+    background: url('Assets/rectangle background.png') no-repeat center center;
+    background-size: contain;
     z-index: -1;
+  }
+  
+  /* When scrolling through card - background becomes fixed */
+  .special-pricing-card.sticky-active::before {
+    position: fixed;
+    top: 0;
+  }
+  
+  /* When at bottom - background stays at bottom */
+  .special-pricing-card.sticky-bottom::before {
+    position: absolute;
+    top: auto;
+    bottom: 0;
   }
   
   /* Keep text above background */
