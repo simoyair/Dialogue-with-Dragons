@@ -592,35 +592,6 @@ document.querySelectorAll('.collapsible-content').forEach(el => {
 document.querySelectorAll('.collapsible-header').forEach(btn => {
   btn.classList.add('active');
 });
-// Mobile sticky background for special pricing card
-(function() {
-  if (window.innerWidth <= 767) {
-    const specialPricingCard = document.querySelector('.special-pricing-card');
-    
-    if (!specialPricingCard) return;
-    
-    function updateStickyBackground() {
-      const cardRect = specialPricingCard.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      
-      const cardTop = cardRect.top;
-      const cardBottom = cardRect.bottom;
-      
-      specialPricingCard.classList.remove('sticky-active', 'sticky-bottom');
-      
-      if (cardTop <= 0 && cardBottom > viewportHeight) {
-        specialPricingCard.classList.add('sticky-active');
-      }
-      else if (cardBottom <= viewportHeight && cardTop < 0) {
-        specialPricingCard.classList.add('sticky-bottom');
-      }
-    }
-    
-    window.addEventListener('scroll', updateStickyBackground);
-    window.addEventListener('resize', updateStickyBackground);
-    updateStickyBackground();
-  }
-})();
 </script>
 
 </body>
