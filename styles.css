@@ -1109,7 +1109,7 @@ h3,
   }
 }
 
-/* Mobile: sticky background with proper coverage */
+/* Mobile: sticky background with scroll-based behavior */
 @media (max-width: 767px) {
   .special-pricing-card {
     position: relative;
@@ -1117,17 +1117,34 @@ h3,
     padding-bottom: 40px;
   }
   
-  /* Background layer */
+  /* Background layer - default state */
   .special-pricing-card::before {
     content: '';
     position: absolute;
-    top: -30px; /* Start after title, before first text */
+    top: -30px;
     left: 0;
     width: 100%;
-    height: calc(100% + 150px); /* Extended to cover all content including deadline */
+    height: 100vh; /* One viewport height */
     background: url('Assets/rectangle background.png') no-repeat center top;
     background-size: contain;
     z-index: -1;
+    transition: none;
+  }
+  
+  /* When sticky - background becomes fixed */
+  .special-pricing-card.bg-sticky::before {
+    position: fixed;
+    top: 56px; /* Below navbar */
+    left: 0;
+    width: 100%;
+  }
+  
+  /* When at bottom - background positioned at card bottom */
+  .special-pricing-card.bg-bottom::before {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
   }
   
   /* Keep text above background */

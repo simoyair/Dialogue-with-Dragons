@@ -586,6 +586,39 @@ document.querySelectorAll('.card, .trust-section').forEach(el => {
 })();
 
 // Open all collapsible cards by default
+// Sticky background behavior for special pricing card
+(function() {
+  if (window.innerWidth <= 767) {
+    const card = document.querySelector('.special-pricing-card');
+    if (!card) return;
+    
+    function updateBackground() {
+      const cardRect = card.getBoundingClientRect();
+      const cardTop = cardRect.top;
+      const cardBottom = cardRect.bottom;
+      const viewportHeight = window.innerHeight;
+      const navbarHeight = 56;
+      
+      // Calculate when image would naturally end (after 1 viewport of scrolling)
+      const imageNaturalEnd = cardTop + viewportHeight;
+      
+      card.classList.remove('bg-sticky', 'bg-bottom');
+      
+      // If we've scrolled past where image would naturally end, and card still has content below
+      if (imageNaturalEnd <= navbarHeight && cardBottom > viewportHeight) {
+        card.classList.add('bg-sticky');
+      }
+      // If we've reached the bottom of the card
+      else if (cardBottom <= viewportHeight + 100) {
+        card.classList.add('bg-bottom');
+      }
+    }
+    
+    window.addEventListener('scroll', updateBackground, { passive: true });
+    window.addEventListener('resize', updateBackground);
+    updateBackground();
+  }
+})();
 document.querySelectorAll('.collapsible-content').forEach(el => {
   el.style.display = 'block';
 });
