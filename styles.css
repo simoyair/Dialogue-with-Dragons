@@ -207,7 +207,7 @@ body {
 
 /* When scrolled, move banner down to stick below navbar */
 .banner-wrap.is-raised {
-  top: 56px; /* stick below the 56px navbar */
+  top: -56px; /* stick below the 56px navbar */
 }
 
 /* Title adjustments when sticky - removed */
