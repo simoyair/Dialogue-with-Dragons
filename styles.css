@@ -1109,52 +1109,14 @@ h3,
   }
 }
 
-/* Mobile: sticky background with scroll-based behavior */
+/* Mobile: simple background image */
 @media (max-width: 767px) {
   .special-pricing-card {
     position: relative;
-    min-height: auto;
-    padding-bottom: 40px;
-  }
-  
-  /* Background layer - default state */
-  .special-pricing-card::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    height: 200vh;
-    background: url('Assets/rectangle background.png') no-repeat center top;
-    background-size: contain;
-    z-index: -1;
-  }
-  
-  /* When sticky - background becomes fixed */
-  .special-pricing-card.bg-sticky::before {
-    position: fixed;
-    top: 56px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    height: 150vh;
-    background: url('Assets/rectangle background.png') no-repeat center top;
-    background-size: contain;
-  }
-  
-  /* When at bottom - background positioned at card bottom */
-  .special-pricing-card.bg-bottom::before {
-    position: absolute;
-    top: auto;
-    bottom: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    height: 200vh;
-    background: url('Assets/rectangle background.png') no-repeat center bottom;
-    background-size: contain;
-    transition: bottom 0.15s ease-out, transform 0.15s ease-out;
+    min-height: 1059px;
+    padding: 40px 20px;
+    background: url('Assets/rectangle_background_mobile.png') no-repeat center top;
+    background-size: 100% 100%;
   }
   
   /* Keep text above background */
@@ -1162,8 +1124,7 @@ h3,
     position: relative;
     z-index: 2;
   }
-}
-  
+}  
   /* Keep text above background */
   .special-pricing-card > * {
     position: relative;
