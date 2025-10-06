@@ -1120,11 +1120,11 @@ h3,
   .special-pricing-card::before {
     content: '';
     position: absolute;
-    top: -60px;
+    top: -80px;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: 120vh;
+    height: 150vh;
     background: url('Assets/rectangle background.png') no-repeat center center;
     background-size: contain;
     z-index: -1;
