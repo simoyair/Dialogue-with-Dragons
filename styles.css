@@ -192,6 +192,12 @@ body {
   display: block;
   background: none !important;
 }
+/* Desktop: Position banner to hide top portion */
+@media (min-width: 1024px) {
+  .banner-wrap {
+    margin-top: -30px; /* Pull banner up to hide top portion */
+  }
+}
 /* Desktop: Reduce banner height for better proportion */
 @media (min-width: 1024px) {
   .banner-image {
@@ -204,7 +210,7 @@ body {
   }
   
   .banner-wrap.is-raised {
-    top: 64px; /* Adjusted for smaller desktop header */
+    top: 52px; /* Match new header height */
   }
   
   .banner-wrap.is-raised .banner-title {
@@ -428,7 +434,7 @@ h3,
   }
   
   .contact-bar .join-now-footer {
-    height: 66px;
+    height: 50px; /* Reduced to fit within stripe */
   }
 }
 /* === END CSS: FOOTER BAR === */
@@ -479,12 +485,12 @@ h3,
 /* Desktop styles */
 @media (min-width: 1024px) {
   .navbar {
-    height: 64px;
+    height: 52px; /* Reduced from 64px to be less obstructive */
   }
   
   .navbar-logo img {
-    height: 38px;
-    width: 38px;
+    height: 34px; /* Proportionally smaller */
+    width: 34px;
   }
   
   .main-container {
