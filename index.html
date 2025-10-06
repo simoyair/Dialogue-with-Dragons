@@ -587,38 +587,40 @@ document.querySelectorAll('.card, .trust-section').forEach(el => {
 
 // Open all collapsible cards by default
 // Sticky background behavior for special pricing card
-// Sticky background behavior for special pricing card
 (function() {
   if (window.innerWidth <= 767) {
     const card = document.querySelector('.special-pricing-card');
     if (!card) return;
     
-    let ticking = false;
-    
     function updateBackground() {
       const cardRect = card.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       
+      // Remove all classes first
       card.classList.remove('bg-sticky', 'bg-bottom');
       
-      if (cardRect.top <= 60 && cardRect.bottom > viewportHeight + 50) {
+      // Calculate if we should be sticky
+      // Sticky when: card top is above 100px AND card bottom is well below viewport
+      if (cardRect.top <= 100 && cardRect.bottom > viewportHeight + 200) {
         card.classList.add('bg-sticky');
       }
-      else if (cardRect.bottom <= viewportHeight + 50) {
+      // Bottom when: card is almost scrolled past
+      else if (cardRect.bottom <= viewportHeight + 100 && cardRect.top < 0) {
         card.classList.add('bg-bottom');
       }
-      
-      ticking = false;
     }
     
-    function requestTick() {
-      if (!ticking) {
-        requestAnimationFrame(updateBackground);
-        ticking = true;
+    let rafId = null;
+    function scheduleUpdate() {
+      if (rafId === null) {
+        rafId = requestAnimationFrame(() => {
+          updateBackground();
+          rafId = null;
+        });
       }
     }
     
-    window.addEventListener('scroll', requestTick, { passive: true });
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
     window.addEventListener('resize', updateBackground);
     updateBackground();
   }
