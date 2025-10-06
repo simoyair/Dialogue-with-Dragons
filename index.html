@@ -598,6 +598,7 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
   btn.classList.add('active');
 });
 // Special pricing sticky background behavior
+// Special pricing sticky background behavior
 (function() {
   // Only run on mobile devices
   if (window.innerWidth >= 768) return;
@@ -605,45 +606,50 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
   const pricingCard = document.querySelector('.special-pricing-card');
   if (!pricingCard) return;
   
-  // Find the Early Adopter Deadline box (last child of the pricing card's content)
-  const endElement = pricingCard.querySelector('div[style*="background: rgba(255,255,255,0.2)"]');
-  if (!endElement) return;
+  // Find the Early Adopter Deadline box
+  const deadlineBox = Array.from(pricingCard.querySelectorAll('div')).find(el => {
+    return el.textContent.includes('Early Adopter Deadline');
+  });
+  
+  if (!deadlineBox) {
+    console.log('Could not find deadline box');
+    return;
+  }
   
   const navbar = document.querySelector('.navbar');
   const navbarHeight = navbar ? navbar.offsetHeight : 56;
   
   function updateStickyBackground() {
     const cardRect = pricingCard.getBoundingClientRect();
-    const endRect = endElement.getBoundingClientRect();
+    const deadlineRect = deadlineBox.getBoundingClientRect();
     
-    // Card's top position relative to viewport
-    const cardTop = cardRect.top;
+    // Card's top position relative to viewport (where "Special pricing" starts)
+    const cardContentTop = cardRect.top + 60; // Add offset for background starting position
     
-    // End element's bottom position relative to viewport
-    const endBottom = endRect.bottom;
+    // Deadline box's bottom position
+    const deadlineBottom = deadlineRect.bottom;
     
-    // Determine which state we're in
-    if (cardTop <= navbarHeight && endBottom > window.innerHeight) {
-      // Middle state: card has scrolled past navbar, but end hasn't reached bottom
-      // Background should be sticky (fixed)
+    // State 1: Before scrolling - default position
+    if (cardContentTop > navbarHeight) {
+      pricingCard.classList.remove('bg-sticky', 'bg-bottom');
+    }
+    // State 2: Middle - background should be sticky
+    else if (cardContentTop <= navbarHeight && deadlineBottom > window.innerHeight) {
       if (!pricingCard.classList.contains('bg-sticky')) {
-        pricingCard.classList.add('bg-sticky');
         pricingCard.classList.remove('bg-bottom');
+        pricingCard.classList.add('bg-sticky');
       }
-    } else if (endBottom <= window.innerHeight && cardTop < navbarHeight) {
-      // Bottom state: end element is visible, lock background to bottom
+    }
+    // State 3: Bottom - lock background to bottom
+    else if (deadlineBottom <= window.innerHeight) {
       if (!pricingCard.classList.contains('bg-bottom')) {
         pricingCard.classList.remove('bg-sticky');
         pricingCard.classList.add('bg-bottom');
       }
-    } else {
-      // Top state: card hasn't scrolled past navbar yet
-      // Remove both classes (default absolute positioning)
-      pricingCard.classList.remove('bg-sticky', 'bg-bottom');
     }
   }
   
-  // Use requestAnimationFrame for smooth scrolling
+  // Smooth scroll handling
   let ticking = false;
   function onScroll() {
     if (!ticking) {
@@ -656,7 +662,11 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
   }
   
   window.addEventListener('scroll', onScroll);
-  window.addEventListener('resize', updateStickyBackground);
+  window.addEventListener('resize', function() {
+    if (window.innerWidth < 768) {
+      updateStickyBackground();
+    }
+  });
   
   // Initial check
   updateStickyBackground();
