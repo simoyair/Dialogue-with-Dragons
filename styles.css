@@ -192,7 +192,26 @@ body {
   display: block;
   background: none !important;
 }
-
+/* Desktop: Reduce banner height for better proportion */
+@media (min-width: 1024px) {
+  .banner-image {
+    max-height: 140px;
+    min-height: 100px;
+  }
+  
+  .banner-title {
+    max-width: 60%;
+  }
+  
+  .banner-wrap.is-raised {
+    top: 64px; /* Adjusted for smaller desktop header */
+  }
+  
+  .banner-wrap.is-raised .banner-title {
+    transform: translate(-50%, calc(-50% + 20px));
+    max-width: 55%;
+  }
+}
 .banner-title {
   position: absolute;
   top: 60%;
@@ -239,6 +258,7 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 .hero-title-page {
   font-family: "Almendra", "Alegreya", serif;
   color: #fff1ff;
@@ -248,6 +268,16 @@ body {
   text-shadow: 0px 8px 40px #e8b29319, 0px 1.5px 0px #282a5566;
   text-align: center;
   margin: 10px 0 16px 0;
+}
+/* Desktop: Optimize hero section */
+@media (min-width: 1024px) {
+  .hero-bg {
+    min-height: 200px;
+  }
+  
+  .hero-title-page {
+    font-size: 2.8em;
+  }
 }
 /* === END CSS: HERO SECTION === */
 
@@ -355,7 +385,16 @@ h3,
   box-shadow: 0 0 7px 2px #c07efc77;
 }
 /* === END CSS: CAROUSEL === */
-
+/* Desktop: Optimize video and carousel width */
+@media (min-width: 1024px) {
+  .intro-video {
+    max-width: 700px !important;
+  }
+  
+  .carousel-container {
+    max-width: 700px;
+  }
+}
 /* === BEGIN CSS: FOOTER BAR === */
 .contact-bar {
   width: 100%;
@@ -381,6 +420,16 @@ h3,
 .contact-bar .join-now-footer:hover {
   transform: translateY(-2px);
   filter: brightness(1.1);
+}
+/* Desktop: Reduce footer height */
+@media (min-width: 1024px) {
+  .contact-bar {
+    height: 52px;
+  }
+  
+  .contact-bar .join-now-footer {
+    height: 66px;
+  }
 }
 /* === END CSS: FOOTER BAR === */
 
@@ -429,8 +478,18 @@ h3,
 
 /* Desktop styles */
 @media (min-width: 1024px) {
+  .navbar {
+    height: 64px;
+  }
+  
+  .navbar-logo img {
+    height: 38px;
+    width: 38px;
+  }
+  
   .main-container {
-    max-width: 580px;
+    max-width: 900px;
+    padding: 42px 40px 42px 40px;
   }
   
   .navbar-links {
@@ -908,6 +967,17 @@ h3,
   font-weight: bold;
   margin-bottom: 60px;
 }
+/* Desktop: Optimize trust section spacing */
+@media (min-width: 1024px) {
+  .trust-section {
+    margin: 48px auto 0 auto;
+    padding: 20px 40px 60px 40px;
+  }
+  
+  .trust-title {
+    font-size: 2.6em;
+  }
+}
 .trust-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
@@ -1240,6 +1310,21 @@ h3,
     padding: 7px 30px;
     min-width: 260px;
     min-height: 38px;
+  }
+}
+/* Desktop: Optimize CTA button sizing */
+@media (min-width: 1024px) {
+  .mystic-btn {
+    min-width: 320px;
+    min-height: 76px;
+    font-size: 1.62em;
+  }
+  
+  .btn-dual-layer {
+    font-size: 22px;
+    padding: 10px 40px;
+    min-height: 44px;
+    max-width: 320px;
   }
 }
 /* === END CSS: DUAL-LAYER CTA BUTTON === */
