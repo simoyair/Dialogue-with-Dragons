@@ -1120,11 +1120,11 @@ h3,
   .special-pricing-card::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: -60px;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: 100vh;
+    height: 120vh;
     background: url('Assets/rectangle background.png') no-repeat center center;
     background-size: contain;
     z-index: -1;
@@ -1134,6 +1134,7 @@ h3,
   .special-pricing-card.sticky-active::before {
     position: fixed;
     top: 0;
+    height: 100vh;
   }
   
   /* When at bottom - background stays at bottom */
