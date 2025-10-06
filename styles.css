@@ -19,7 +19,7 @@ body {
 /* === BEGIN CSS: NAVIGATION BAR === */
 .navbar {
   width: 100vw;
-  background: rgba(46, 59, 89, 0.65); /* more translucent to show banner underneath */
+  background: transparent; /* translucent to show banner underneath */
   color: #fff1ff;
   height: 56px; /* thinner on mobile */
   box-shadow: 0 3px 22px -12px #5e3788cc;
@@ -190,7 +190,7 @@ body {
 
 .banner-title {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 80%;
@@ -200,15 +200,15 @@ body {
   transition: transform 0.28s ease, max-width 0.28s ease, opacity 0.28s ease;
 }
 
-/* Raised state after 70px scroll */
+/* Raised state after 70px scroll - removed movement */
 .banner-wrap.is-raised {
-  transform: translateY(-70px); /* move banner 70px up */
+  transform: translateY(0); /* don't move banner */
 }
 
-/* Title adjustments when sticky: move down by 70px and scale a bit smaller */
+/* Title adjustments when sticky - removed */
 .banner-wrap.is-raised .banner-title {
-  transform: translate(-50%, calc(-50% + 70px)) scale(0.9);
-  max-width: 70%;
+  transform: translate(-50%, -50%);
+  max-width: 80%;
 }
 
 /* Spacer below banner to prevent layout jump when sticky */
