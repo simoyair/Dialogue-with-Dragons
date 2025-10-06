@@ -597,23 +597,13 @@ document.querySelectorAll('.collapsible-content').forEach(el => {
 document.querySelectorAll('.collapsible-header').forEach(btn => {
   btn.classList.add('active');
 });
-// Special pricing sticky background behavior - DEBUG VERSION
+// Special pricing sticky background behavior - SMOOTH VERSION
 (function() {
-  console.log('Sticky background script starting...');
-  console.log('Window width:', window.innerWidth);
-  
   // Only run on mobile devices
-  if (window.innerWidth >= 768) {
-    console.log('Desktop view - sticky background disabled');
-    return;
-  }
+  if (window.innerWidth >= 768) return;
   
   const pricingCard = document.querySelector('.special-pricing-card');
-  if (!pricingCard) {
-    console.log('ERROR: Could not find .special-pricing-card');
-    return;
-  }
-  console.log('Found pricing card:', pricingCard);
+  if (!pricingCard) return;
   
   // Find the Early Adopter Deadline box
   const deadlineBox = Array.from(pricingCard.querySelectorAll('div')).find(el => {
@@ -621,23 +611,12 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
   });
   
   if (!deadlineBox) {
-    console.log('ERROR: Could not find deadline box');
-    // Try alternative search
-    const allDivs = pricingCard.querySelectorAll('div');
-    console.log('All divs in pricing card:', allDivs.length);
-    allDivs.forEach((div, i) => {
-      if (div.textContent.includes('Deadline') || div.textContent.includes('deadline')) {
-        console.log('Found potential deadline box at index', i, ':', div.textContent.substring(0, 50));
-      }
-    });
+    console.log('Could not find deadline box');
     return;
   }
   
-  console.log('Found deadline box:', deadlineBox);
-  
   const navbar = document.querySelector('.navbar');
   const navbarHeight = navbar ? navbar.offsetHeight : 56;
-  console.log('Navbar height:', navbarHeight);
   
   function updateStickyBackground() {
     const cardRect = pricingCard.getBoundingClientRect();
@@ -647,28 +626,13 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
     const deadlineBottom = deadlineRect.bottom;
     const viewportHeight = window.innerHeight;
     
-    // Log values for debugging (only log occasionally to avoid spam)
-    if (Math.random() < 0.05) { // Log ~5% of scroll events
-      console.log('Scroll check:', {
-        cardTop: cardTop,
-        navbarHeight: navbarHeight,
-        deadlineBottom: deadlineBottom,
-        viewportHeight: viewportHeight,
-        currentClasses: pricingCard.className
-      });
-    }
-    
     // State 1: Before scrolling - default position
     if (cardTop > navbarHeight) {
-      if (pricingCard.classList.contains('bg-sticky') || pricingCard.classList.contains('bg-bottom')) {
-        console.log('STATE 1: Removing sticky classes');
-        pricingCard.classList.remove('bg-sticky', 'bg-bottom');
-      }
+      pricingCard.classList.remove('bg-sticky', 'bg-bottom');
     }
     // State 2: Middle - background should be sticky (fixed to viewport)
     else if (cardTop <= navbarHeight && deadlineBottom > viewportHeight) {
       if (!pricingCard.classList.contains('bg-sticky')) {
-        console.log('STATE 2: Adding bg-sticky class');
         pricingCard.classList.remove('bg-bottom');
         pricingCard.classList.add('bg-sticky');
       }
@@ -676,28 +640,14 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
     // State 3: Bottom - lock background to bottom of card
     else if (deadlineBottom <= viewportHeight && cardTop <= navbarHeight) {
       if (!pricingCard.classList.contains('bg-bottom')) {
-        console.log('STATE 3: Adding bg-bottom class');
         pricingCard.classList.remove('bg-sticky');
         pricingCard.classList.add('bg-bottom');
       }
     }
   }
   
-  // Smooth scroll handling
-  let ticking = false;
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        updateStickyBackground();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }
-  
-  window.addEventListener('scroll', onScroll);
-  console.log('Scroll listener attached');
-  
+  // Call update on EVERY scroll frame for smooth tracking
+  window.addEventListener('scroll', updateStickyBackground, { passive: true });
   window.addEventListener('resize', function() {
     if (window.innerWidth < 768) {
       updateStickyBackground();
@@ -706,7 +656,6 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
   
   // Initial check
   updateStickyBackground();
-  console.log('Initial check complete');
 })();
 </script>
 

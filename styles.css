@@ -1124,7 +1124,7 @@ h3,
     top: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
+    width: 90%;
     height: 200vh;
     background: url('Assets/rectangle background.png') no-repeat center top;
     background-size: contain;
@@ -1137,7 +1137,7 @@ h3,
     top: 56px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
+    width: 90%;
     height: 150vh;
     background: url('Assets/rectangle background.png') no-repeat center top;
     background-size: contain;
@@ -1150,9 +1150,11 @@ h3,
     bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
+    width: 90%;
     height: 200vh;
     background: url('Assets/rectangle background.png') no-repeat center bottom;
     background-size: contain;
+    transition: bottom 0.15s ease-out, transform 0.15s ease-out;
   }
   
   /* Keep text above background */
