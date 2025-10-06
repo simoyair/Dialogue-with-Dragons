@@ -1113,23 +1113,25 @@ h3,
 @media (max-width: 767px) {
   .special-pricing-card {
     position: relative;
-    padding-top: 40px; /* Space for content */
+    padding-top: 40px;
+    padding-bottom: 150px; /* Extra space at bottom for deadline box */
   }
   
-  /* Background layer */
+  /* Background layer that becomes sticky */
   .special-pricing-card::before {
     content: '';
-    position: absolute;
-    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 56px; /* Stick below navbar */
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    min-height: 100%;
-    padding-bottom: 100px; /* Extra space at bottom */
-    background: url('Assets/rectangle background.png') no-repeat center top;
+    height: 100vh;
+    margin-top: -40px; /* Pull up to start at card top */
+    background: url('Assets/rectangle background.png') no-repeat center center;
     background-size: contain;
-    background-attachment: scroll;
     z-index: -1;
+    display: block;
   }
   
   /* Keep text above background */
