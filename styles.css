@@ -210,10 +210,10 @@ body {
   top: -24px; /* stick below the 56px navbar */
 }
 
-/* Title adjustments when sticky - removed */
+/* Title adjustments when scrolled - shift down to be visible below header */
 .banner-wrap.is-raised .banner-title {
-  transform: translate(-50%, -50%);
-  max-width: 80%;
+  transform: translate(-50%, calc(-50% + 25px)); /* shift down 25px */
+  max-width: 70%; /* make it slightly smaller */
 }
 
 /* Spacer below banner to prevent layout jump when sticky */
