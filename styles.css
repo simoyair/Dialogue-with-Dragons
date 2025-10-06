@@ -1109,29 +1109,25 @@ h3,
   }
 }
 
-/* Mobile: sticky background effect */
+/* Mobile: sticky background with proper coverage */
 @media (max-width: 767px) {
   .special-pricing-card {
     position: relative;
-    padding-top: 40px;
-    padding-bottom: 150px; /* Extra space at bottom for deadline box */
+    min-height: auto;
+    padding-bottom: 40px;
   }
   
-  /* Background layer that becomes sticky */
+  /* Background layer */
   .special-pricing-card::before {
     content: '';
-    position: sticky;
-    position: -webkit-sticky;
-    top: 56px; /* Stick below navbar */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 100vh;
-    margin-top: -40px; /* Pull up to start at card top */
-    background: url('Assets/rectangle background.png') no-repeat center center;
+    position: absolute;
+    top: -30px; /* Start after title, before first text */
+    left: 0;
+    width: 100%;
+    height: calc(100% + 150px); /* Extended to cover all content including deadline */
+    background: url('Assets/rectangle background.png') no-repeat center top;
     background-size: contain;
     z-index: -1;
-    display: block;
   }
   
   /* Keep text above background */
