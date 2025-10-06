@@ -592,6 +592,70 @@ document.querySelectorAll('.collapsible-content').forEach(el => {
 document.querySelectorAll('.collapsible-header').forEach(btn => {
   btn.classList.add('active');
 });
+// Special pricing sticky background behavior
+(function() {
+  // Only run on mobile devices
+  if (window.innerWidth >= 768) return;
+  
+  const pricingCard = document.querySelector('.special-pricing-card');
+  if (!pricingCard) return;
+  
+  // Find the Early Adopter Deadline box (last child of the pricing card's content)
+  const endElement = pricingCard.querySelector('div[style*="background: rgba(255,255,255,0.2)"]');
+  if (!endElement) return;
+  
+  const navbar = document.querySelector('.navbar');
+  const navbarHeight = navbar ? navbar.offsetHeight : 56;
+  
+  function updateStickyBackground() {
+    const cardRect = pricingCard.getBoundingClientRect();
+    const endRect = endElement.getBoundingClientRect();
+    
+    // Card's top position relative to viewport
+    const cardTop = cardRect.top;
+    
+    // End element's bottom position relative to viewport
+    const endBottom = endRect.bottom;
+    
+    // Determine which state we're in
+    if (cardTop <= navbarHeight && endBottom > window.innerHeight) {
+      // Middle state: card has scrolled past navbar, but end hasn't reached bottom
+      // Background should be sticky (fixed)
+      if (!pricingCard.classList.contains('bg-sticky')) {
+        pricingCard.classList.add('bg-sticky');
+        pricingCard.classList.remove('bg-bottom');
+      }
+    } else if (endBottom <= window.innerHeight && cardTop < navbarHeight) {
+      // Bottom state: end element is visible, lock background to bottom
+      if (!pricingCard.classList.contains('bg-bottom')) {
+        pricingCard.classList.remove('bg-sticky');
+        pricingCard.classList.add('bg-bottom');
+      }
+    } else {
+      // Top state: card hasn't scrolled past navbar yet
+      // Remove both classes (default absolute positioning)
+      pricingCard.classList.remove('bg-sticky', 'bg-bottom');
+    }
+  }
+  
+  // Use requestAnimationFrame for smooth scrolling
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        updateStickyBackground();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('resize', updateStickyBackground);
+  
+  // Initial check
+  updateStickyBackground();
+})();
 </script>
 
 </body>
