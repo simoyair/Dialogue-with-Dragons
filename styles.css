@@ -407,8 +407,7 @@ h3,
 /* === BEGIN CSS: FOOTER BAR === */
 .contact-bar {
   width: 100%;
-  background: rgba(33, 35, 54, 0.85); /* Translucent instead of solid */
-  backdrop-filter: blur(8px); /* Frosted glass effect */
+  background: transparent; /* Translucent instead of solid */
   position: fixed;
   left: 0;
   bottom: 0;
@@ -429,9 +428,9 @@ h3,
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('Assets/Banner_bg_only.png') center center;
+  background: url('Assets/header_texture_bg.png') center center;
   background-size: cover;
-  opacity: 0.08; /* Very subtle texture */
+  opacity: 0.1; /* Very subtle texture */
   pointer-events: none;
   z-index: -1;
 }
@@ -453,8 +452,9 @@ h3,
   }
   
   .contact-bar .join-now-footer {
-    height: 42px; /* Half of original 80px, fits within stripe */
-  }
+    height: 38px; /* Smaller to fit within 52px stripe with padding */
+    max-height: 38px;
+    object-fit: contain;  }
 }
 /* === END CSS: FOOTER BAR === */
 
@@ -534,7 +534,27 @@ h3,
   margin: 24px 0 20px 0;
   gap: 14px;
 }
-
+/* Desktop: Add texture to header after scroll */
+@media (min-width: 1024px) {
+  .navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('Assets/header_texture_bg.png') center center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .navbar.scrolled::before {
+    opacity: 1;
+  }
+}
 /* CTA texts inside main card */
 .cta-inline {
   width: 100%;

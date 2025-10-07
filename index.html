@@ -598,49 +598,82 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
   btn.classList.add('active');
 });
   </script>
-  <script>
-    // Desktop: Animate DwD title on scroll
+<script>
+  // Desktop: Animate DwD title on scroll
+  function initTitleAnimation() {
     if (window.innerWidth >= 1024) {
       const bannerTitle = document.querySelector('.banner-title');
-      const navbar = document.querySelector('.navbar');
+      const navbar = document.querySelector('.navbar-inner');
       let titleClone = null;
       
       window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         
         if (scrolled > 100) {
-          // Shrink and move title to header
+          // Fade out original title
           bannerTitle.style.opacity = '0';
-          bannerTitle.style.transform = 'translate(-50%, -50%) scale(0.4)';
+          bannerTitle.style.pointerEvents = 'none';
           
-          // Create clone in header if doesn't exist
+          // Create and show clone in header if doesn't exist
           if (!titleClone) {
-            titleClone = bannerTitle.cloneNode(true);
-            titleClone.style.position = 'absolute';
-            titleClone.style.left = '120px';
-            titleClone.style.top = '50%';
-            titleClone.style.transform = 'translateY(-50%)';
-            titleClone.style.width = '180px';
-            titleClone.style.height = 'auto';
-            titleClone.style.maxWidth = '180px';
-            titleClone.style.opacity = '1';
-            titleClone.style.transition = 'opacity 0.3s ease';
-            navbar.querySelector('.navbar-inner').appendChild(titleClone);
+            titleClone = document.createElement('img');
+            titleClone.src = bannerTitle.src;
+            titleClone.alt = bannerTitle.alt;
+            titleClone.className = 'banner-title-header';
+            titleClone.style.cssText = `
+              position: absolute;
+              left: 85px;
+              top: 50%;
+              transform: translateY(-50%);
+              height: 36px;
+              width: auto;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+              z-index: 5;
+            `;
+            navbar.appendChild(titleClone);
+            
+            // Trigger opacity transition after element is added
+            setTimeout(() => {
+              titleClone.style.opacity = '1';
+            }, 10);
           } else {
             titleClone.style.opacity = '1';
           }
         } else {
           // Show original title
           bannerTitle.style.opacity = '1';
-          bannerTitle.style.transform = 'translate(-50%, -50%) scale(1)';
+          bannerTitle.style.pointerEvents = 'auto';
           
-          // Hide cloned title
+          // Hide header clone
           if (titleClone) {
             titleClone.style.opacity = '0';
           }
         }
       });
     }
-  </script>
+  }
+  
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTitleAnimation);
+  } else {
+    initTitleAnimation();
+  }
+</script>
+<script>
+  // Desktop: Add scrolled class to navbar for texture background
+  if (window.innerWidth >= 1024) {
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  }
+</script>
 </body>
 </html>
