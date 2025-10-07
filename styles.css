@@ -430,7 +430,7 @@ h3,
   bottom: 0;
   background: url('Assets/header_texture_bg.png') center center;
   background-size: cover;
-  opacity: 0.1; /* Very subtle texture */
+  opacity: 0.5; /* subtle texture */
   pointer-events: none;
   z-index: -1;
 }
