@@ -203,10 +203,13 @@ body {
   .banner-image {
     max-height: 140px;
     min-height: 100px;
+    object-position: center top;
   }
   
   .banner-title {
-    max-width: 60%;
+    max-width: 45%; /* Smaller initially */
+    top: 75%;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
   .banner-wrap.is-raised {
@@ -404,7 +407,8 @@ h3,
 /* === BEGIN CSS: FOOTER BAR === */
 .contact-bar {
   width: 100%;
-  background: #212336;
+  background: rgba(33, 35, 54, 0.85); /* Translucent instead of solid */
+  backdrop-filter: blur(8px); /* Frosted glass effect */
   position: fixed;
   left: 0;
   bottom: 0;
@@ -415,6 +419,21 @@ h3,
   gap: 24px;
   z-index: 13;
   box-shadow: 0 -2px 16px -4px #c07efc55;
+}
+
+/* Optional: Add subtle texture overlay */
+.contact-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('Assets/Banner_bg_only.png') center center;
+  background-size: cover;
+  opacity: 0.08; /* Very subtle texture */
+  pointer-events: none;
+  z-index: -1;
 }
 .contact-bar .join-now-footer {
   height: 80px;
@@ -427,14 +446,14 @@ h3,
   transform: translateY(-2px);
   filter: brightness(1.1);
 }
-/* Desktop: Reduce footer height */
+/* Desktop: Reduce footer height and button */
 @media (min-width: 1024px) {
   .contact-bar {
     height: 52px;
   }
   
   .contact-bar .join-now-footer {
-    height: 50px; /* Reduced to fit within stripe */
+    height: 42px; /* Half of original 80px, fits within stripe */
   }
 }
 /* === END CSS: FOOTER BAR === */

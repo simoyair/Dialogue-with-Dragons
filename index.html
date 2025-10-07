@@ -598,5 +598,49 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
   btn.classList.add('active');
 });
   </script>
+  <script>
+    // Desktop: Animate DwD title on scroll
+    if (window.innerWidth >= 1024) {
+      const bannerTitle = document.querySelector('.banner-title');
+      const navbar = document.querySelector('.navbar');
+      let titleClone = null;
+      
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        
+        if (scrolled > 100) {
+          // Shrink and move title to header
+          bannerTitle.style.opacity = '0';
+          bannerTitle.style.transform = 'translate(-50%, -50%) scale(0.4)';
+          
+          // Create clone in header if doesn't exist
+          if (!titleClone) {
+            titleClone = bannerTitle.cloneNode(true);
+            titleClone.style.position = 'absolute';
+            titleClone.style.left = '120px';
+            titleClone.style.top = '50%';
+            titleClone.style.transform = 'translateY(-50%)';
+            titleClone.style.width = '180px';
+            titleClone.style.height = 'auto';
+            titleClone.style.maxWidth = '180px';
+            titleClone.style.opacity = '1';
+            titleClone.style.transition = 'opacity 0.3s ease';
+            navbar.querySelector('.navbar-inner').appendChild(titleClone);
+          } else {
+            titleClone.style.opacity = '1';
+          }
+        } else {
+          // Show original title
+          bannerTitle.style.opacity = '1';
+          bannerTitle.style.transform = 'translate(-50%, -50%) scale(1)';
+          
+          // Hide cloned title
+          if (titleClone) {
+            titleClone.style.opacity = '0';
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
