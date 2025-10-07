@@ -192,10 +192,20 @@ body {
   display: block;
   background: none !important;
 }
-/* Desktop: Position banner to hide top portion */
+/* Desktop: Banner starts compact, retracts fully on scroll */
 @media (min-width: 1024px) {
   .banner-wrap {
-    margin-top: -30px; /* Pull banner up to hide top portion */
+    margin-top: -30px;
+    top: 52px !important;
+    position: sticky;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  /* When scrolled, hide banner completely */
+  .banner-wrap.scrolled-away {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
   }
 }
 /* Desktop: Reduce banner height for better proportion */
@@ -452,9 +462,11 @@ h3,
   }
   
   .contact-bar .join-now-footer {
-    height: 38px; /* Smaller to fit within 52px stripe with padding */
-    max-height: 38px;
-    object-fit: contain;  }
+    height: 32px; /* 50% smaller, fits within stripe */
+    max-height: 32px;
+    width: auto;
+    object-fit: contain;
+  }
 }
 /* === END CSS: FOOTER BAR === */
 

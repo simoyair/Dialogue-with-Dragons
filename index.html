@@ -15,11 +15,12 @@
   <div class="navbar-logo">
     <img src="Assets/logo_v3.png?v=12345" alt="DwD Logo" />
   </div>
-      <div class="navbar-links">
-        <a href="#program">PROGRAM</a>
-        <a href="#how-it-works">How to Join</a>
-        <a href="#benefits">Benefits</a>
-      </div>
+  <div class="navbar-links">
+    <a href="#about">About Us</a>
+    <a href="#program">Our Program</a>
+    <a href="#why-choose-us">Why Choose Us</a>
+    <a href="#how-to-begin">How to Begin</a>
+  </div>
         </div>
 </nav>
     <!-- END NAVIGATION BAR -->
@@ -37,7 +38,7 @@
 <!-- END BANNER IMAGE -->
 
   <!-- BEGIN MAIN CARD SECTION -->
-  <h2 class="trust-title" style="margin-top: 20px; color: #8a4fbd;">Learn English Through Role-playing Adventures</h2>
+  <h2 class="trust-title" id="about" style="margin-top: 20px; color: #8a4fbd;">Learn English Through Role-playing Adventures</h2>
   <div class="main-container">
     <div class="cta-heading" style="color: #52387a;">Never heard of role-playing games (also called RPGs)? 
     Watch this short video to see how it works</div>
@@ -69,7 +70,7 @@
 </div> <!-- If you see a missing end to the previous container, add this closing tag here! -->
 
 <!-- BEGIN TRUST CREDIBILITY SECTION -->
-<section class="trust-section" id="trust">
+<section class="trust-section" id="why-choose-us">
   <h2 class="trust-title">Why Learn with Us</h2>
   <div class="trust-collapsible-container">
     <div class="collapsible-card">
@@ -258,7 +259,7 @@
 <!-- END BENEFITS SECTION -->
 
 <!-- BEGIN HOW IT WORKS SECTION -->
-<section class="trust-section" id="how-it-works" style="background: var(--light-blue);">
+<section class="trust-section" id="how-to-begin" style="background: var(--light-blue);">
   <h2 class="trust-title">Simple 4-Step Process</h2>
   <div class="card" style="max-width: 800px; margin: 0 auto; background: rgba(255, 255, 255, 0.6); border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 40px; text-align: center;">
     <div style="display: flex; flex-direction: column; gap: 30px; margin-bottom: 40px;">
@@ -599,17 +600,25 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
 });
   </script>
 <script>
-  // Desktop: Animate DwD title on scroll
-  function initTitleAnimation() {
+  // Desktop: Animate DwD title and banner on scroll
+  function initDesktopScrollAnimations() {
     if (window.innerWidth >= 1024) {
       const bannerTitle = document.querySelector('.banner-title');
-      const navbar = document.querySelector('.navbar-inner');
+      const bannerWrap = document.querySelector('.banner-wrap');
+      const navbar = document.querySelector('.navbar');
+      const navbarInner = document.querySelector('.navbar-inner');
       let titleClone = null;
       
       window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         
-        if (scrolled > 100) {
+        if (scrolled > 80) {
+          // Add scrolled class to navbar for texture
+          navbar.classList.add('scrolled');
+          
+          // Hide banner completely
+          bannerWrap.classList.add('scrolled-away');
+          
           // Fade out original title
           bannerTitle.style.opacity = '0';
           bannerTitle.style.pointerEvents = 'none';
@@ -622,25 +631,31 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
             titleClone.className = 'banner-title-header';
             titleClone.style.cssText = `
               position: absolute;
-              left: 85px;
+              left: 90px;
               top: 50%;
               transform: translateY(-50%);
-              height: 36px;
+              height: 32px;
               width: auto;
               opacity: 0;
               transition: opacity 0.3s ease;
               z-index: 5;
             `;
-            navbar.appendChild(titleClone);
+            navbarInner.appendChild(titleClone);
             
             // Trigger opacity transition after element is added
             setTimeout(() => {
               titleClone.style.opacity = '1';
-            }, 10);
+            }, 50);
           } else {
             titleClone.style.opacity = '1';
           }
         } else {
+          // Remove scrolled class from navbar
+          navbar.classList.remove('scrolled');
+          
+          // Show banner
+          bannerWrap.classList.remove('scrolled-away');
+          
           // Show original title
           bannerTitle.style.opacity = '1';
           bannerTitle.style.pointerEvents = 'auto';
@@ -656,23 +671,9 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
   
   // Initialize on page load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTitleAnimation);
+    document.addEventListener('DOMContentLoaded', initDesktopScrollAnimations);
   } else {
-    initTitleAnimation();
-  }
-</script>
-<script>
-  // Desktop: Add scrolled class to navbar for texture background
-  if (window.innerWidth >= 1024) {
-    const navbar = document.querySelector('.navbar');
-    
-    window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
+    initDesktopScrollAnimations();
   }
 </script>
 </body>
