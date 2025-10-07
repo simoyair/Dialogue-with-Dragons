@@ -631,8 +631,17 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
             titleClone.className = 'banner-title-header';
             titleClone.style.cssText = `
               position: absolute;
-              left: 90px;
+              left: 75px;
               top: 50%;
+              transform: translateY(-50%);
+              height: 30px;
+              width: auto;
+              max-width: 150px;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+              z-index: 25;
+              pointer-events: none;
+            `;
               transform: translateY(-50%);
               height: 32px;
               width: auto;

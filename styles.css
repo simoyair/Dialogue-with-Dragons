@@ -40,6 +40,7 @@ body {
   align-items: center;
   justify-content: center; /* center links */
   padding: 0 16px;
+  position: relative; /* Allow absolute positioning of title clone */
 }
 .navbar-logo {
   display: flex;
@@ -195,8 +196,8 @@ body {
 /* Desktop: Banner starts compact, retracts fully on scroll */
 @media (min-width: 1024px) {
   .banner-wrap {
-    margin-top: -30px;
-    top: 52px !important;
+    margin-top: -52px; /* Pull up so header sits on top */
+    top: 0 !important;
     position: sticky;
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
@@ -217,8 +218,8 @@ body {
   }
   
   .banner-title {
-    max-width: 45%; /* Smaller initially */
-    top: 75%;
+    max-width: 35%; /* Even smaller initially */
+    top: 70%;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
@@ -458,12 +459,12 @@ h3,
 /* Desktop: Reduce footer height and button */
 @media (min-width: 1024px) {
   .contact-bar {
-    height: 52px;
+    height: 52px !important;
   }
   
   .contact-bar .join-now-footer {
-    height: 32px; /* 50% smaller, fits within stripe */
-    max-height: 32px;
+    height: 34px !important; /* 50% smaller, fits within stripe */
+    max-height: 34px !important;
     width: auto;
     object-fit: contain;
   }
@@ -530,8 +531,9 @@ h3,
   }
   
   .navbar-links {
-    gap: 34px;
-    font-size: 1.15em;
+    gap: 28px;
+    font-size: 1.08em;
+    margin-left: 120px; /* Make space for logo + title */
   }
   
   .navbar-apply-btn {
