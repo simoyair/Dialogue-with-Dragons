@@ -630,17 +630,17 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
             titleClone.alt = bannerTitle.alt;
             titleClone.className = 'banner-title-header';
             titleClone.style.cssText = `
-              position: absolute;
-              left: 75px;
-              top: 50%;
-              transform: translateY(-50%);
-              height: 30px;
-              width: auto;
-              max-width: 150px;
+              position: absolute !important;
+              left: 75px !important;
+              top: 26px !important;
+              height: 28px !important;
+              width: auto !important;
+              max-width: 140px !important;
               opacity: 0;
               transition: opacity 0.3s ease;
-              z-index: 25;
-              pointer-events: none;
+              z-index: 30 !important;
+              pointer-events: none !important;
+              display: block !important;
             `;
               transform: translateY(-50%);
               height: 32px;
@@ -654,6 +654,7 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
             // Trigger opacity transition after element is added
             setTimeout(() => {
               titleClone.style.opacity = '1';
+              console.log('Title clone should be visible now', titleClone);
             }, 50);
           } else {
             titleClone.style.opacity = '1';

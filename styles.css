@@ -204,9 +204,16 @@ body {
   
   /* When scrolled, hide banner completely */
   .banner-wrap.scrolled-away {
-    transform: translateY(-100%);
-    opacity: 0;
+    transform: translateY(-200px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
     pointer-events: none;
+  }
+  
+  /* Ensure banner title also hides */
+  .banner-wrap.scrolled-away .banner-title {
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
 }
 /* Desktop: Reduce banner height for better proportion */
@@ -462,11 +469,19 @@ h3,
     height: 52px !important;
   }
   
-  .contact-bar .join-now-footer {
-    height: 34px !important; /* 50% smaller, fits within stripe */
+  /* Target both button types */
+  .contact-bar .join-now-footer,
+  .contact-bar .btn-dual-layer {
+    height: 34px !important;
     max-height: 34px !important;
+    min-height: 34px !important;
+    padding: 6px 24px !important;
+    font-size: 16px !important;
     width: auto;
-    object-fit: contain;
+  }
+  
+  .contact-bar .btn-dual-layer .text {
+    font-size: 16px !important;
   }
 }
 /* === END CSS: FOOTER BAR === */
@@ -567,6 +582,22 @@ h3,
   
   .navbar.scrolled::before {
     opacity: 1;
+  }
+}
+/* Desktop: Ensure title clone is visible in header */
+@media (min-width: 1024px) {
+  .banner-title-header {
+    display: block !important;
+    position: absolute !important;
+    left: 75px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: 28px !important;
+    width: auto !important;
+    max-width: 140px !important;
+    z-index: 25 !important;
+    pointer-events: none !important;
+    object-fit: contain !important;
   }
 }
 /* CTA texts inside main card */
