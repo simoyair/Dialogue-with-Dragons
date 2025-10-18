@@ -36,6 +36,8 @@
 </div>
 <!-- Spacer to prevent layout jump when banner becomes sticky -->
 <div class="banner-spacer" aria-hidden="true"></div>
+<!-- Mobile spacer to account for absolute positioned banner -->
+<div class="mobile-banner-spacer" aria-hidden="true"></div>
 <!-- END BANNER IMAGE -->
 
   <!-- BEGIN MAIN CARD SECTION -->
@@ -950,9 +952,9 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
               left: 75px !important;
               top: 50% !important;
               transform: translateY(-50%) !important;
-              height: 28px !important;
+              height: 56px !important;
               width: auto !important;
-              max-width: 140px !important;
+              max-width: 280px !important;
               opacity: 0;
               transition: opacity 0.3s ease;
               z-index: 30 !important;

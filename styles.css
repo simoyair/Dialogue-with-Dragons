@@ -7,6 +7,7 @@ body {
   background-attachment: scroll;
   min-height: 100vh;
   margin: 0;
+  padding: 0;
   font-family: "Quattrocento", serif;
   color: #2e3b59;
   display: flex;
@@ -41,6 +42,7 @@ body {
   justify-content: center; /* center links */
   padding: 0 16px;
   position: relative; /* Allow absolute positioning of title clone */
+  height: 100%;
 }
 .navbar-logo {
   display: flex;
@@ -194,6 +196,13 @@ body {
   display: block;
   background: none !important;
 }
+
+/* Mobile: Remove border radius so banner extends to very top */
+@media (max-width: 1023px) {
+  .banner-image {
+    border-radius: 0;
+  }
+}
 /* Desktop: Banner starts at very top, shifts up when scrolling */
 @media (min-width: 1024px) {
   .banner-wrap {
@@ -273,6 +282,20 @@ body {
 .banner-spacer {
   width: 100%;
   height: 0px; /* set dynamically via JS */
+}
+
+/* Mobile spacer to account for absolute positioned banner */
+.mobile-banner-spacer {
+  width: 100%;
+  height: 0;
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .mobile-banner-spacer {
+    display: block;
+    height: 200px; /* Account for reduced navbar + banner height on mobile */
+  }
 }
 /* === End CSS: Banner === */
 
@@ -545,29 +568,53 @@ h3,
   
   /* Mobile: Make header sticky */
   .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 20;
+    z-index: 30;
+    height: 48px;
+  }
+  
+  .navbar-logo img {
+    height: 32px;
+    width: 32px;
   }
   
   .banner-wrap {
-    position: sticky;
-    top: 56px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 19;
+    margin-top: 0;
   }
 }
 
 /* Mobile and narrow desktop: Banner should start from very top */
 @media (max-width: 1023px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    z-index: 30;
+    height: 48px;
+  }
+  
+  .navbar-logo img {
+    height: 32px;
+    width: 32px;
+  }
+  
   .banner-wrap {
     margin-top: 0;
     top: 0 !important;
-    position: sticky;
+    position: fixed;
+    left: 0;
+    right: 0;
   }
   
   .banner-image {
     margin-top: 0;
     object-position: center top;
+    border-radius: 0;
   }
   
   /* When scrolled on mobile, show smaller title on banner */
@@ -1357,9 +1404,9 @@ h3,
     left: 75px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    height: 28px !important;
+    height: 56px !important;
     width: auto !important;
-    max-width: 140px !important;
+    max-width: 280px !important;
     z-index: 25 !important;
     pointer-events: none !important;
     object-fit: contain !important;
