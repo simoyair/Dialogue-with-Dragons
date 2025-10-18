@@ -1025,6 +1025,43 @@ h3,
     font-size: 1.05em;
   }
 }
+
+/* Additional mobile responsiveness improvements */
+@media (max-width: 767px) {
+  /* Ensure all text is readable */
+  body {
+    font-size: 16px;
+  }
+  
+  /* Touch-friendly buttons */
+  .pill-btn,
+  .btn-dual-layer,
+  .form-submit-btn {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+  
+  /* Mobile-friendly carousel dots */
+  .carousel-dot {
+    width: 12px;
+    height: 12px;
+  }
+  
+  /* Ensure proper spacing on mobile */
+  .trust-section {
+    padding: 20px 16px 40px 16px;
+  }
+  
+  .chapter-card {
+    padding: 20px;
+  }
+  
+  /* Mobile-friendly footer */
+  footer .social-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 /* === END CSS: CONTACT FORM === */
 
 /* === BEGIN CSS: MOBILE-FIRST MEDIA QUERIES === */
