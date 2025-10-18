@@ -502,6 +502,14 @@ h3,
   white-space: nowrap;
 }
 
+/* Hide About Us and Why Choose Us on mobile */
+@media (max-width: 767px) {
+  .navbar-links a[href="#about"],
+  .navbar-links a[href="#why-choose-us"] {
+    display: none;
+  }
+}
+
 .navbar-apply-btn {
   font-size: 0.9em;
   padding: 6px 12px;
