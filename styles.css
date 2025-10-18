@@ -936,7 +936,7 @@ h3,
 }
 
 .why-it-works-card {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   box-shadow: 0 2px 14px rgba(138, 79, 189, 0.1);
   padding: 30px 24px;
@@ -950,7 +950,7 @@ h3,
 }
 
 .why-it-works-image {
-  width: 150px;
+  width: 225px;
   height: auto;
   margin: 0 auto 20px auto;
   display: block;
@@ -984,7 +984,7 @@ h3,
   }
   
   .why-it-works-image {
-    width: 140px;
+    width: 210px;
   }
 }
 /* === END CSS: WHY IT WORKS SECTION === */
