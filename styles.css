@@ -222,6 +222,7 @@ body {
     visibility: hidden !important;
   }
 }
+
 /* Desktop: Reduce banner height for better proportion */
 @media (min-width: 1024px) {
   .banner-image {
@@ -554,6 +555,41 @@ h3,
     top: 56px;
     z-index: 19;
   }
+}
+
+/* Mobile and narrow desktop: Banner should start from very top */
+@media (max-width: 1023px) {
+  .banner-wrap {
+    margin-top: 0;
+    top: 0 !important;
+    position: sticky;
+  }
+  
+  .banner-image {
+    margin-top: 0;
+    object-position: center top;
+  }
+  
+  /* When scrolled on mobile, show smaller title on banner */
+  .banner-wrap.is-raised .banner-title {
+    transform: translate(-50%, calc(-50% + 15px));
+    max-width: 60%;
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Ensure banner starts from very top on all screen sizes */
+.banner-wrap {
+  margin-top: 0;
+  top: 0;
+  position: sticky;
+}
+
+.banner-image {
+  margin-top: 0;
+  object-position: center top;
 }
 /* === END CSS: TRUST SIGNALS BAR === */
 
@@ -1285,8 +1321,8 @@ h3,
   margin: 24px 0 20px 0;
   gap: 14px;
 }
-/* Desktop: Add texture to header after scroll */
-@media (min-width: 1024px) {
+/* Desktop: Add texture to header after scroll (only on narrower desktop) */
+@media (min-width: 1024px) and (max-width: 1400px) {
   .navbar::before {
     content: '';
     position: absolute;
@@ -1304,6 +1340,13 @@ h3,
   
   .navbar.scrolled::before {
     opacity: 1;
+  }
+}
+
+/* Wide desktop: No header texture */
+@media (min-width: 1401px) {
+  .navbar::before {
+    display: none;
   }
 }
 /* Desktop: Ensure title clone is visible in header */

@@ -12,16 +12,17 @@
 <body>
   <!-- BEGIN NAVIGATION BAR -->
 <nav class="navbar">
-  <div class="navbar-logo">
-    <img src="Assets/logo_v3.png?v=12345" alt="DwD Logo" />
+  <div class="navbar-inner">
+    <div class="navbar-logo">
+      <img src="Assets/logo_v3.png?v=12345" alt="DwD Logo" />
+    </div>
+    <div class="navbar-links">
+      <a href="#about">About Us</a>
+      <a href="#program">Our Program</a>
+      <a href="#why-choose-us">Why Choose Us</a>
+      <a href="#how-to-begin">How to Begin</a>
+    </div>
   </div>
-  <div class="navbar-links">
-    <a href="#about">About Us</a>
-    <a href="#program">Our Program</a>
-    <a href="#why-choose-us">Why Choose Us</a>
-    <a href="#how-to-begin">How to Begin</a>
-  </div>
-        </div>
 </nav>
     <!-- END NAVIGATION BAR -->
 <!-- BEGIN BANNER IMAGE -->
@@ -915,21 +916,23 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
 <script>
   // Desktop: Animate DwD title and banner on scroll
   function initDesktopScrollAnimations() {
-    if (window.innerWidth >= 1024) {
-      const bannerTitle = document.querySelector('.banner-title');
-      const bannerWrap = document.querySelector('.banner-wrap');
-      const navbar = document.querySelector('.navbar');
-      const navbarInner = document.querySelector('.navbar-inner');
-      let titleClone = null;
+    const bannerTitle = document.querySelector('.banner-title');
+    const bannerWrap = document.querySelector('.banner-wrap');
+    const navbar = document.querySelector('.navbar');
+    const navbarInner = document.querySelector('.navbar-inner');
+    let titleClone = null;
+    
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const isDesktop = window.innerWidth >= 1024;
+      const isMobile = window.innerWidth < 1024;
       
-      window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
+      if (scrolled > 80) {
+        // Add scrolled class to navbar for texture
+        navbar.classList.add('scrolled');
         
-        if (scrolled > 80) {
-          // Add scrolled class to navbar for texture
-          navbar.classList.add('scrolled');
-          
-          // Keep banner minimized but visible, shift up
+        if (isDesktop) {
+          // Desktop behavior: shift banner up and show title in navbar
           bannerWrap.classList.add('scrolled-away');
           
           // Hide original title on desktop
@@ -937,42 +940,49 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
           bannerTitle.style.pointerEvents = 'none';
           
           // Create and show clone in header if doesn't exist (desktop only)
-          if (window.innerWidth >= 1024) {
-            if (!titleClone) {
-              titleClone = document.createElement('img');
-              titleClone.src = bannerTitle.src;
-              titleClone.alt = bannerTitle.alt;
-              titleClone.className = 'banner-title-header';
-              titleClone.style.cssText = `
-                position: absolute !important;
-                left: 75px !important;
-                top: 50% !important;
-                transform: translateY(-50%) !important;
-                height: 28px !important;
-                width: auto !important;
-                max-width: 140px !important;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                z-index: 30 !important;
-                pointer-events: none !important;
-                display: block !important;
-              `;
-              navbarInner.appendChild(titleClone);
-              
-              // Trigger opacity transition after element is added
-              setTimeout(() => {
-                titleClone.style.opacity = '1';
-                console.log('Title clone should be visible now', titleClone);
-              }, 50);
-            } else {
+          if (!titleClone) {
+            titleClone = document.createElement('img');
+            titleClone.src = bannerTitle.src;
+            titleClone.alt = bannerTitle.alt;
+            titleClone.className = 'banner-title-header';
+            titleClone.style.cssText = `
+              position: absolute !important;
+              left: 75px !important;
+              top: 50% !important;
+              transform: translateY(-50%) !important;
+              height: 28px !important;
+              width: auto !important;
+              max-width: 140px !important;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+              z-index: 30 !important;
+              pointer-events: none !important;
+              display: block !important;
+            `;
+            navbarInner.appendChild(titleClone);
+            
+            // Trigger opacity transition after element is added
+            setTimeout(() => {
               titleClone.style.opacity = '1';
-            }
+            }, 50);
+          } else {
+            titleClone.style.opacity = '1';
           }
-        } else {
-          // Remove scrolled class from navbar
-          navbar.classList.remove('scrolled');
-          
-          // Show banner normally
+        } else if (isMobile) {
+          // Mobile behavior: show smaller title on banner
+          bannerWrap.classList.add('is-raised');
+          bannerTitle.style.opacity = '1';
+          bannerTitle.style.pointerEvents = 'auto';
+          bannerTitle.style.transform = 'translate(-50%, calc(-50% + 15px))';
+          bannerTitle.style.maxWidth = '60%';
+          bannerTitle.style.height = 'auto';
+        }
+      } else {
+        // Remove scrolled class from navbar
+        navbar.classList.remove('scrolled');
+        
+        if (isDesktop) {
+          // Show banner normally on desktop
           bannerWrap.classList.remove('scrolled-away');
           
           // Show original title at full size
@@ -985,9 +995,17 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
           if (titleClone) {
             titleClone.style.opacity = '0';
           }
+        } else if (isMobile) {
+          // Mobile: show banner normally
+          bannerWrap.classList.remove('is-raised');
+          bannerTitle.style.opacity = '1';
+          bannerTitle.style.pointerEvents = 'auto';
+          bannerTitle.style.transform = 'translate(-50%, -50%)';
+          bannerTitle.style.maxWidth = '80%';
+          bannerTitle.style.height = 'auto';
         }
-      });
-    }
+      }
+    });
   }
   
   // Initialize on page load
