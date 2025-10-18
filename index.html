@@ -40,13 +40,15 @@
   <!-- BEGIN MAIN CARD SECTION -->
   <h2 class="trust-title" id="about" style="margin-top: 20px; color: #8a4fbd;">Learn English Through Role-playing Adventures</h2>
   <div class="main-container">
-    <div class="cta-heading" style="color: #52387a;">Never heard of role-playing games (also called RPGs)? 
-    Watch this short video to see how it works</div>
+    <h2 style="color: #8a4fbd; font-family: 'Almendra', serif; font-size: 2.2em; margin-bottom: 16px; font-weight: 700;">Learn English by Playing RPGs</h2>
+    <p style="color: #2e3b59; font-family: 'Alegreya', serif; font-size: 1.1em; margin-bottom: 24px; line-height: 1.6;">Join small international groups and practice English through storytelling adventures. Build real speaking confidence while having fun.</p>
+    <div class="cta-heading" style="color: #52387a;">New to role-playing games (RPGs)? Watch this short video to see how it works:</div>
   <video class="intro-video" controls style="width: 100%; max-width: 500px; border-radius: 12px; margin-bottom: 20px;">
     <source src="Assets/DwD intro video edited.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <p>Small groups. Real conversations. Build confidence speaking English.</p>
+  <img src="Assets/mascot-welcome.png" alt="Welcome Mascot" style="width: 180px; height: auto; margin: 20px auto; display: block; border-radius: 12px;">
   <!-- BEGIN CAROUSEL -->
   <div class="carousel-container" id="carousel">
     <div class="carousel-slide active">Make international friends through shared adventures</div>
@@ -58,15 +60,30 @@
 <!-- BEGIN MAGICAL CALL TO ACTION SECTION -->
 <div class="cta-section">
   <div class="cta-inline">
-    <button class="cta-heading-link" onclick="scrollToSection('special-pricing-card-start')">Special Offer for First Students</button>
     <div class="cta-note">Be part of our first English learning group. Get lower prices for your learning adventure.</div>
   </div>
-  <div class="pill-btn-row">
-    <button class="pill-btn" onclick="scrollToSection('contact')">Get a Free Call with Us</button>
+  <div class="pill-btn-row" style="gap: 20px;">
+    <button class="pill-btn primary-btn" onclick="scrollToSection('contact-form')" style="background: linear-gradient(90deg, #9d73ec 0%, #c07efc 100%); color: #fff9ef; box-shadow: 0 1.5px 12px 0 #ba84eb42;">Begin Your Adventure</button>
+    <button class="pill-btn secondary-btn" onclick="scrollToSection('first-students-offer')" style="background: linear-gradient(90deg, #cf8660 0%, #e8b293 100%); color: #fff9ef; box-shadow: 0 1.5px 12px 0 #cf866042;">See Special Offer</button>
   </div>
 </div>
 <!-- END MAGICAL CALL TO ACTION SECTION (last card ends) -->
 </div> <!-- If you see a missing end to the previous container, add this closing tag here! -->
+
+<!-- BEGIN TRUST SIGNALS BAR -->
+<section class="trust-signals-bar">
+  <div class="trust-signals-container">
+    <div class="trust-signal-item">
+      <span class="trust-signal-icon">✓</span>
+      <span class="trust-signal-text">10+ Years Teaching Experience</span>
+    </div>
+    <div class="trust-signal-item">
+      <span class="trust-signal-icon">✓</span>
+      <span class="trust-signal-text">English Speaking Teacher (5+ Years)</span>
+    </div>
+  </div>
+</section>
+<!-- END TRUST SIGNALS BAR -->
 
 <!-- BEGIN TRUST CREDIBILITY SECTION -->
 <section class="trust-section" id="why-choose-us">
@@ -111,151 +128,232 @@
 </section>
 <!-- END TRUST CREDIBILITY SECTION -->
 
-<!-- BEGIN PROGRAM OVERVIEW SECTION -->
+<!-- BEGIN PROGRAM DETAILS SECTION -->
 <section class="trust-section" id="program">
-  <h2 class="trust-title">Your English Adventure Journey</h2>
-  <div class="trust-collapsible-container">
-    <!-- <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Chapter 0: Try It First</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div><strong>What You Get:</strong></div>
-        <div>2 sessions to experience our method</div>
-        <div>Meet your teacher</div>
-        <div>Learn basic D&D in English</div>
-        <div>Create your first character with help</div>
-        <div style="margin-top: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
-          <div><strong>Investment:</strong> $[X] per session (Try before you buy)</div>
-          <div><strong>Money-back Promise:</strong> Full refund available until 24 hours before session 2</div>
-        </div>
-        <div style="margin-top: 15px; font-style: italic; color: #8a4fbd;">
-          Personal character development sessions, party formation workshop, basic D&D mechanics in English, character art creation
-        </div>
-      </div>
-    </div> -->
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Chapter 1: Learn the Basics</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div><strong>What You Get:</strong></div>
-        <div>2 weeks of personal lessons to learn the basics of the game and make your character</div>
-        <div>A group session to meet the rest of your party</div>
-        <div>Build your English foundation through character creation</div>
-        <div>Make friends with international classmates</div>
-        <div style="margin-top: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
-          <div><strong>Investment:</strong> $120 instead of $230 (Special price for our first students)</div>
-          <div><strong>What's Included:</strong> 3 hours of private lessons, 1 class to meet your classmates, access to our community on Discord</div>
-          <div><strong>Special Bonus:</strong> As one of our first students you get our AI Image Creation Workshop included in this chapter. Make amazing art of your character</div>
-          <div><strong>Money-back Promise:</strong> Full refund available at the end of the 1st week</div>
-        </div>
-        <div style="margin-top: 15px; font-style: italic; color: #8a4fbd;">
-          Personal character development sessions, party formation workshop, basic D&D mechanics in English, character art creation
-        </div>
-      </div>
+  <h2 class="trust-title">Your English Adventure Path</h2>
+  <p style="text-align: center; color: #2e3b59; font-family: 'Alegreya', serif; font-size: 1.2em; margin-bottom: 40px;">Three chapters, one amazing journey</p>
+  
+  <!-- Chapter 0: Full Width at Top -->
+  <div class="chapter-card chapter-0" style="margin-bottom: 40px;">
+    <div class="chapter-header">
+      <span class="chapter-badge chapter-badge-try">Try It First</span>
+      <h3 class="chapter-title">Chapter 0: Learn to Roleplay</h3>
+      <span class="chapter-duration">2 weeks</span>
     </div>
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Chapter 2: Begin Your Adventure</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div><strong>What You Get:</strong></div>
-        <div>8 weeks of weekly adventures</div>
-        <div>Group sessions with your party + personal lessons</div>
-        <div>Real English practice through team storytelling</div>
-        <div>Build lasting friendships with international classmates</div>
-        <div style="margin-top: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
-          <div><strong>Investment:</strong> $800 instead of $1000 (Special price for our first students)</div>
-          <div><strong>What's Included:</strong> 8 group lessons + weekly 30 minutes private lessons + ongoing support + community access</div>
-          <div><strong>Money-back Promise:</strong> Full refund available at the end of the 1st week</div>
-        </div>
-        <div style="margin-top: 15px; font-style: italic; color: #8a4fbd;">
-          Weekly adventure progression, personal skill development tracking, community participation guidelines
-        </div>
+    <div class="chapter-content">
+      <div class="chapter-what-youll-do">
+        <h4>What You'll Do:</h4>
+        <ul>
+          <li>Meet your teacher and future classmates</li>
+          <li>Learn basic RPG rules in English</li>
+          <li>Create your first character with help</li>
+          <li>Make AI art of your character</li>
+        </ul>
       </div>
-    </div>
-    <div class="collapsible-card" style="opacity: 0.7;">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Chapters 3-4: Advanced Adventures</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div>Advanced storytelling techniques</div>
-        <div>Leadership development through party coordination</div>
-        <div>Creative projects and content creation</div>
-        <div>Expanded adventure worlds and complex challenges</div>
-        <div style="margin-top: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
-          <div><strong>Early Access:</strong> The advanced chapters will only be available to students who finished the first two chapters</div>
+      <div class="chapter-price-box">
+        <div class="price-row">
+          <span class="price-label">Regular:</span>
+          <span class="price-value">$230</span>
         </div>
+        <div class="price-row">
+          <span class="price-label">First Students:</span>
+          <span class="price-value first-student">$120 ✨</span>
+        </div>
+        <div class="price-savings">(You save $110 as a first student)</div>
       </div>
+      <div class="chapter-included">
+        <h4>What's Included:</h4>
+        <ul>
+          <li>3 total sessions (2 private + 1 group)</li>
+          <li>AI Character Art Workshop (FREE bonus)</li>
+          <li>Join our Discord community</li>
+          <li>All materials included</li>
+        </ul>
+      </div>
+      <div class="money-back-promise">✓ Get all your money back if you stop before your 2nd session - try with zero risk!</div>
     </div>
   </div>
-</section>
-<!-- END PROGRAM OVERVIEW SECTION -->
 
-<!-- BEGIN BENEFITS SECTION -->
-<section class="trust-section" id="benefits" style="background: linear-gradient(var(--ethereal-pink), white);">
-  <h2 class="trust-title">What You Can Expect as Our Student</h2>
-  <div class="trust-collapsible-container">
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Speaking Confidence</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div>Speak English naturally in group conversations</div>
-        <div>Express your personality and humor in English</div>
-        <div>Feel comfortable in international conversations</div>
-        <div>Handle unexpected questions with confidence</div>
+  <!-- Chapters 1-3: 3 Column Grid -->
+  <div class="chapters-grid">
+    <!-- Chapter 1 -->
+    <div class="chapter-card chapter-1">
+      <div class="chapter-header">
+        <span class="chapter-badge chapter-badge-start">Start Your Journey</span>
+        <h3 class="chapter-title">Chapter 1: Begin Your Adventure</h3>
+        <span class="chapter-duration">8 weeks</span>
+      </div>
+      <div class="chapter-content">
+        <div class="chapter-what-youll-do">
+          <h4>What You'll Do:</h4>
+          <ul>
+            <li>Weekly group adventures with your party (2 hours each)</li>
+            <li>Personal coaching after each adventure (30 minutes)</li>
+            <li>Build English foundation through character stories</li>
+            <li>Make lasting friendships with international classmates</li>
+          </ul>
+        </div>
+        <div class="chapter-price-box">
+          <div class="price-row">
+            <span class="price-label">Regular:</span>
+            <span class="price-value">$790</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">First Students:</span>
+            <span class="price-value first-student">$639 ✨</span>
+          </div>
+          <div class="price-savings">(You save $151 as a first student)</div>
+          <div class="price-weekly">That's only $80 per week for group adventure + personal coaching!</div>
+        </div>
+        <div class="chapter-included">
+          <h4>What's Included:</h4>
+          <ul>
+            <li>8 group adventure sessions (16 hours total)</li>
+            <li>8 personal coaching sessions (4 hours total)</li>
+            <li>Weekly homework and practice materials</li>
+            <li>Community support and feedback</li>
+          </ul>
+        </div>
+        <div class="money-back-promise">✓ Get all your money back if you stop before Week 2</div>
       </div>
     </div>
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">International Network</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div>Make genuine friends from different countries</div>
-        <div>Practice English with supportive classmates</div>
-        <div>Join global D&D and gaming communities</div>
-        <div>Build friendships that go on even after you finish the program</div>
+
+    <!-- Chapter 2 -->
+    <div class="chapter-card chapter-2">
+      <div class="chapter-header">
+        <span class="chapter-badge chapter-badge-continue">Continue Your Adventure</span>
+        <h3 class="chapter-title">Chapter 2: The Adventure Continues</h3>
+        <span class="chapter-duration">12 weeks</span>
+      </div>
+      <div class="chapter-content">
+        <div class="chapter-what-youll-do">
+          <h4>What You'll Do:</h4>
+          <ul>
+            <li>Weekly adventures with bigger challenges</li>
+            <li>More personal coaching (2 times per week, 30 minutes each)</li>
+            <li>Deep character development and complex stories</li>
+            <li>Create a final project: Your adventure as an illustrated story with your voice</li>
+          </ul>
+        </div>
+        <div class="chapter-price-box">
+          <div class="price-row">
+            <span class="price-label">Regular:</span>
+            <span class="price-value">$1,320</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">First Students:</span>
+            <span class="price-value first-student">$960 ✨</span>
+          </div>
+          <div class="price-savings">(You save $360 as a first student)</div>
+          <div class="price-weekly">That's only $80 per week for group adventure + two personal coaching sessions!</div>
+        </div>
+        <div class="chapter-included">
+          <h4>What's Included:</h4>
+          <ul>
+            <li>9 group adventure sessions + 3 project workshop sessions (24 hours total)</li>
+            <li>18 personal coaching sessions (9 hours total)</li>
+            <li>Weekly writing practice and feedback</li>
+            <li>Work together on final project</li>
+            <li>Community support throughout</li>
+          </ul>
+        </div>
+        <div class="money-back-promise">✓ Get all your money back if you stop before Week 2</div>
       </div>
     </div>
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Creative English Skills</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div>Describe characters and stories in detail</div>
-        <div>Use imagination to practice new vocabulary</div>
-        <div>Learn through exciting games that keep you interested</div>
-        <div>Express creativity and emotions in English</div>
+
+    <!-- Chapter 3: GREYED OUT -->
+    <div class="chapter-card chapter-3 greyed-out">
+      <div class="coming-soon-overlay">Coming Soon</div>
+      <div class="chapter-header">
+        <span class="chapter-badge chapter-badge-soon">Coming Soon</span>
+        <h3 class="chapter-title">Chapter 3: Keep Adventuring</h3>
+        <span class="chapter-duration">Flexible - Continue as long as you want</span>
+      </div>
+      <div class="chapter-content">
+        <div class="chapter-what-youll-do">
+          <h4>What You'll Do:</h4>
+          <ul>
+            <li>Weekly group adventures that continue your story</li>
+            <li>Personal coaching (once per week, 30 minutes)</li>
+            <li>Work on reading and writing skills</li>
+            <li>Practice advanced grammar, fluency, and accuracy</li>
+            <li>Continue as long as you're having fun</li>
+          </ul>
+        </div>
+        <div class="chapter-price-box">
+          <div class="price-options">
+            <div class="price-option">
+              <div class="option-title">Option 1: Pay Each Week</div>
+              <div class="price-value">$120 per week</div>
+              <div class="option-details">Stop or pause anytime | Good for busy schedules</div>
+            </div>
+            <div class="price-option recommended">
+              <div class="option-title">Option 2: Pay for 8 Weeks Together ✨</div>
+              <div class="price-value">$880 for 8 weeks (Save $80!)</div>
+              <div class="price-value first-student">First Students: $750 for 8 weeks</div>
+              <div class="option-details">Average $110/week (regular) or $94/week (first students) | Better price for serious learners | Can sign up for another 8 weeks after</div>
+            </div>
+          </div>
+        </div>
+        <div class="chapter-included">
+          <h4>What's Included:</h4>
+          <ul>
+            <li>Weekly group adventure session (2 hours)</li>
+            <li>2 personal coaching sessions per week (30 minutes each)</li>
+            <li>Work on reading and writing practice</li>
+            <li>Learn advanced grammar and vocabulary</li>
+            <li>Continue your character's journey</li>
+          </ul>
+        </div>
+        <div class="availability-note">Available to students who finish Chapters 0-2. First students get told first when spots open.</div>
       </div>
     </div>
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Professional Growth</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div>Improve presentation and leadership skills</div>
-        <div>Practice problem-solving in English</div>
-        <div>Build confidence for international work opportunities</div>
-        <div>Develop teamwork and communication skills</div>
-      </div>
-    </div>
-  </div>
-  <div class="card" style="margin-top: 60px; text-align: center; background: rgba(255, 255, 255, 0.6); border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 30px;">
-    <h3 style="color: #8a4fbd; font-family: Almendra, serif; margin-bottom: 20px;">Student Success Stories</h3>
-    <p style="font-style: italic; color: #cf8660;">Success stories coming soon from our founding group members!</p>
   </div>
 </section>
-<!-- END BENEFITS SECTION -->
+<!-- END PROGRAM DETAILS SECTION -->
+
+<!-- BEGIN WHY IT WORKS SECTION -->
+<section class="trust-section why-it-works">
+  <h2 class="trust-title">Why Learning English Through RPGs Really Works</h2>
+  <div class="why-it-works-grid">
+    <div class="why-it-works-card">
+      <img src="Assets/mascot-shield.png" alt="Shield Mascot" class="why-it-works-image">
+      <h3 class="why-it-works-heading">Speak Without Fear</h3>
+      <p class="why-it-works-text">When you speak as your character, there's less pressure. You're focused on the story, not on being perfect. Research shows that learning through games reduces language anxiety. You're not worried about making mistakes - you're just playing your character and having fun!</p>
+    </div>
+    <div class="why-it-works-card">
+      <img src="Assets/mascot-talking.png" alt="Talking Mascot" class="why-it-works-image">
+      <h3 class="why-it-works-heading">Practice Like Real Life</h3>
+      <p class="why-it-works-text">RPGs create real communication challenges. You must listen, think, and answer in English - just like real conversations. Studies show students improve speaking ability when they practice English in real, unpredictable situations where they need to solve problems together.</p>
+    </div>
+    <div class="why-it-works-card">
+      <img src="Assets/mascot-friends.png" alt="Friends Mascot" class="why-it-works-image">
+      <h3 class="why-it-works-heading">Make Real Friends</h3>
+      <p class="why-it-works-text">Small groups create strong friendships. You're not just classmates - you're adventurers working together. Research shows that students in game-based learning create lasting connections and keep speaking English together. You gain both skills and community.</p>
+    </div>
+  </div>
+</section>
+<!-- END WHY IT WORKS SECTION -->
+
+<!-- BEGIN ABOUT TEACHER SECTION -->
+<section class="trust-section about-teacher">
+  <h2 class="trust-title">Meet Your Game Master and Teacher</h2>
+  <div class="about-teacher-content">
+    <div class="teacher-photo">
+      <img src="Assets/teacher-photo.jpg" alt="Teacher Photo" class="teacher-image">
+    </div>
+    <div class="teacher-bio">
+      <p class="bio-paragraph">I've been teaching for over 10 years in many different ways - from helping students with exams to training adults how to use new computer programs. For the past 5+ years, I've focused on teaching English conversation and helping students build real confidence speaking.</p>
+      
+      <p class="bio-paragraph">I discovered RPGs again in 2023 and immediately saw how perfect they are for language learning. When I run games, most of my players aren't native English speakers - and I watched them grow more confident week by week. I created Dialogue with Dragons to combine my two passions: teaching English and creating stories together.</p>
+      
+      <p class="bio-paragraph">I believe learning should feel exciting, not stressful. My goal is to create a safe space where you can experiment, make mistakes, and grow - not just in English, but as a person. When you speak as your character, you discover confidence you didn't know you had.</p>
+      
+      <p class="bio-paragraph">Whether you're saving dragons or fighting princesses, you'll use English naturally because you're focused on the adventure, not the grammar.</p>
+    </div>
+  </div>
+</section>
+<!-- END ABOUT TEACHER SECTION -->
 
 <!-- BEGIN HOW TO START SECTION -->
 <section class="trust-section" id="how-to-begin" style="background: var(--light-blue);">
@@ -286,36 +384,34 @@
 <!-- END HOW TO START SECTION -->
 
 <!-- BEGIN EARLY ADOPTER BENEFITS SECTION -->
-<section class="trust-section" id="early-adopter">
+<section class="trust-section" id="first-students-offer">
   <h2 class="trust-title" style="margin-bottom: 20px;">What You Get as One of Our First Students </h2>
   <div id="special-pricing-card-start"></div>
   <div class="card card-white-text-outline special-pricing-card" style="color: white; text-align: center; border-radius: 16px; box-shadow: none; padding: 40px;">
-  <!---- <h3 style="color: white; margin-bottom: 30px; font-family: Almendra, serif; font-size: 2.2em;">Join Our Founding Group</h3>  -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px;">
       <div>
         <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Special Pricing</h4>
-        <p style="color: white; font-family: Alegreya, serif;">Our first students get lower prices for all chapters (now and in the future)</p>
+        <p style="color: white; font-family: Alegreya, serif;">Get special lower prices for all chapters - now and forever. Once you join as a first student, you keep these prices even when regular prices go up.</p>
       </div>
       <div>
         <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Bonus Content</h4>
-        <p style="color: white; font-family: Alegreya, serif;">Exclusive materials and first access to new adventures</p>
+        <p style="color: white; font-family: Alegreya, serif;">Be the first to try new chapters and get special learning materials that regular students won't receive.</p>
       </div>
       <div>
         <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Extra Attention</h4>
-        <p style="color: white; font-family: Alegreya, serif;">You will have extra calls with the game master for personal feedback</p>
+        <p style="color: white; font-family: Alegreya, serif;">Get additional personal calls with your teacher for extra feedback and support.</p>
       </div>
       <div>
         <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Community Creation</h4>
-        <p style="color: white; font-family: Alegreya, serif;">Help shape our community and program development</p>
+        <p style="color: white; font-family: Alegreya, serif;">Help us build our international community and give feedback that shapes future chapters.</p>
       </div>
       <div>
         <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Be Part of Creating the World</h4>
-        <p style="color: white; font-family: Alegreya, serif;">As one of our first students, you'll be playing in a brand new fantasy world and leave your mark on it</p>
+        <p style="color: white; font-family: Alegreya, serif;">Adventure in a brand new fantasy world and leave your mark on the story. Future students will see what you created.</p>
       </div>
     </div>
     <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 8px;">
-      <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 10px;">Early Adopter Deadline</h4>
-      <p style="color: white; font-family: Alegreya, serif;"><strong>Special pricing available until [Date] - limited founding group spots</strong></p>
+      <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 10px;">First Student Pricing - Limited Spots Available</h4>
     </div>
   </div>
 </section>
@@ -402,46 +498,241 @@
         <div>Pricing varies by chapter. Early adopters get special founding member rates. We'll discuss exact pricing during your free consultation based on which chapters you're interested in.</div>
       </div>
     </div>
+    
+    <!-- NEW FAQ ITEMS -->
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Is this program only in English?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Yes, everything is in English only - all sessions, all materials, all communication. This full English practice is very important for building real confidence. I speak clearly and slowly, and I will help you understand. But I do not give support in Japanese, Korean, or other languages.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">What level of English do I need?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>You should know basic English vocabulary and grammar (B1-B2 level, intermediate). You don't need to feel confident speaking yet - that's what we'll build together! If you can write 1-2 sentences about your favorite movie in English, your level is good.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Will other students be from my country?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Our groups are international by design. You'll meet students from Japan, Korea, and possibly other countries. This is actually better for learning - everyone is practicing English together, and you'll make friends from around the world. Everyone in the group is at a similar English level, so nobody feels behind. Some students might be from your country, but not all of them.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">What if I've never played RPGs before?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Perfect! Most of our students have never played RPGs or D&D. You don't need any experience with role-playing games. We teach you everything you need to know, step by step. The game creates a fun reason to use English. You don't need to know all the rules or 'win' - we're here to tell stories together and practice English naturally. As long as you're having fun, you're learning!</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">What if my English isn't perfect?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>That's exactly why you're here! The program is made for intermediate learners (B1-B2 level). You don't need perfect English - you need the desire to get better slowly and practice in a safe place. In our sessions, mistakes are just part of the story. Nobody judges you. Everyone is learning together.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Is this like normal English classes?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>No! This is very different. In normal classes, you study grammar rules and do exercises. In Dialogue with Dragons, you USE English naturally while creating stories and solving problems with your party. You're not thinking about grammar - you're thinking about what your character does next. We will work on grammar during your personal coaching sessions, but during group adventures, you focus on the story. That's how you build real speaking ability.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">How much time do I need each week?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>It depends on the chapter:
+• Chapter 0: 2-3 hours total over 2 weeks
+• Chapter 1: About 2.5 hours per week (2-hour group + 30-minute personal session)
+• Chapter 2: About 3 hours per week (2-hour group + two 30-minute personal sessions)
+• Chapter 3: About 3 hours per week (same as Chapter 2)
+You'll also want 30-60 minutes per week for homework (writing practice, character development).</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">What if I can't come to a session?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Life happens! If you give 24 hours notice, we add you to a special waiting list. When enough students miss sessions, we organize a makeup session together as a separate adventure. You'll also get written session notes so you can follow the story. However, RPGs work best when everyone comes regularly because you're creating a story together. We ask you to try to come as much as possible.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Do I need special equipment?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>You need:
+• Computer or tablet (phone works but computer is better - bigger screen)
+• Good internet connection
+• Microphone (built-in is okay, headset is better)
+• Discord account (free)
+We'll help you get ready before your first session.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Can I get my money back if I don't like it?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Yes! Each chapter has a money-back promise:
+• Chapter 0: Get all your money back if you stop before your 2nd session
+• Chapter 1: Get all your money back if you stop before Week 2
+• Chapter 2: Get all your money back if you stop before Week 2
+We want you to feel confident in your choice. If the program isn't right for you, just tell us!</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">How do I contact you after I send the form?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>After you send the form, we'll contact you via LINE, KakaoTalk, or Instagram (whichever you choose in the form). That's where we'll schedule your free call. For the program itself, we use Discord for sessions and community. Email works too for general questions.</div>
+      </div>
+    </div>
+    
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Why should I trust this program?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Great question! Here's why:
+• I have 10+ years of teaching experience (various subjects and ages)
+• I have 5+ years focusing specifically on ESL and speaking confidence
+• I run RPG sessions regularly, and most of my players aren't native English speakers
+• Small groups (maximum 5 students) mean personal attention
+• Money-back promise means you can try without risk
+• Research shows RPGs really work for language learning (see 'Why It Works' section)</div>
+      </div>
+    </div>
   </div>
 </section>
 <!-- END FAQ SECTION -->
 
-<!-- BEGIN CONTACT SECTION -->
-<section class="trust-section" id="contact">
-  <h2 class="trust-title">Ready to Start Your Adventure?</h2>
-  <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 40px; background: rgba(255, 255, 255, 0.6);">
-    <h3 style="color: #8a4fbd; font-family: Almendra, serif; margin-bottom: 30px;">How to get a free call with us:</h3>
-    <div style="text-align: left; margin: 30px 0;">
-      <div style="display: flex; align-items: center; margin: 15px 0;">
-        <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">1</div>
-        <div style="color: #2e3b59; font-family: Alegreya, serif;">We read your information (within 1 working day)</div>
-      </div>
-      <div style="display: flex; align-items: center; margin: 15px 0;">
-        <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">2</div>
-        <div style="color: #2e3b59; font-family: Alegreya, serif;">We invite you to set up your free call</div>
-      </div>
-      <div style="display: flex; align-items: center; margin: 15px 0;">
-        <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">3</div>
-        <div style="color: #2e3b59; font-family: Alegreya, serif;">Together, we discuss your goals and answer all your questions</div>
-      </div>
-      <div style="display: flex; align-items: center; margin: 15px 0;">
-        <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">4</div>
-        <div style="color: #2e3b59; font-family: Alegreya, serif;">We decide together if the program is right for you</div>
-      </div>
-    </div>
-    
-<!--    <div style="background: #fff1ff; padding: 20px; border-radius: 8px; margin: 30px 0;">
-      <strong style="color: #8a4fbd; font-family: Alegreya, serif;">Response Time Promise:</strong> <span style="color: #2e3b59; font-family: Alegreya, serif;">1 working day on weekdays, 2 days on weekends</span>
-    </div>-->
+<!-- BEGIN CONTACT FORM SECTION -->
+<section class="trust-section" id="contact-form">
+  <h2 class="trust-title">Begin Your Adventure</h2>
+  
+  <!-- Important Notice -->
+  <div style="background: #e3f2fd; padding: 20px; border-radius: 12px; margin: 0 auto 30px auto; max-width: 600px; border-left: 4px solid #2196f3;">
+    <p style="color: #1976d2; font-family: 'Alegreya', serif; margin: 0; font-weight: 600;">This is a professional English learning program. All communication and sessions are done completely in English. Please make sure you are comfortable with this before sending the form.</p>
+  </div>
 
-    <div class="pill-btn-row" style="margin-top: 40px; justify-content: center; gap: 20px;">
-      <button class="pill-btn" style="background: linear-gradient(90deg, #9d73ec 0%, #c07efc 100%); color: #fff9ef; box-shadow: 0 1.5px 12px 0 #ba84eb42; padding: 0.75em 2.3em; font-family: Alegreya, serif; font-size: 1.07em; font-weight: 700; letter-spacing: 0.03em; border: none; border-radius: 23px; cursor: pointer; transition: background 0.22s, color 0.16s, box-shadow 0.16s;">Ask for a free call now</button>
-      <!-- <button class="pill-btn" style="background: linear-gradient(90deg, #cf8660 0%, #e8b293 100%); color: #fff9ef; box-shadow: 0 1.5px 12px 0 #cf866042; padding: 0.75em 2.3em; font-family: Alegreya, serif; font-size: 1.07em; font-weight: 700; letter-spacing: 0.03em; border: none; border-radius: 23px; cursor: pointer; transition: background 0.22s, color 0.16s, box-shadow 0.16s;">Message on KakaoTalk</button>
-      <button class="pill-btn" style="background: linear-gradient(90deg, #2e3b59 0%, #6061b8 100%); color: #fff9ef; box-shadow: 0 1.5px 12px 0 #2e3b5942; padding: 0.75em 2.3em; font-family: Alegreya, serif; font-size: 1.07em; font-weight: 700; letter-spacing: 0.03em; border: none; border-radius: 23px; cursor: pointer; transition: background 0.22s, color 0.16s, box-shadow 0.16s;">Chat on LINE</button> -->
+  <div class="card" style="max-width: 600px; margin: 0 auto; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 40px; background: rgba(255, 255, 255, 0.8);">
+    <form id="contactForm" action="#" method="POST">
+      <div class="form-group">
+        <label for="name" class="form-label">Your Name: <span style="color: #d32f2f;">*</span></label>
+        <input type="text" id="name" name="name" class="form-input" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone" class="form-label">Phone Number (with country code): <span style="color: #d32f2f;">*</span></label>
+        <input type="tel" id="phone" name="phone" class="form-input" placeholder="Example: +82 10-1234-5678 (Korea) or +81 90-1234-5678 (Japan)" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contactMethod" class="form-label">Preferred Contact Method: <span style="color: #d32f2f;">*</span></label>
+        <select id="contactMethod" name="contactMethod" class="form-select" required>
+          <option value="">Choose one...</option>
+          <option value="LINE">LINE</option>
+          <option value="KakaoTalk">KakaoTalk</option>
+          <option value="Instagram">Instagram</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="contactId" class="form-label">Your LINE ID, KakaoTalk ID, or Instagram handle: <span style="color: #d32f2f;">*</span></label>
+        <input type="text" id="contactId" name="contactId" class="form-input" required>
+        <div class="form-helper">We'll contact you here after reading your form</div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-label">Tell us about yourself: <span style="color: #d32f2f;">*</span></div>
+        <div class="form-helper">Please write 1-2 sentences in English:<br>
+        • What interests you about learning English through RPG adventures?<br>
+        • What are your favorite fantasy stories, games, or worlds?</div>
+        <textarea id="aboutYourself" name="aboutYourself" class="form-textarea" rows="4" minlength="50" maxlength="300" required></textarea>
+        <div class="character-counter">
+          <span id="charCount">0</span>/300 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="programUnderstanding" name="programUnderstanding" required>
+          <span class="checkbox-text">I understand this program is done completely in English <span style="color: #d32f2f;">*</span></span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="moneybackAcknowledgment" name="moneybackAcknowledgment" required>
+          <span class="checkbox-text">I have read the money-back promise <span style="color: #d32f2f;">*</span></span>
+        </label>
+      </div>
+
+      <button type="submit" class="form-submit-btn">Send</button>
+    </form>
+
+    <!-- What Happens Next Section -->
+    <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #e8b293;">
+      <h3 style="color: #8a4fbd; font-family: 'Almendra', serif; margin-bottom: 20px; text-align: center;">What Happens Next?</h3>
+      <div style="text-align: left;">
+        <div style="display: flex; align-items: center; margin: 15px 0;">
+          <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">1</div>
+          <div style="color: #2e3b59; font-family: Alegreya, serif;">We read your information and contact you via your preferred platform</div>
+        </div>
+        <div style="display: flex; align-items: center; margin: 15px 0;">
+          <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">2</div>
+          <div style="color: #2e3b59; font-family: Alegreya, serif;">We schedule a free 15-minute call together</div>
+        </div>
+        <div style="display: flex; align-items: center; margin: 15px 0;">
+          <div style="background: #8a4fbd; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">3</div>
+          <div style="color: #2e3b59; font-family: Alegreya, serif;">We discuss your goals and decide if the program is right for you</div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 20px; color: #2e3b59; font-family: Alegreya, serif;">
+        Questions? Email: <!-- REPLACE: contact@dialoguewithdragonns.com -->
+      </div>
     </div>
   </div>
 </section>
-<!-- END CONTACT SECTION -->
+<!-- END CONTACT FORM SECTION -->
 
 </div>
 

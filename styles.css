@@ -486,6 +486,547 @@ h3,
 }
 /* === END CSS: FOOTER BAR === */
 
+/* === BEGIN CSS: TRUST SIGNALS BAR === */
+.trust-signals-bar {
+  width: 100%;
+  background: linear-gradient(135deg, #f8f1ff 0%, #e8d9ff 100%);
+  padding: 24px 0;
+  margin: 0;
+}
+
+.trust-signals-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+}
+
+.trust-signal-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #8a4fbd;
+  font-family: "Alegreya", serif;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.trust-signal-icon {
+  color: #8a4fbd;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.trust-signal-text {
+  color: #2e3b59;
+}
+
+/* Mobile: Stack vertically */
+@media (max-width: 767px) {
+  .trust-signals-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 16px;
+  }
+  
+  .trust-signal-item {
+    font-size: 1em;
+  }
+}
+/* === END CSS: TRUST SIGNALS BAR === */
+
+/* === BEGIN CSS: PROGRAM DETAILS CHAPTER CARDS === */
+.chapter-card {
+  background: rgba(255, 241, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 2px 14px rgba(138, 79, 189, 0.1);
+  border: 1px solid rgba(138, 79, 189, 0.1);
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.chapter-card:hover {
+  box-shadow: 0 8px 25px rgba(138, 79, 189, 0.16);
+  transform: translateY(-2px);
+}
+
+.chapter-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.chapter-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.chapter-badge-try {
+  background: #60a5fa; /* light blue */
+}
+
+.chapter-badge-start {
+  background: #8a4fbd; /* purple */
+}
+
+.chapter-badge-continue {
+  background: #c084fc; /* lavender */
+}
+
+.chapter-badge-soon {
+  background: #f59e0b; /* gold/copper */
+}
+
+.chapter-title {
+  font-family: "Almendra", serif;
+  font-size: 1.4em;
+  color: #8a4fbd;
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+.chapter-duration {
+  color: #2e3b59;
+  font-family: "Alegreya", serif;
+  font-weight: 600;
+}
+
+.chapter-content {
+  font-family: "Alegreya", serif;
+  color: #2e3b59;
+}
+
+.chapter-what-youll-do h4,
+.chapter-included h4 {
+  color: #8a4fbd;
+  font-family: "Almendra", serif;
+  font-size: 1.1em;
+  margin: 15px 0 10px 0;
+  font-weight: 700;
+}
+
+.chapter-what-youll-do ul,
+.chapter-included ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.chapter-what-youll-do li,
+.chapter-included li {
+  padding: 5px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.chapter-what-youll-do li::before,
+.chapter-included li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #cf8660;
+  font-weight: bold;
+}
+
+.chapter-price-box {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0;
+  border: 2px solid #e8b293;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.price-label {
+  font-weight: 600;
+}
+
+.price-value {
+  font-weight: 700;
+  color: #8a4fbd;
+}
+
+.price-value.first-student {
+  color: #cf8660;
+}
+
+.price-savings {
+  text-align: center;
+  font-style: italic;
+  color: #cf8660;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.price-weekly {
+  text-align: center;
+  color: #8a4fbd;
+  font-weight: 600;
+  margin-top: 8px;
+  font-size: 0.95em;
+}
+
+.price-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-option {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #e8b293;
+}
+
+.price-option.recommended {
+  border: 2px solid #cf8660;
+  background: rgba(255, 248, 235, 0.9);
+}
+
+.option-title {
+  font-weight: 700;
+  color: #8a4fbd;
+  margin-bottom: 6px;
+}
+
+.option-details {
+  font-size: 0.9em;
+  color: #2e3b59;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.money-back-promise {
+  background: rgba(207, 134, 96, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: #cf8660;
+  margin-top: 20px;
+}
+
+.availability-note {
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: #f59e0b;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Chapter 3 Greyed Out Styling */
+.chapter-card.greyed-out {
+  opacity: 0.7;
+  filter: grayscale(30%);
+  pointer-events: none;
+  position: relative;
+}
+
+.coming-soon-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(245, 158, 11, 0.95);
+  color: white;
+  padding: 20px 40px;
+  border-radius: 12px;
+  font-family: "Almendra", serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+}
+
+/* Desktop: Chapter 0 full width, Chapters 1-3 in 3 columns */
+@media (min-width: 1024px) {
+  .chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+/* Mobile: All chapters stack vertically */
+@media (max-width: 1023px) {
+  .chapters-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chapter-card {
+    width: 100%;
+  }
+}
+/* === END CSS: PROGRAM DETAILS CHAPTER CARDS === */
+
+/* === BEGIN CSS: WHY IT WORKS SECTION === */
+.why-it-works {
+  background: linear-gradient(135deg, #f8f1ff 0%, #e8d9ff 100%);
+}
+
+.why-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.why-it-works-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 2px 14px rgba(138, 79, 189, 0.1);
+  padding: 30px 24px;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.why-it-works-card:hover {
+  box-shadow: 0 8px 25px rgba(138, 79, 189, 0.16);
+  transform: translateY(-2px);
+}
+
+.why-it-works-image {
+  width: 150px;
+  height: auto;
+  margin: 0 auto 20px auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.why-it-works-heading {
+  font-family: "Almendra", serif;
+  font-size: 1.3em;
+  color: #8a4fbd;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.why-it-works-text {
+  font-family: "Alegreya", serif;
+  color: #2e3b59;
+  line-height: 1.6;
+  font-size: 1.05em;
+}
+
+/* Mobile: Stack vertically */
+@media (max-width: 1023px) {
+  .why-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .why-it-works-card {
+    padding: 24px 20px;
+  }
+  
+  .why-it-works-image {
+    width: 140px;
+  }
+}
+/* === END CSS: WHY IT WORKS SECTION === */
+
+/* === BEGIN CSS: ABOUT TEACHER SECTION === */
+.about-teacher {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.about-teacher-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.teacher-photo {
+  flex-shrink: 0;
+}
+
+.teacher-image {
+  width: 200px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(138, 79, 189, 0.2);
+}
+
+.teacher-bio {
+  flex: 1;
+}
+
+.bio-paragraph {
+  font-family: "Alegreya", serif;
+  color: #2e3b59;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.bio-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile: Stack vertically */
+@media (max-width: 1023px) {
+  .about-teacher-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .teacher-image {
+    width: 180px;
+  }
+  
+  .bio-paragraph {
+    text-align: left;
+  }
+}
+/* === END CSS: ABOUT TEACHER SECTION === */
+
+/* === BEGIN CSS: CONTACT FORM === */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: block;
+  font-family: "Alegreya", serif;
+  font-weight: 600;
+  color: #2e3b59;
+  margin-bottom: 8px;
+  font-size: 1.05em;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e8b293;
+  border-radius: 8px;
+  font-family: "Alegreya", serif;
+  font-size: 1em;
+  color: #2e3b59;
+  background: rgba(255, 255, 255, 0.9);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #8a4fbd;
+  box-shadow: 0 0 0 3px rgba(138, 79, 189, 0.1);
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-helper {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.character-counter {
+  text-align: right;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 4px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-family: "Alegreya", serif;
+  color: #2e3b59;
+  line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox-text {
+  font-size: 1em;
+}
+
+.form-submit-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #8a4fbd 0%, #e8b293 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-family: "Alegreya", serif;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 12px rgba(138, 79, 189, 0.3);
+}
+
+.form-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(138, 79, 189, 0.4);
+}
+
+.form-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile form adjustments */
+@media (max-width: 767px) {
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+    min-height: 44px; /* Touch-friendly */
+  }
+  
+  .form-textarea {
+    min-height: 120px;
+  }
+  
+  .form-submit-btn {
+    min-height: 44px;
+    font-size: 1.05em;
+  }
+}
+/* === END CSS: CONTACT FORM === */
+
 /* === BEGIN CSS: MOBILE-FIRST MEDIA QUERIES === */
 /* Mobile styles (default) */
 .main-container {
