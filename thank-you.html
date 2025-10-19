@@ -31,6 +31,24 @@
       text-align: center;
     }
 
+    /* Mobile fallback for new structure */
+    @media (max-width: 1023px) {
+      .main-content {
+        display: none;
+      }
+      
+      .mobile-content {
+        display: block;
+      }
+    }
+
+    /* Desktop: hide mobile content */
+    @media (min-width: 1024px) {
+      .mobile-content {
+        display: none;
+      }
+    }
+
     /* Thank You page specific banner adjustments */
     .banner-image {
       min-height: 80px !important;
@@ -61,6 +79,7 @@
       color: #8a4fbd;
       font-weight: 700;
       margin-bottom: 16px;
+      text-align: center;
     }
 
     .subtitle {
@@ -68,6 +87,7 @@
       font-size: 1.3em;
       color: #2e3b59;
       margin-bottom: 40px;
+      text-align: center;
     }
 
     .what-happens-next {
@@ -98,11 +118,15 @@
       text-align: left;
     }
 
-    /* Center align specific step items */
-    .step-item:nth-child(2),
-    .step-item:nth-child(3) {
+    /* Center align all step items */
+    .step-item {
       text-align: center;
       justify-content: center;
+    }
+
+    /* Center align step text content */
+    .step-text {
+      text-align: center;
     }
 
     .step-number {
@@ -137,6 +161,7 @@
       color: #8a4fbd;
       margin-bottom: 15px;
       font-weight: 700;
+      text-align: center;
     }
 
     .while-you-wait p {
@@ -144,6 +169,7 @@
       color: #2e3b59;
       margin-bottom: 20px;
       font-size: 1.1em;
+      text-align: center;
     }
 
     .social-links {
@@ -194,6 +220,7 @@
 
     .questions-section {
       margin: 20px 0;
+      text-align: center;
     }
 
 
@@ -239,7 +266,140 @@
       }
 
       .main-content {
+        margin-top: 2px;
+      }
+
+      /* Reduce gap between banner and Thank you text on mobile */
+      .mobile-content {
         margin-top: 5px;
+      }
+    }
+
+    /* Desktop-specific layout redesign */
+    @media (min-width: 1024px) {
+      .banner-image {
+        min-height: 40px !important;
+        max-height: 70px !important;
+      }
+
+      .banner-title {
+        max-width: 40% !important;
+        height: auto !important;
+      }
+
+      .main-content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px;
+        max-width: 1400px;
+        margin: 20px auto;
+        text-align: left;
+      }
+
+      .content-left {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .cards-container {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+      }
+
+      .card-left {
+        flex: 1;
+      }
+
+      .card-right {
+        flex: 1;
+      }
+
+      .main-content-card {
+        background: url('Assets/rectangle background.png') no-repeat center center;
+        background-size: cover;
+        border-radius: 16px;
+        padding: 40px;
+        color: white;
+        text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+
+      .main-content-card h1 {
+        color: white;
+        text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black;
+      }
+
+      .main-content-card p {
+        color: white;
+        text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black;
+      }
+
+      .content-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+      }
+
+      .mascot-image {
+        width: 375px;
+        height: auto;
+        margin: 0;
+        border-radius: 12px;
+        margin-left: 40px;
+      }
+
+      .main-heading {
+        font-size: 2.2em;
+        margin-bottom: 12px;
+        text-align: center;
+      }
+
+      .subtitle {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .what-happens-next {
+        margin: 0;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        text-align: center;
+      }
+
+      .while-you-wait {
+        margin: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .questions-section {
+        margin: 0;
+      }
+
+      .social-links {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-left: 0;
+      }
+
+      .social-link {
+        width: 100%;
+        text-align: center;
+        max-width: 300px;
       }
     }
   </style>
@@ -262,10 +422,56 @@
 
   <!-- BEGIN MAIN CONTENT -->
   <div class="main-content">
-    <img src="Assets/mascot-celebrate.png" alt="Celebrate Mascot" class="mascot-image">
+    <div class="content-left">
+      <div class="main-content-card">
+        <h1 class="main-heading">Thank You!</h1>
+        <p class="subtitle">Your information has been received.</p>
+
+        <div class="cards-container">
+          <div class="card-left">
+            <div class="what-happens-next">
+              <h3>What Happens Next:</h3>
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-text">We'll read your information and contact you via your preferred platform (LINE, KakaoTalk, or Instagram)</div>
+              </div>
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-text">We'll schedule a free 15-minute call together</div>
+              </div>
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-text">We'll discuss your goals and see if the program is right for you</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-right">
+            <div class="while-you-wait">
+              <h3>While you wait:</h3>
+              <p>You can learn more about us and about the worlds you can play in. Simply:</p>
+              <div class="social-links">
+                <a href="<!-- REPLACE: https://instagram.com/yourpage -->" class="social-link" target="_blank">Follow us on Instagram</a>
+                <a href="<!-- REPLACE: https://youtube.com/yourchannel -->" class="social-link" target="_blank">Watch beginner RPG videos on YouTube</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
     
+    <div class="content-right">
+      <img src="Assets/mascot-celebrate.png" alt="Celebrate Mascot" class="mascot-image">
+    </div>
+  </div>
+
+  <!-- Mobile fallback content (hidden on desktop) -->
+  <div class="mobile-content">
     <h1 class="main-heading">Thank You!</h1>
     <p class="subtitle">Your information has been received.</p>
+    
+    <img src="Assets/mascot-celebrate.png" alt="Celebrate Mascot" class="mascot-image">
 
     <div class="what-happens-next">
       <h3>What Happens Next:</h3>
@@ -292,9 +498,6 @@
       </div>
     </div>
 
-    <div class="questions-section">
-      <p style="color: #2e3b59; font-family: 'Alegreya', serif; margin: 0;">Questions? Email: <!-- REPLACE: contact@dialoguewithdragonns.com --></p>
-    </div>
   </div>
 
   <!-- BEGIN SCRIPTS -->
