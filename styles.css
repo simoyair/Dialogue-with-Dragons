@@ -303,7 +303,7 @@ body {
 @media (max-width: 1023px) {
   .mobile-banner-spacer {
     display: block;
-    height: 80px; /* Further reduced to move first card up to green line */
+    height: 40px; /* Reduced gap between banner and content */
   }
 }
 /* === End CSS: Banner === */
