@@ -5,30 +5,46 @@
   <title>Thank You - Dialogue with Dragons</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Alegreya:700|Quattrocento:400,700|Almendra:700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       width: 100vw;
-      height: 100vh;
       overflow-x: hidden;
-      background: linear-gradient(135deg, #8a4fbd 0%, #e8b293 100%);
+      background: url("Assets/bg_v3.png") repeat-y center top, rgba(42, 32, 104, 0.91);
+      background-size: 100% auto;
+      background-attachment: scroll;
+      min-height: 100vh;
       margin: 0;
+      padding: 0;
       font-family: "Quattrocento", serif;
       color: #2e3b59;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      box-sizing: border-box;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
     }
 
-    .thank-you-container {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      padding: 40px;
+    .main-content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px 20px;
       text-align: center;
-      max-width: 600px;
-      width: 100%;
+    }
+
+    /* Thank You page specific banner adjustments */
+    .banner-image {
+      min-height: 80px !important;
+      max-height: 140px !important;
+    }
+
+    .banner-title {
+      top: 50% !important;
+      transform: translate(-50%, -50%) !important;
+    }
+
+    /* Reduce gap between banner and mascot */
+    .main-content {
+      margin-top: 10px;
     }
 
     .mascot-image {
@@ -55,19 +71,24 @@
     }
 
     .what-happens-next {
-      background: rgba(255, 241, 255, 0.8);
+      background: url('Assets/rectangle background.png') no-repeat center center;
+      background-size: contain;
       border-radius: 16px;
-      padding: 30px;
+      padding: 40px;
       margin: 30px 0;
-      border: 2px solid #e8b293;
+      color: white;
+      text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black;
+      position: relative;
+      z-index: 1;
     }
 
     .what-happens-next h3 {
       font-family: "Almendra", serif;
       font-size: 1.5em;
-      color: #8a4fbd;
+      color: white;
       margin-bottom: 20px;
       font-weight: 700;
+      text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black;
     }
 
     .step-item {
@@ -75,6 +96,13 @@
       align-items: flex-start;
       margin: 15px 0;
       text-align: left;
+    }
+
+    /* Center align specific step items */
+    .step-item:nth-child(2),
+    .step-item:nth-child(3) {
+      text-align: center;
+      justify-content: center;
     }
 
     .step-number {
@@ -92,16 +120,14 @@
     }
 
     .step-text {
-      color: #2e3b59;
+      color: white;
       font-family: "Alegreya", serif;
       font-size: 1.05em;
       line-height: 1.5;
+      text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black;
     }
 
     .while-you-wait {
-      background: rgba(232, 178, 147, 0.2);
-      border-radius: 12px;
-      padding: 20px;
       margin: 30px 0;
     }
 
@@ -113,6 +139,13 @@
       font-weight: 700;
     }
 
+    .while-you-wait p {
+      font-family: "Alegreya", serif;
+      color: #2e3b59;
+      margin-bottom: 20px;
+      font-size: 1.1em;
+    }
+
     .social-links {
       display: flex;
       justify-content: center;
@@ -121,59 +154,53 @@
     }
 
     .social-link {
-      color: #8a4fbd;
-      text-decoration: none;
+      border: 2px solid #CF8660;
+      border-radius: 23px;
+      background: linear-gradient(90deg, #9d73ec 0%, #c07efc 100%);
+      color: #fff9ef;
+      box-shadow: 0 1.5px 12px 0 #ba84eb42;
+      padding: 0.75em 2.3em;
       font-family: "Alegreya", serif;
-      font-weight: 600;
-      padding: 8px 16px;
-      border: 2px solid #8a4fbd;
-      border-radius: 8px;
-      transition: all 0.3s;
+      font-size: 1.07em;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: background 0.22s, color 0.16s, box-shadow 0.16s;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .social-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('Assets/CTA_bg.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .social-link:hover {
-      background: #8a4fbd;
-      color: white;
+      background: linear-gradient(90deg, #c07efc 0%, #fcdebe 97%);
+      color: #8a4fbd;
+      box-shadow: 0 2px 17px 3px #cf866070;
     }
 
-    .contact-box {
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 12px;
-      padding: 20px;
+    .questions-section {
       margin: 20px 0;
-      border: 1px solid #e8b293;
     }
 
-    .return-button {
-      background: linear-gradient(90deg, #8a4fbd 0%, #e8b293 100%);
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 16px 32px;
-      font-family: "Alegreya", serif;
-      font-size: 1.1em;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s;
-      box-shadow: 0 2px 12px rgba(138, 79, 189, 0.3);
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-    }
-
-    .return-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(138, 79, 189, 0.4);
-    }
-
-    .return-button:active {
-      transform: translateY(0);
-    }
 
     /* Mobile responsive */
     @media (max-width: 767px) {
-      .thank-you-container {
-        padding: 30px 20px;
+      .main-content {
+        padding: 20px 15px;
       }
       
       .main-heading {
@@ -197,11 +224,44 @@
       .step-number {
         margin: 0 auto 10px auto;
       }
+
+      .what-happens-next {
+        background: url('Assets/rect_bg_m.png') no-repeat center top;
+        background-size: 100% 100%;
+        min-height: 400px;
+        padding: 40px 20px;
+      }
+
+      /* Mobile banner adjustments */
+      .banner-image {
+        min-height: 60px !important;
+        max-height: 100px !important;
+      }
+
+      .main-content {
+        margin-top: 5px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="thank-you-container">
+  <!-- BEGIN BANNER IMAGE -->
+  <div class="banner-wrap">
+    <img class="banner-image" 
+         src="Assets\Banner_bg_only.png" 
+         alt="Dialogue with Dragons Banner" />
+    <img class="banner-title" 
+         src="Assets\DwD_title.png" 
+         alt="Dialogue with Dragons Title" />
+  </div>
+  <!-- Spacer to prevent layout jump when banner becomes sticky -->
+  <div class="banner-spacer" aria-hidden="true"></div>
+  <!-- Mobile spacer to account for absolute positioned banner -->
+  <div class="mobile-banner-spacer" aria-hidden="true"></div>
+  <!-- END BANNER IMAGE -->
+
+  <!-- BEGIN MAIN CONTENT -->
+  <div class="main-content">
     <img src="Assets/mascot-celebrate.png" alt="Celebrate Mascot" class="mascot-image">
     
     <h1 class="main-heading">Thank You!</h1>
@@ -225,17 +285,44 @@
 
     <div class="while-you-wait">
       <h3>While you wait:</h3>
+      <p>You can learn more about us and about the worlds you can play in. Simply:</p>
       <div class="social-links">
         <a href="<!-- REPLACE: https://instagram.com/yourpage -->" class="social-link" target="_blank">Follow us on Instagram</a>
         <a href="<!-- REPLACE: https://youtube.com/yourchannel -->" class="social-link" target="_blank">Watch beginner RPG videos on YouTube</a>
       </div>
     </div>
 
-    <div class="contact-box">
+    <div class="questions-section">
       <p style="color: #2e3b59; font-family: 'Alegreya', serif; margin: 0;">Questions? Email: <!-- REPLACE: contact@dialoguewithdragonns.com --></p>
     </div>
-
-    <a href="index.html" class="return-button">Return to Home Page</a>
   </div>
+
+  <!-- BEGIN SCRIPTS -->
+  <script>
+    // Banner sticky behavior - position below navbar when scrolling
+    (function() {
+      const banner = document.querySelector('.banner-wrap');
+      if (!banner) return;
+
+      const STICKY_OFFSET = 10; // Small offset to trigger the change
+
+      function updateBannerPosition() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > STICKY_OFFSET) {
+          if (!banner.classList.contains('is-raised')) {
+            banner.classList.add('is-raised');
+          }
+        } else {
+          if (banner.classList.contains('is-raised')) {
+            banner.classList.remove('is-raised');
+          }
+        }
+      }
+
+      window.addEventListener('scroll', updateBannerPosition);
+      updateBannerPosition();
+    })();
+  </script>
 </body>
 </html>
