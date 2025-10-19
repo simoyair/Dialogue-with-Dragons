@@ -2077,6 +2077,10 @@ h3,
   color: #2e3b59;
   border-bottom: 1px solid #f5e9ff;
 }
+.collapsible-content strong {
+  font-weight: bold;
+  color: #8a4fbd;
+}
 .collapsible-content > div:last-child {
   border-bottom: none;
 }
