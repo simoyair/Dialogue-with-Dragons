@@ -658,7 +658,7 @@ Once you join the program, we use Discord for all sessions and community activit
   </div>
 
   <div class="card" style="max-width: 600px; margin: 0 auto; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 40px; background: rgba(255, 255, 255, 0.8);">
-    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbzsAbt5ia0ApqjWvX7tCApVB5EuZmI7KF2xQrZD6P84OZMrLGqDxZCwVJNqQqZdBXdI/exec" method="POST">
+    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbweXet5t41ZLZ4t_kzSmDkKi8OoAKiTpFNIFfhQq-l6i7k9632_WJoIPzt17er5NjTR/exec" method="POST">
       <div class="form-group">
         <label for="name" class="form-label">Your Name: <span style="color: #d32f2f;">*</span></label>
         <input type="text" id="name" name="name" class="form-input" required>
@@ -1043,39 +1043,66 @@ document.querySelectorAll('.collapsible-header').forEach(btn => {
       }
     });
 
-    // Form submission handler
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Basic validation
-      const formData = new FormData(this);
-      const name = formData.get('name').trim();
-      const phone = formData.get('phone').trim();
-      const contactMethod = formData.get('contactMethod');
-      const contactId = formData.get('contactId').trim();
-      const aboutYourself = formData.get('aboutYourself').trim();
-      const programUnderstanding = formData.get('programUnderstanding');
-      const moneybackAcknowledgment = formData.get('moneybackAcknowledgment');
+// Form submission handler
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Basic validation
+  const formData = new FormData(this);
+  const name = formData.get('name').trim();
+  const phone = formData.get('phone').trim();
+  const contactMethod = formData.get('contactMethod');
+  const contactId = formData.get('contactId').trim();
+  const aboutYourself = formData.get('aboutYourself').trim();
+  const programUnderstanding = formData.get('programUnderstanding');
+  const moneybackAcknowledgment = formData.get('moneybackAcknowledgment');
 
-      // Check required fields
-      if (!name || !phone || !contactMethod || !contactId || !aboutYourself || !programUnderstanding || !moneybackAcknowledgment) {
-        alert('Please fill in all required fields.');
-        return;
-      }
+  // Check required fields
+  if (!name || !phone || !contactMethod || !contactId || !aboutYourself || !programUnderstanding || !moneybackAcknowledgment) {
+    alert('Please fill in all required fields.');
+    return;
+  }
 
-      // Check character count
-      if (aboutYourself.length > 300) {
-        alert('Please write no more than 300 characters in the "About Yourself" section.');
-        return;
-      }
+  // Check character count
+  if (aboutYourself.length < 50 || aboutYourself.length > 300) {
+    alert('Please write between 50-300 characters in the "About Yourself" section.');
+    return;
+  }
 
-      // If form is valid, clear it and open thank you page
+  // If validation passes, submit the form
+  // Show loading message
+  const submitBtn = this.querySelector('.form-submit-btn');
+  const originalBtnText = submitBtn.innerHTML;
+  submitBtn.innerHTML = 'Sending...';
+  submitBtn.disabled = true;
+
+  // Submit form data to Google Apps Script
+  fetch(this.action, {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.result === 'success') {
+      // Reset form
       this.reset();
       document.getElementById('charCount').textContent = '0';
       
-      // Open thank you page in new tab
+      // Open thank you page
       window.open('thank-you.html', '_blank');
-    });
-  </script>
+      
+      // Reset button
+      submitBtn.innerHTML = originalBtnText;
+      submitBtn.disabled = false;
+    } else {
+      throw new Error('Submission failed');
+    }
+  })
+  .catch(error => {
+    alert('There was an error submitting your form. Please try again or contact us directly.');
+    submitBtn.innerHTML = originalBtnText;
+    submitBtn.disabled = false;
+  });
+});  </script>
 </body>
 </html>
