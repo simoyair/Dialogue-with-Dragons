@@ -118,17 +118,6 @@
       text-align: left;
     }
 
-    /* Center align all step items */
-    .step-item {
-      text-align: center;
-      justify-content: center;
-    }
-
-    /* Center align step text content */
-    .step-text {
-      text-align: center;
-    }
-
     .step-number {
       background: #8a4fbd;
       color: white;
@@ -250,8 +239,14 @@
         justify-content: center;
       }
       
-      .step-item {
+      .mobile-content .step-item {
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .mobile-content .step-text {
         text-align: center;
       }
       
@@ -261,9 +256,10 @@
 
       .what-happens-next {
         background: url('Assets/rect_bg_m.png') no-repeat center top;
-        background-size: 100% 100%;
-        min-height: 400px;
-        padding: 40px 20px;
+        /* Keep the frame narrower, but stretch it vertically so top and bottom are fully visible */
+        background-size: 90% 100%;
+        min-height: 320px;
+        padding: 24px 16px 28px;
         text-align: center;
       }
 
@@ -489,7 +485,7 @@
       <h3>What Happens Next:</h3>
       <div class="step-item">
         <div class="step-number">1</div>
-        <div class="step-text">We'll read your information and contact you via your preferred platform (LINE, KakaoTalk, or Instagram)</div>
+        <div class="step-text">We'll read your information and contact you<br>via your preferred platform (LINE, KakaoTalk, or Instagram)</div>
       </div>
       <div class="step-item">
         <div class="step-number">2</div>
