@@ -55,16 +55,17 @@ body {
   margin-right: 24px;
   position: absolute; /* let links center */
   left: 12px;
-  width: 64px; /* reserve horizontal space so text doesn't overlap */
+  width: auto; /* Let width adjust to logo size */
+  height: 100%; /* Full height of navbar */
 }
 .navbar-logo img {
-  height: 44px; /* Constrain height to fit navbar */
-  width: 44px; /* Optional, or: width: auto; for proportional logo */
+  height: 100%; /* Height equal to navbar height */
+  width: auto; /* Maintain aspect ratio */
   object-fit: contain; /* Ensures aspect ratio is preserved and looks good */
-  border-radius: 10px; /* Optional: match your previous design */
-  background: none; /* Remove white background */
-  box-shadow: 0 2px 9px #a99af1a0;
-  padding: 2px;
+  border-radius: 0; /* Remove rounded corners */
+  background: none; /* Remove any background */
+  box-shadow: none; /* Remove box shadow */
+  padding: 0; /* Remove padding */
   display: block;
   flex-shrink: 0;
 }
@@ -204,26 +205,54 @@ body {
     border-bottom-right-radius: 32px;
   }
 }
-/* Desktop: Banner starts at very top, shifts up when scrolling */
+/* Desktop: Banner starts at top (behind navbar), shifts up when scrolling */
 @media (min-width: 1024px) {
   .banner-wrap {
-    margin-top: 0; /* Start at very top */
-    top: 0 !important;
+    margin-top: 0; /* Start at top of page */
+    top: 0 !important; /* Position at top, behind navbar */
     position: sticky;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 8; /* Behind navbar (navbar is z-index: 20) */
   }
   
   .banner-image {
     margin-top: 0;
     object-position: center top;
+    max-height: 140px;
+    min-height: 100px;
   }
   
-  /* When scrolled, shift banner up to show only bottom */
+  .banner-title {
+    max-width: 35% !important;
+    max-height: 48px !important;
+    top: 95px !important; /* 72px navbar + 23px padding */
+    left: 50%;
+    transform: translate(-50%, 0) !important;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    object-fit: contain;
+  }
+  
+  /* When scrolled, make banner 72px tall and position BEHIND navbar as background */
   .banner-wrap.scrolled-away {
-    transform: translateY(-60%) !important;
+    margin-top: 0 !important; /* Remove initial margin when scrolled */
+    top: 0 !important; /* Position at top, BEHIND navbar (not below it) */
+    transform: none !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto;
+    height: 72px !important; /* Constrain wrapper height to match navbar */
+    overflow: hidden !important; /* Hide overflow */
+    z-index: 8 !important; /* Behind navbar */
+  }
+  
+  /* When scrolled, make banner image exactly 72px tall */
+  .banner-wrap.scrolled-away .banner-image {
+    height: 72px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
+    width: 100% !important;
+    object-fit: cover;
+    object-position: center bottom; /* Show bottom portion of image */
   }
   
   /* Hide banner title when scrolled on desktop */
@@ -231,24 +260,9 @@ body {
     opacity: 0 !important;
     visibility: hidden !important;
   }
-}
-
-/* Desktop: Reduce banner height for better proportion */
-@media (min-width: 1024px) {
-  .banner-image {
-    max-height: 140px;
-    min-height: 100px;
-    object-position: center top;
-  }
-  
-  .banner-title {
-    max-width: 35%; /* Even smaller initially */
-    top: 70%;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
   
   .banner-wrap.is-raised {
-    top: 52px; /* Match new header height */
+    top: 72px; /* Match new header height */
   }
   
   .banner-wrap.is-raised .banner-title {
@@ -1374,12 +1388,12 @@ h3,
 /* Desktop styles */
 @media (min-width: 1024px) {
   .navbar {
-    height: 52px; /* Reduced from 64px to be less obstructive */
+    height: 72px; /* Taller navbar on desktop */
   }
   
   .navbar-logo img {
-    height: 34px; /* Proportionally smaller */
-    width: 34px;
+    height: 72px; /* Height equal to navbar height (72px) */
+    width: auto; /* Maintain aspect ratio */
   }
   
   .main-container {
@@ -1389,12 +1403,12 @@ h3,
   
   .navbar-links {
     gap: 28px;
-    font-size: 1.08em;
+    font-size: 1.25em; /* Larger text on desktop */
     margin-left: 200px; /* Make space for logo + title image */
   }
   
   .navbar-apply-btn {
-    font-size: 1.08em;
+    font-size: 1.25em; /* Larger text on desktop */
     padding: 8px 16px;
   }
 }
@@ -1438,15 +1452,25 @@ h3,
   .banner-title-header {
     display: block !important;
     position: absolute !important;
-    left: 75px !important;
+    left: 80px !important; /* Moved further left to avoid overlap with logo and navbar text */
     top: 50% !important;
     transform: translateY(-50%) !important;
-    height: 56px !important;
+    height: 64px !important; /* Larger to fit taller navbar */
     width: auto !important;
     max-width: 280px !important;
     z-index: 25 !important;
     pointer-events: none !important;
     object-fit: contain !important;
+  }
+  
+  /* Move logo further left when navbar has scrolled class */
+  .navbar.scrolled .navbar-logo {
+    left: 8px !important; /* Move logo further left */
+  }
+  
+  /* Adjust navbar links margin when scrolled to avoid overlap */
+  .navbar.scrolled .navbar-links {
+    margin-left: 380px !important; /* More space for logo + title, adjusted for new positions */
   }
 }
 /* CTA texts inside main card */
