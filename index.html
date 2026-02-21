@@ -142,6 +142,79 @@
   
   <p style="text-align: center; color: #2e3b59; font-family: 'Alegreya', serif; font-size: 1.1em; margin-bottom: 30px; line-height: 1.6;">Everyone starts with Chapter 0. When you complete a chapter, you level up to the next one. Build your confidence step by step.</p>
   
+  <!-- BEGIN: PRIVATE TUTORING OFFER -->
+  <div class="tutoring-offer-card" style="margin-bottom: 40px;">
+
+    <!-- Collapsed header area (always visible) -->
+    <div class="tutoring-offer-body">
+
+      <!-- Badge -->
+      <span class="tutoring-badge">Available Now</span>
+
+      <!-- Heading -->
+      <h3 style="font-family: 'Almendra', serif; color: #9b5c1a; margin: 10px 0 8px;">
+        Private English Lessons — Learn One-on-One with Your Teacher
+      </h3>
+
+      <!-- Summary -->
+      <p style="font-family: 'Alegreya', serif; color: #2e3b59; margin: 0 0 12px;">
+        Practice speaking English through storytelling and creative conversation.
+        Available to 5 students.
+      </p>
+
+      <!-- Pricing -->
+      <p style="font-family: 'Alegreya', serif; color: #2e3b59; margin: 0 0 16px;">
+        <strong style="font-size: 1.15em;">$60 per hour</strong> &nbsp;|&nbsp;
+        Try a first lesson for <strong style="font-size: 1.15em;">$10</strong> (30 minutes)
+      </p>
+
+    </div><!-- /.tutoring-offer-body -->
+
+    <!-- Start Now button — centered -->
+    <div style="display: flex; justify-content: center; margin-top: 20px;">
+      <button class="pill-btn" onclick="scrollToSection('contact-form')">Start Now</button>
+    </div>
+
+    <!-- Learn More toggle — centered below Start Now -->
+    <div style="display: flex; justify-content: center; margin-top: 12px;">
+      <button class="tutoring-toggle-link" onclick="toggleTutoringOffer(this)" aria-expanded="false">
+        Learn More ▼
+      </button>
+    </div>
+
+    <!-- Expanded content (hidden by default — NOT using .collapsible-content class) -->
+    <div class="tutoring-offer-details" style="display: none;">
+
+      <h4 style="font-family: 'Almendra', serif; color: #9b5c1a; margin: 0 0 8px;">What to Expect:</h4>
+      <ul style="font-family: 'Alegreya', serif; color: #2e3b59; margin: 0 0 20px; padding-left: 1.4em;">
+        <li>Lessons are just for you — your teacher helps you at your level</li>
+        <li>Practice English naturally through stories and conversation</li>
+        <li>We find a time that works for you, in your timezone</li>
+        <li>Lessons are online — on video calls</li>
+      </ul>
+
+      <h4 style="font-family: 'Almendra', serif; color: #9b5c1a; margin: 0 0 8px;">How to Start:</h4>
+      <ol style="font-family: 'Alegreya', serif; color: #2e3b59; margin: 0 0 20px; padding-left: 1.4em;">
+        <li>Fill out the application form below</li>
+        <li>We contact you to schedule your first lesson ($10, 30 minutes)</li>
+        <li>If you want to continue, the $10 comes off your first month's payment</li>
+      </ol>
+
+      <h4 style="font-family: 'Almendra', serif; color: #9b5c1a; margin: 0 0 8px;">Payment:</h4>
+      <p style="font-family: 'Alegreya', serif; color: #2e3b59; margin: 0 0 12px;">
+        You pay once a month, at the beginning of the month. The price depends on
+        how many lessons you have that month ($60 per lesson).
+      </p>
+      <p style="font-family: 'Alegreya', serif; color: #2e3b59; margin: 0;">
+        Private lesson students will be the first to hear about our group programs
+        (Chapter 0 and more).
+      </p>
+
+    </div><!-- /.tutoring-offer-details -->
+
+  </div><!-- .tutoring-offer-card -->
+  <!-- END: PRIVATE TUTORING OFFER -->
+
   <!-- Chapter 0: Full Width at Top -->
   <div class="chapter-card chapter-0" style="margin-bottom: 40px;">
     <div class="chapter-header">
@@ -828,6 +901,20 @@ Once you join the program, we use Discord for all sessions and community activit
   </script>
   <!-- END SCRIPTS -->
    <script>
+function toggleTutoringOffer(btn) {
+  var details = btn.closest('.tutoring-offer-card').querySelector('.tutoring-offer-details');
+  var expanded = details.style.display === 'block';
+  if (expanded) {
+    details.style.display = 'none';
+    btn.textContent = 'Learn More ▼';
+    btn.setAttribute('aria-expanded', 'false');
+  } else {
+    details.style.display = 'block';
+    btn.textContent = 'Show Less ▲';
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
 function toggleCollapsible(btn) {
   // Individual collapsible - each card opens/closes independently
   var content = btn.nextElementSibling;
