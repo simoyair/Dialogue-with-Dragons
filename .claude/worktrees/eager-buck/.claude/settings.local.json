@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(node:*)",
+      "Bash(where:*)",
+      "Bash(\"C:/Users/SIMO YAIR/AppData/Local/Programs/Python/Python310/python.exe\" --version)",
+      "Bash(\"/c/Users/SIMO YAIR/AppData/Local/Programs/Python/Python312/python.exe\" --version)"
+    ]
+  }
+}
