@@ -169,6 +169,20 @@ input.discord-input::placeholder{color:var(--ink-l);font-size:7.5pt;}
 .save-dot{position:fixed;top:12px;right:16px;font-family:'Almendra',serif;font-size:8pt;color:var(--ink-l);background:var(--parchment);padding:4px 8px;border-radius:20px;border:1px solid var(--line-soft);opacity:0;transition:opacity .3s;z-index:400;}
 .save-dot.show{opacity:1;}
 
+/* ── SHEET TOOLBAR ──────────── */
+.sheet-toolbar{width:210mm;margin:0 auto 12px;display:flex;gap:8px;justify-content:flex-end;padding:0 2px;}
+.tb-btn{font-family:'Almendra',serif;font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:6px;border:1.5px solid;cursor:pointer;transition:all .15s;background:transparent;}
+.tb-btn.tb-export{border-color:var(--purple);color:var(--purple);}
+.tb-btn.tb-export:hover{background:var(--purple);color:white;}
+.tb-btn.tb-discord{border-color:#5865F2;color:#5865F2;}
+.tb-btn.tb-discord:hover{background:#5865F2;color:white;}
+.tb-btn.tb-import{border-color:var(--copper);color:var(--copper);}
+.tb-btn.tb-import:hover{background:var(--copper-l);color:var(--ink);}
+.tb-status{font-family:'Almendra',serif;font-size:7.5pt;align-self:center;padding:4px 10px;border-radius:12px;display:none;}
+.tb-status.ok{display:inline;color:var(--hit-g);background:var(--hit-bg);}
+.tb-status.err{display:inline;color:var(--danger);background:var(--danger-bg);}
+@media print{.sheet-toolbar{display:none;}}
+
 /* ══ DICE ROLLER ════════════ */
 .dice-fab{position:fixed;bottom:24px;right:24px;width:58px;height:58px;border-radius:50%;background:var(--purple);color:white;border:none;font-size:26px;cursor:pointer;box-shadow:0 4px 16px rgba(90,61,114,.45);z-index:300;transition:transform .2s,background .2s;display:flex;align-items:center;justify-content:center;}
 .dice-fab:hover{transform:scale(1.08);background:var(--purple-l);}
@@ -285,6 +299,17 @@ input.discord-input::placeholder{color:var(--ink-l);font-size:7.5pt;}
 <div class="save-dot" id="save-dot">Saved ✓</div>
 
 <!-- ═══════ CHARACTER SHEET ═══════ -->
+<!-- ═══════ SHEET TOOLBAR ═══════ -->
+<div class="sheet-toolbar">
+  <span class="tb-status" id="tb-status"></span>
+  <button class="tb-btn tb-export" onclick="exportJSON()">⬇ Save Sheet</button>
+  <button class="tb-btn tb-discord" onclick="sendSheetToDiscord()">🎮 Send to GM</button>
+  <label class="tb-btn tb-import" style="cursor:pointer;">
+    ⬆ Load Sheet
+    <input type="file" accept=".json" style="display:none;" onchange="importJSON(this)">
+  </label>
+</div>
+
 <div class="sheet">
 
   <div class="header">
@@ -394,7 +419,7 @@ input.discord-input::placeholder{color:var(--ink-l);font-size:7.5pt;}
       </div>
     </div>
     <div class="panel">
-      <div class="panel-title">Inspiration (max 5)</div>
+      <div class="panel-title">Power-Up (max 5)</div>
       <div class="token-track">
         <div class="token" id="tok-0" onclick="toggleToken(0)"></div>
         <div class="token" id="tok-1" onclick="toggleToken(1)"></div>
@@ -541,6 +566,7 @@ input.discord-input::placeholder{color:var(--ink-l);font-size:7.5pt;}
 
 <script>
 const WEBHOOK_URL='https://discord.com/api/webhooks/1502208417790562304/uuKbmMT1vTUES9p4oJ6kSj2eND1fVx96GE427zXlC09hcEp7JxtWA1AVH072-WyzqdQC';
+const SHEET_WEBHOOK_URL='https://discord.com/api/webhooks/1517819678012211231/cKY6EokxLtEa1Xbb0dZ8N0c2ZWgZWga5YqHNNfYjKH02i-xaW4yTnhs1_Tt_9wnVD0eM';
 // ══════════════════════════════════════════
 // CLASSES
 // ══════════════════════════════════════════
@@ -1160,6 +1186,102 @@ function handleDieClick(el,wIdx,dIdx){
     }
   }
   updateMidActions();
+}
+
+// ══════════════════════════════════════════
+// SHEET EXPORT / IMPORT / SEND
+// ══════════════════════════════════════════
+function setToolbarStatus(msg,type,ms=3000){
+  const el=document.getElementById('tb-status');
+  el.textContent=msg;el.className='tb-status '+type;
+  if(ms)setTimeout(()=>{el.className='tb-status';},ms);
+}
+
+function buildSheetJSON(){
+  const cls=CLASSES.find(c=>c.id===D.classId);
+  return JSON.stringify({
+    _version:'hatchling_v3',
+    name:D.name,species:D.species,appearance:D.appearance,
+    className:cls?cls.name:'',classId:D.classId,
+    statAssign:D.statAssign,defStat:D.defStat,
+    armor:D.armor,armorPips:D.armorPips,
+    hp:D.hp,tokens:D.tokens,heroTokens:D.heroTokens,
+    sk1:D.sk1,sk2:D.sk2,notes:D.notes,
+    gameName:D.gameName||''
+  },null,2);
+}
+
+function exportJSON(){
+  try{
+    const json=buildSheetJSON();
+    const slug=(D.name||'character').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    const fname=slug+'-hatchling.json';
+    const blob=new Blob([json],{type:'application/json'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);a.download=fname;
+    document.body.appendChild(a);a.click();
+    document.body.removeChild(a);URL.revokeObjectURL(a.href);
+    setToolbarStatus('✓ Saved as '+fname,'ok');
+  }catch(e){setToolbarStatus('Save failed','err');}
+}
+
+function importJSON(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    try{
+      const obj=JSON.parse(e.target.result);
+      // Merge imported data into D, keeping defaults for missing keys
+      const defaults={name:'',species:'',appearance:'',classId:null,gameName:'',
+        statAssign:{phys:-1,ment:-1,soc:-1,intu:-1},defStat:'phys',
+        armor:'None',armorPips:[false,false],
+        hp:[false,false,false,false,false,false,false,false],
+        tokens:[false,false,false,false,false],
+        heroTokens:[false,false,false],sk1:'',sk2:'',notes:''};
+      D=Object.assign(defaults,obj);
+      localStorage.setItem(KEY,JSON.stringify(D));
+      loadData();initSheet();
+      setToolbarStatus('✓ Sheet loaded','ok');
+    }catch(err){setToolbarStatus('Import failed — invalid file','err');}
+  };
+  reader.readAsText(file);
+  input.value=''; // reset so same file can be reloaded
+}
+
+async function sendSheetToDiscord(){
+  if(SHEET_WEBHOOK_URL==='YOUR_SHEET_WEBHOOK_URL_HERE'){
+    setToolbarStatus('No sheet webhook configured','err');return;
+  }
+  const cls=CLASSES.find(c=>c.id===D.classId);
+  const stats=['phys','ment','soc','intu'].map(k=>{
+    const v=D.statAssign[k];return {phys:'Physical',ment:'Mental',soc:'Social',intu:'Intuition'}[k]+(v>=0?' +'+v:' —');
+  }).join(' · ');
+  const summary=[
+    '**'+(D.name||'Unnamed Character')+'**'+(cls?' — '+cls.name:'')+(D.species?' ('+D.species+')':''),
+    stats,
+    D.gameName?'Game: '+D.gameName:''
+  ].filter(Boolean).join('\n');
+
+  const json=buildSheetJSON();
+  const slug=(D.name||'character').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  const fname=slug+'-hatchling.json';
+  const blob=new Blob([json],{type:'application/json'});
+
+  const form=new FormData();
+  form.append('payload_json',JSON.stringify({
+    username:(D.name||'Player')+' (Hatchling Sheet)',
+    content:summary
+  }));
+  form.append('file',blob,fname);
+
+  setToolbarStatus('Sending…','ok',0);
+  try{
+    await fetch(SHEET_WEBHOOK_URL,{method:'POST',body:form});
+    setToolbarStatus('✓ Sent to GM','ok');
+  }catch(e){
+    setToolbarStatus('Send failed','err');
+    console.warn('Sheet webhook error:',e);
+  }
 }
 
 // ══════════════════════════════════════════
