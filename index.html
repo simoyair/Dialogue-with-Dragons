@@ -97,41 +97,38 @@
 <!-- BEGIN TRUST CREDIBILITY SECTION -->
 <section class="trust-section" id="why-choose-us">
   <h2 class="trust-title">Why Learn with Us</h2>
-  <div class="trust-collapsible-container">
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Your Teacher</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div>5+ years helping students speak English confidently</div>
-        <div>Experienced Game Master who makes learning fun</div>
-        <div>After each session, we meet one-on-one to help you improve</div>
-        <div>Focused on helping you feel comfortable making mistakes</div>
+  <div style="background: rgba(255,255,255,0.7); border-radius: 20px; box-shadow: 0 2px 18px rgba(138,79,189,0.10); max-width: 900px; margin: 0 auto; overflow: hidden;">
+    
+    <!-- Image -->
+    <img src="Assets/learn-with-us.png" alt="A wise teacher dragon and student dragons playing a story game together" style="width: 100%; display: block; border-radius: 20px 20px 0 0;">
+    
+    <!-- Three content blocks -->
+    <div class="why-learn-columns" style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+      
+      <!-- Your Teacher -->
+      <div style="flex: 1; min-width: 200px; padding: 28px 28px 28px 28px; box-sizing: border-box;">
+        <h3 style="color: #8a4fbd; font-family: 'Almendra', serif; font-size: 1.15em; margin: 0 0 12px;">Your Teacher</h3>
+        <p style="color: #2e3b59; font-family: 'Alegreya', serif; font-size: 1em; line-height: 1.6; margin: 0;">5+ years helping students speak English with confidence. After each session, we meet one-on-one to help you improve. You will always feel safe to make mistakes.</p>
       </div>
-    </div>
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Learning Method</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div>University research shows that role-playing games reduce the fear of speaking English and increase students' motivation to learn</div>
-        <div>Safe space to practice – mistakes become part of the story</div>
-        <div>Real conversation practice in fun contexts</div>
-        <div>Build your confidence step by step as your character grows</div>
+
+      <!-- Divider -->
+      <div class="why-learn-divider" style="width: 1px; min-width: 1px; background: rgba(138,79,189,0.15); margin: 20px 0; flex-shrink: 0;"></div>
+
+      <!-- Learning Method -->
+      <div style="flex: 1; min-width: 200px; padding: 28px 28px 28px 28px; box-sizing: border-box;">
+        <h3 style="color: #8a4fbd; font-family: 'Almendra', serif; font-size: 1.15em; margin: 0 0 12px;">Learning Method</h3>
+        <p style="color: #2e3b59; font-family: 'Alegreya', serif; font-size: 1em; line-height: 1.6; margin: 0;">Research shows that story games reduce the fear of speaking English. You practice real conversations in a fun way. Your confidence grows step by step as your character grows.</p>
       </div>
-    </div>
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Learning Environment</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div>We make sure groups are always small – maximum 5 students per adventure</div>
-        <div>Personal lessons included in every chapter</div>
-        <div>Flexible scheduling for busy professionals and students</div>
+
+      <!-- Divider -->
+      <div class="why-learn-divider" style="width: 1px; min-width: 1px; background: rgba(138,79,189,0.15); margin: 20px 0; flex-shrink: 0;"></div>
+
+      <!-- Learning Environment -->
+      <div style="flex: 1; min-width: 200px; padding: 28px 28px 28px 28px; box-sizing: border-box;">
+        <h3 style="color: #8a4fbd; font-family: 'Almendra', serif; font-size: 1.15em; margin: 0 0 12px;">Learning Environment</h3>
+        <p style="color: #2e3b59; font-family: 'Alegreya', serif; font-size: 1em; line-height: 1.6; margin: 0;">Maximum 5 students per group — so you always get personal attention. Every chapter includes personal lessons just for you. We work around your schedule.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -545,7 +542,31 @@
       </div>
     </div>
     
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">What level of English do I need?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>You should know some basic English — simple words and short sentences. You don't need to feel confident yet. That is what we build together. If you can write one sentence about yourself in English, your level is fine.</div>
+      </div>
+    </div>
     
+    <div class="collapsible-card">
+      <button class="collapsible-header" onclick="toggleCollapsible(this)">
+        <span class="collapsible-title">Can I get my money back if I don't like it?</span>
+        <span class="collapsible-arrow">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div>Yes! Every chapter comes with our money-back promise:</div>
+        <div><br></div>
+        <div><strong>Chapter 0:</strong> Full refund if you decide to stop before your 2nd session</div>
+        <div><strong>Chapter 1, 2 & 3:</strong> Full refund if you decide to stop before Week 2</div>
+        <div><br></div>
+        <div>We want you to feel confident trying our program. If it's not right for you, simply let us know and we'll process your refund. No questions asked.</div>
+      </div>
+    </div>
+        
     <div class="collapsible-card">
       <button class="collapsible-header" onclick="toggleCollapsible(this)">
         <span class="collapsible-title">How do the online sessions work?</span>
@@ -575,16 +596,6 @@
       </button>
       <div class="collapsible-content">
         <div>Yes, everything is in English only - all sessions, all materials, all communication. This full English practice is very important for building real confidence. I speak clearly and slowly, and I will help you understand. But I do not give support in Japanese, Korean, or other languages.</div>
-      </div>
-    </div>
-    
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">What level of English do I need?</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div>You should know some basic English — simple words and short sentences. You don't need to feel confident yet. That is what we build together. If you can write one sentence about yourself in English, your level is fine.</div>
       </div>
     </div>
     
@@ -669,21 +680,6 @@
         <div><strong>Discord account</strong> - Free to create, and we'll send you setup instructions</div>
         <div><br></div>
         <div>Discord is easy to use, and you'll get comfortable with it quickly!</div>
-      </div>
-    </div>
-    
-    <div class="collapsible-card">
-      <button class="collapsible-header" onclick="toggleCollapsible(this)">
-        <span class="collapsible-title">Can I get my money back if I don't like it?</span>
-        <span class="collapsible-arrow">▼</span>
-      </button>
-      <div class="collapsible-content">
-        <div>Yes! Every chapter comes with our money-back promise:</div>
-        <div><br></div>
-        <div><strong>Chapter 0:</strong> Full refund if you decide to stop before your 2nd session</div>
-        <div><strong>Chapter 1, 2 & 3:</strong> Full refund if you decide to stop before Week 2</div>
-        <div><br></div>
-        <div>We want you to feel confident trying our program. If it's not right for you, simply let us know and we'll process your refund. No questions asked.</div>
       </div>
     </div>
     
@@ -1010,9 +1006,9 @@ document.querySelectorAll('.trust-collapsible-container .collapsible-header').fo
   btn.classList.add('active');
 });
 
-// FAQ: open only items 1, 5, and 12 (RPGs / English level / Money-back)
+// FAQ: open only first three cards (RPGs / English level / Money-back)
 const faqCards = document.querySelectorAll('.faq-collapsible-container .collapsible-card');
-const openIndexes = [0, 4, 12];
+const openIndexes = [0, 1, 2];
 faqCards.forEach((card, index) => {
   const header = card.querySelector('.collapsible-header');
   const content = card.querySelector('.collapsible-content');

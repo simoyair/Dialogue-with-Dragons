@@ -2450,3 +2450,17 @@ h3,
     padding: 24px 60px;
   }
 }
+/* === BEGIN CSS: WHY LEARN WITH US MOBILE === */
+@media (max-width: 767px) {
+  .why-learn-columns {
+    flex-direction: column !important;
+  }
+  .why-learn-columns .why-learn-divider {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 1px !important;
+    min-height: 1px !important;
+    margin: 0 20px !important;
+  }
+}
+/* === END CSS: WHY LEARN WITH US MOBILE === */
