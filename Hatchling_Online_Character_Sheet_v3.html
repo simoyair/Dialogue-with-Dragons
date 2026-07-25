@@ -441,12 +441,12 @@ input.discord-input::placeholder{color:var(--ink-l);font-size:7.5pt;}
     </div>
     <div class="hero-info">
       <div class="hero-title">Hero Dice <span id="hero-count" style="font-family:Quattrocento,serif;font-size:8pt;color:var(--ink-l);">— 0 available</span></div>
-      <div class="hero-sub">Spend reactively: add an extra die to a roll, before or after it's rolled</div>
+      <div class="hero-sub">Spend reactively: add an extra die to a roll, or replace one rolled die</div>
     </div>
   </div>
 
   <!-- SKILLS -->
-  <div class="sec">Skills <span style="font-size:6pt;text-transform:none;letter-spacing:.05em;color:var(--ink-l);font-family:Quattrocento,serif;margin-left:4px;">— costs 1 Power-Up to activate · defined by your backstory</span></div>
+  <div class="sec">Skills <span style="font-size:6pt;text-transform:none;letter-spacing:.05em;color:var(--ink-l);font-family:Quattrocento,serif;margin-left:4px;">— costs 1 Inspiration to activate · defined by your backstory</span></div>
   <div class="skills-band">
     <div class="skill-slot"><div class="panel-title">Skill 1</div><input class="skill-name" id="sk1" type="text" placeholder="Name your skill…" autocomplete="off"></div>
     <div class="skill-slot"><div class="panel-title">Skill 2</div><input class="skill-name" id="sk2" type="text" placeholder="Name your skill…" autocomplete="off"></div>
@@ -495,7 +495,7 @@ input.discord-input::placeholder{color:var(--ink-l);font-size:7.5pt;}
       </div>
       <div class="bonus-opts">
         <label class="bo"><input type="checkbox" id="chk-class" onchange="updatePool()">Class bonus die<span class="bo-badge">+1 die</span></label>
-        <label class="bo" id="skill-opt"><input type="checkbox" id="chk-skill" onchange="updatePool()">Use a Skill <span style="font-size:7.5pt;color:var(--ink-l);">(spends 1 Power-Up)</span><span class="bo-badge">+2 dice</span></label>
+        <label class="bo" id="skill-opt"><input type="checkbox" id="chk-skill" onchange="updatePool()">Use a Skill <span style="font-size:7.5pt;color:var(--ink-l);">(spends 1 Inspiration)</span><span class="bo-badge">+2 dice</span></label>
         <div class="gm-bonus-row">
           <label>GM bonus dice</label>
           <div class="counter">
@@ -519,15 +519,6 @@ input.discord-input::placeholder{color:var(--ink-l);font-size:7.5pt;}
         <div class="hrp" id="hrp-2"></div>
       </div>
       <span id="hero-count-r" style="font-family:Almendra,serif;font-size:7pt;color:var(--ink-l);margin-left:4px;">0 available</span>
-      <div class="gm-bonus-row" style="margin-top:4px;">
-        <label>Add to this roll</label>
-        <div class="counter">
-          <button class="cnt-btn" onclick="changeHeroPreRoll(-1)">−</button>
-          <div class="cnt-val" id="hero-pre-val">0</div>
-          <button class="cnt-btn" onclick="changeHeroPreRoll(1)">+</button>
-        </div>
-        <span class="bo-badge" id="hero-pre-badge" style="display:none;">+0 dice</span>
-      </div>
     </div>
 
     <button class="roll-btn" id="roll-btn" onclick="doRoll()">Roll the Dice</button>
@@ -543,8 +534,9 @@ input.discord-input::placeholder{color:var(--ink-l);font-size:7.5pt;}
 
     <!-- Mid-roll action buttons (hero/inspiration during chain) -->
     <div class="mid-actions" id="mid-actions" style="display:none;">
-      <button class="mid-btn insp-btn" id="btn-reroll" onclick="enterMode('insp')" disabled>↺ Reroll a die (−2 Power-Ups)</button>
+      <button class="mid-btn insp-btn" id="btn-reroll" onclick="enterMode('insp')" disabled>↺ Reroll a die (−1 Insp)</button>
       <button class="mid-btn hero-btn" id="btn-add-hero" onclick="addHeroDie()" disabled>⊕ Add Hero Die (−1 Hero)</button>
+      <button class="mid-btn hero-btn" id="btn-replace-hero" onclick="enterMode('hero')" disabled>↺ Replace a die (−1 Hero)</button>
     </div>
 
     <!-- Final result -->
@@ -867,12 +859,7 @@ function toggleToken(i){D.tokens[i]=!D.tokens[i];sched();renderToken(i);updateTo
 function renderToken(i){document.getElementById('tok-'+i).classList.toggle('filled',!!D.tokens[i]);}
 function updateTokenCount(){document.getElementById('tok-count').textContent=D.tokens.filter(Boolean).length;}
 function countInsp(){return D.tokens.filter(Boolean).length;}
-function spendInsp(){const i=D.tokens.lastIndexOf(true);if(i<0)return false;D.tokens[i]=false;sched();renderToken(i);updateTokenCount();updatePool();return true;}
-function spendInspN(n){
-  if(countInsp()<n)return false;
-  for(let k=0;k<n;k++)spendInsp();
-  return true;
-}
+function spendInsp(){const i=D.tokens.indexOf(true);if(i<0)return false;D.tokens[i]=false;sched();renderToken(i);updateTokenCount();updatePool();return true;}
 function grantInsp(){const i=D.tokens.indexOf(false);if(i<0)return;D.tokens[i]=true;sched();renderToken(i);updateTokenCount();}
 
 // ══════════════════════════════════════════
@@ -894,12 +881,7 @@ function updateHeroCount(){
   updateMidActions();
 }
 function countHero(){return D.heroTokens.filter(Boolean).length;}
-function spendHero(){const i=D.heroTokens.lastIndexOf(true);if(i<0)return false;D.heroTokens[i]=false;sched();renderHero(i);updateHeroCount();return true;}
-function spendHeroN(n){
-  if(countHero()<n)return false;
-  for(let k=0;k<n;k++)spendHero();
-  return true;
-}
+function spendHero(){const i=D.heroTokens.indexOf(true);if(i<0)return false;D.heroTokens[i]=false;sched();renderHero(i);updateHeroCount();return true;}
 
 // ══════════════════════════════════════════
 // DISCORD
@@ -934,7 +916,7 @@ async function shareToDiscord(text){
 // ══════════════════════════════════════════
 let panelOpen=false;
 let R={
-  selectedStat:null,poolSize:2,useClass:false,useSkill:false,gmBonus:0,heroPreRoll:0,
+  selectedStat:null,poolSize:2,useClass:false,useSkill:false,gmBonus:0,
   waves:[],done:false,isInsp:false,totalHits:0,
   actionMode:null,inspGranted:false
 };
@@ -963,12 +945,6 @@ function changeGmBonus(delta){
   updatePool();
 }
 
-function changeHeroPreRoll(delta){
-  const maxAvail=countHero();
-  R.heroPreRoll=Math.max(0,Math.min(maxAvail,(R.heroPreRoll||0)+delta));
-  updatePool();
-}
-
 function updatePool(){
   let pool=2;
   if(R.selectedStat)pool+=getStatMod(R.selectedStat);
@@ -977,8 +953,6 @@ function updatePool(){
   if(R.useClass)pool+=1;
   if(R.useSkill)pool+=2;
   pool+=(R.gmBonus||0);
-  R.heroPreRoll=Math.min(R.heroPreRoll||0,countHero());
-  pool+=(R.heroPreRoll||0);
   R.poolSize=pool;
   document.getElementById('pool-display').textContent=pool+'d6';
   let parts=['2 base'];
@@ -986,16 +960,12 @@ function updatePool(){
   if(R.useClass)parts.push('+1 class');
   if(R.useSkill)parts.push('+2 skill');
   if(R.gmBonus>0)parts.push('+'+R.gmBonus+' GM');
-  if(R.heroPreRoll>0)parts.push('+'+R.heroPreRoll+' hero');
   document.getElementById('pool-sub').textContent=parts.join(' · ');
   ['phys','ment','soc','intu'].forEach(k=>{const el=document.getElementById('sbd-'+k);if(el)el.textContent='(+'+getStatMod(k)+')';});
   const so=document.getElementById('skill-opt');
   const hasT=countInsp()>0;
   so.classList.toggle('disabled',!hasT);
   if(!hasT&&R.useSkill){document.getElementById('chk-skill').checked=false;R.useSkill=false;}
-  const hpv=document.getElementById('hero-pre-val');if(hpv)hpv.textContent=R.heroPreRoll;
-  const hpb=document.getElementById('hero-pre-badge');
-  if(hpb){if(R.heroPreRoll>0){hpb.textContent='+'+R.heroPreRoll+' dice';hpb.style.display='';}else hpb.style.display='none';}
 }
 
 // ══════════════════════════════════════════
@@ -1014,7 +984,7 @@ function analyzeWave(dice){
   }
   const extra=Math.max(0,explodedDice-1);
   return{dice:[...dice],hits:dice.filter(d=>d>=5).length,hasExplosion:extra>0,
-    hasOne:(counts[1]||0)>=1,extraDice:extra,boomVals};
+    hasLoneOne:(counts[1]||0)===1,extraDice:extra,boomVals};
 }
 
 function dieClass(d,bv){if(d>=5)return'hit';if(d===1)return'danger';if(bv.includes(d))return'boom';return'';}
@@ -1023,8 +993,8 @@ function dieClass(d,bv){if(d>=5)return'hit';if(d===1)return'danger';if(bv.includ
 function recalcResult(){
   R.totalHits=R.waves.reduce((s,w)=>s+w.hits,0);
   const exploded=R.waves.some(w=>w.hasExplosion);
-  const onesRounds=R.waves.filter(w=>w.hasOne).length;
-  R.isInsp=exploded&&onesRounds<2;
+  const loneOnes=R.waves.filter(w=>w.hasLoneOne).length;
+  R.isInsp=exploded&&loneOnes<2;
 }
 
 // ══════════════════════════════════════════
@@ -1083,7 +1053,6 @@ function refreshWaveDisplay(wIdx){
 function doRoll(){
   if(R.poolSize<1)return;
   if(R.useSkill)spendInsp();
-  if(R.heroPreRoll>0){spendHeroN(R.heroPreRoll);R.heroPreRoll=0;}
   R.waves=[];R.done=false;R.actionMode=null;
   document.getElementById('dice-results').innerHTML='';
   document.getElementById('roll-result').style.display='none';
@@ -1114,11 +1083,11 @@ function finalizeRoll(){
   // Show result
   const resEl=document.getElementById('roll-result');
   resEl.style.display='block';resEl.className='roll-result '+(R.isInsp?'insp':'comp');
-  document.getElementById('res-badge').textContent=R.isInsp?'✨ Power-Up':'⚠ Complication';
+  document.getElementById('res-badge').textContent=R.isInsp?'✨ Inspiration':'⚠ Complication';
   document.getElementById('res-hits').textContent=R.totalHits+' total success'+(R.totalHits!==1?'es':'');
-  const onesRounds=R.waves.filter(w=>w.hasOne).length;
+  const loneOnes=R.waves.filter(w=>w.hasLoneOne).length;
   const exploded=R.waves.some(w=>w.hasExplosion);
-  let note=!exploded?'No explosion → Complication':onesRounds>=2?'1s in 2+ rounds → Complication':'Clean explosion → Power-Up earned';
+  let note=!exploded?'No explosion → Complication':loneOnes>=2?'Separate 1s across waves → Complication':'Clean explosion → Inspiration earned';
   document.getElementById('res-note').textContent=note;
   if(R.isInsp&&!R.inspGranted){grantInsp();R.inspGranted=true;}
   document.getElementById('roll-actions').style.display='flex';
@@ -1136,8 +1105,9 @@ function updateMidActions(){
   const hasRolled=R.waves.length>0;
   const insp=countInsp();
   const hero=countHero();
-  document.getElementById('btn-reroll').disabled=!hasRolled||insp<2;
+  document.getElementById('btn-reroll').disabled=!hasRolled||insp===0;
   document.getElementById('btn-add-hero').disabled=!hasRolled||hero===0;
+  document.getElementById('btn-replace-hero').disabled=!hasRolled||hero===0;
   // Also update hero pips in roller
   [0,1,2].forEach(i=>{
     const el=document.getElementById('hrp-'+i);
@@ -1150,11 +1120,15 @@ function updateMidActions(){
 function enterMode(mode){
   R.actionMode=mode;
   document.getElementById('action-mode-bar').style.display='flex';
-  document.getElementById('action-mode-txt').textContent='Click a die from the latest roll to reroll it -- costs 2 Power-Ups';
+  document.getElementById('action-mode-txt').textContent=
+    mode==='insp'?'Click a die from the latest roll to reroll it -- costs 1 Inspiration'
+                 :'Click a die from the latest roll to replace it -- costs 1 Hero Die';
   const lastWaveIdx=R.waves.length-1;
   document.querySelectorAll('.die').forEach(d=>{
     if(Number(d.dataset.wave)===lastWaveIdx){
-      d.classList.add('rerollable','insp-mode');
+      d.classList.add('rerollable');
+      if(mode==='insp') d.classList.add('insp-mode');
+      else d.classList.remove('insp-mode');
     }
   });
 }
@@ -1165,9 +1139,18 @@ function cancelActionMode(){
   document.querySelectorAll('.die').forEach(d=>{d.classList.remove('rerollable','insp-mode');});
 }
 
-// Shared logic: after a wave's dice array changes (reroll or hero die added),
-// either reopen the explosion-continue controls or refresh the finalized result.
-function afterWaveMutation(wIdx,newWv){
+function handleDieClick(el,wIdx,dIdx){
+  if(!R.actionMode)return;
+  const mode=R.actionMode;
+  if(mode==='insp'&&!spendInsp())return;
+  if(mode==='hero'&&!spendHero())return;
+  cancelActionMode();
+
+  R.waves[wIdx].dice[dIdx]=Math.floor(Math.random()*6)+1;
+  const newWv=analyzeWave(R.waves[wIdx].dice);
+  R.waves[wIdx]=newWv;
+  refreshWaveDisplay(wIdx);
+
   if(newWv.hasExplosion){
     document.getElementById('roll-result').style.display='none';
     document.getElementById('roll-actions').style.display='none';
@@ -1192,43 +1175,16 @@ function afterWaveMutation(wIdx,newWv){
     const resEl=document.getElementById('roll-result');
     if(resEl&&resEl.style.display!=='none'){
       resEl.className='roll-result '+(R.isInsp?'insp':'comp');
-      document.getElementById('res-badge').textContent=R.isInsp?'Power-Up':'Complication';
+      document.getElementById('res-badge').textContent=R.isInsp?'Inspiration':'Complication';
       document.getElementById('res-hits').textContent=R.totalHits+' total success'+(R.totalHits!==1?'es':'');
-      const onesRounds=R.waves.filter(w=>w.hasOne).length;
+      const loneOnes=R.waves.filter(w=>w.hasLoneOne).length;
       const exploded=R.waves.some(w=>w.hasExplosion);
       document.getElementById('res-note').textContent=
         !exploded?'No explosion - Complication':
-        onesRounds>=2?'1s in 2+ rounds - Complication':
-        'Clean explosion - Power-Up earned';
+        loneOnes>=2?'Separate 1s - Complication':
+        'Clean explosion - Inspiration earned';
     }
   }
-}
-
-function handleDieClick(el,wIdx,dIdx){
-  if(!R.actionMode)return;
-  const mode=R.actionMode;
-  if(mode==='insp'&&!spendInspN(2))return;
-  cancelActionMode();
-
-  R.waves[wIdx].dice[dIdx]=Math.floor(Math.random()*6)+1;
-  const newWv=analyzeWave(R.waves[wIdx].dice);
-  R.waves[wIdx]=newWv;
-  refreshWaveDisplay(wIdx);
-  afterWaveMutation(wIdx,newWv);
-  updateMidActions();
-}
-
-// Add a Hero Die to the current wave (mid-roll). Hero Dice can only be
-// added to a roll -- they never replace a rolled die.
-function addHeroDie(){
-  if(R.waves.length===0)return;
-  if(!spendHero())return;
-  const wIdx=R.waves.length-1;
-  R.waves[wIdx].dice.push(Math.floor(Math.random()*6)+1);
-  const newWv=analyzeWave(R.waves[wIdx].dice);
-  R.waves[wIdx]=newWv;
-  refreshWaveDisplay(wIdx);
-  afterWaveMutation(wIdx,newWv);
   updateMidActions();
 }
 
@@ -1345,7 +1301,7 @@ function buildReport(){
   });
   txt+='--'.repeat(16)+'\n';
   txt+='Successes: '+R.totalHits+'\n';
-  txt+=R.isInsp?'POWER-UP - token earned':'COMPLICATION - GM gains a token';
+  txt+=R.isInsp?'INSPIRATION - token earned':'COMPLICATION - GM gains a token';
   return txt;
 }
 
@@ -1359,7 +1315,7 @@ function copyReport(){
 }
 
 function clearRoller(){
-  R.waves=[];R.done=false;R.actionMode=null;R.gmBonus=0;R.heroPreRoll=0;R.inspGranted=false;
+  R.waves=[];R.done=false;R.actionMode=null;R.gmBonus=0;R.inspGranted=false;
   document.getElementById('gm-bonus-val').textContent='0';
   document.getElementById('gm-bonus-badge').style.display='none';
   document.getElementById('dice-results').innerHTML='';
