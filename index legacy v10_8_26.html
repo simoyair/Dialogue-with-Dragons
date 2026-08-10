@@ -173,6 +173,13 @@
       <button class="pill-btn" onclick="scrollToSection('contact-form')">Start Now</button>
     </div>
 
+    <!-- Learn More toggle — centered below Start Now -->
+    <div style="display: flex; justify-content: center; margin-top: 12px;">
+      <button class="tutoring-toggle-link" onclick="toggleTutoringOffer(this)" aria-expanded="false">
+        Learn More ▼
+      </button>
+    </div>
+
     <!-- Expanded content (hidden by default — NOT using .collapsible-content class) -->
     <div class="tutoring-offer-details" style="display: none;">
 
@@ -202,13 +209,6 @@
       </p>
 
     </div><!-- /.tutoring-offer-details -->
-
-    <!-- Learn More toggle — now centered below the (collapsed) details block, so it lands at the bottom once expanded -->
-    <div style="display: flex; justify-content: center; margin-top: 12px;">
-      <button class="tutoring-toggle-link" onclick="toggleTutoringOffer(this)" aria-expanded="false">
-        Learn More ▼
-      </button>
-    </div>
 
   </div><!-- .tutoring-offer-card -->
   <!-- END: PRIVATE TUTORING OFFER -->
@@ -263,6 +263,15 @@
         <span class="chapter-duration">8 weeks</span>
       </div>
       <div class="chapter-content">
+        <div class="chapter-what-youll-do">
+          <h4>What You'll Do:</h4>
+          <ul>
+            <li>Weekly group adventures with your party (2 hours each)</li>
+            <li>Personal lesson after each adventure (30 minutes)</li>
+            <li>Build your confidence by telling your character's story in English</li>
+            <li>Meet new friends from other countries</li>
+          </ul>
+        </div>
         <div class="chapter-price-box">
           <div class="price-row">
             <span class="price-label">Our Price:</span>
@@ -275,27 +284,15 @@
           <div class="price-savings">(You save $151 as a first student)</div>
           <div class="price-weekly">That's only $80 per week for group adventure + personal lesson!</div>
         </div>
-        <div class="money-back-promise">✓ Get all your money back if you stop before Week 2</div>
-        <div class="collapsible-content">
-          <div class="chapter-what-youll-do">
-            <h4>What You'll Do:</h4>
-            <ul>
-              <li>Weekly group adventures with your party (2 hours each)</li>
-              <li>Personal lesson after each adventure (30 minutes)</li>
-              <li>Build your confidence by telling your character's story in English</li>
-              <li>Meet new friends from other countries</li>
-            </ul>
-          </div>
-          <div class="chapter-included">
-            <h4>What's Included:</h4>
-            <ul>
-              <li>8 group adventure sessions (16 hours total)</li>
-              <li>8 personal lessons (30 minutes every week)</li>
-              <li>Weekly homework and fun exercises</li>
-            </ul>
-          </div>
+        <div class="chapter-included">
+          <h4>What's Included:</h4>
+          <ul>
+            <li>8 group adventure sessions (16 hours total)</li>
+            <li>8 personal lessons (30 minutes every week)</li>
+            <li>Weekly homework and fun exercises</li>
+          </ul>
         </div>
-        <button class="toggle-link-btn" onclick="toggleCollapsibleAfter(this)" aria-expanded="false" data-collapsed-text="See Details ▼">See Details ▼</button>
+        <div class="money-back-promise">✓ Get all your money back if you stop before Week 2</div>
       </div>
     </div>
 
@@ -307,6 +304,15 @@
         <span class="chapter-duration">12 weeks</span>
       </div>
       <div class="chapter-content">
+        <div class="chapter-what-youll-do">
+          <h4>What You'll Do:</h4>
+          <ul>
+            <li>Weekly adventures with bigger challenges</li>
+            <li>More personal lessons (2 times per week, 30 minutes each)</li>
+            <li>You level up and your character grows stronger. You start having real conversations with other characters in English</li>
+            <li>Create a final project: Your adventure as a comic book with your voice</li>
+          </ul>
+        </div>
         <div class="chapter-price-box">
           <div class="price-row">
             <span class="price-label">Our Price:</span>
@@ -319,29 +325,17 @@
           <div class="price-savings">(You save $360 as a first student)</div>
           <div class="price-weekly">That's only $80 per week for group adventure + two personal lessons!</div>
         </div>
-        <div class="money-back-promise">✓ Get all your money back if you stop before Week 2</div>
-        <div class="collapsible-content">
-          <div class="chapter-what-youll-do">
-            <h4>What You'll Do:</h4>
-            <ul>
-              <li>Weekly adventures with bigger challenges</li>
-              <li>More personal lessons (2 times per week, 30 minutes each)</li>
-              <li>You level up and your character grows stronger. You start having real conversations with other characters in English</li>
-              <li>Create a final project: Your adventure as a comic book with your voice</li>
-            </ul>
-          </div>
-          <div class="chapter-included">
-            <h4>What's Included:</h4>
-            <ul>
-              <li>9 group adventure sessions + 3 project workshop sessions (24 hours total)</li>
-              <li>18 personal lessons (9 hours total)</li>
-              <li>Weekly writing practice</li>
-              <li>Work together on final project</li>
-              <li>Community support throughout</li>
-            </ul>
-          </div>
+        <div class="chapter-included">
+          <h4>What's Included:</h4>
+          <ul>
+            <li>9 group adventure sessions + 3 project workshop sessions (24 hours total)</li>
+            <li>18 personal lessons (9 hours total)</li>
+            <li>Weekly writing practice</li>
+            <li>Work together on final project</li>
+            <li>Community support throughout</li>
+          </ul>
         </div>
-        <button class="toggle-link-btn" onclick="toggleCollapsibleAfter(this)" aria-expanded="false" data-collapsed-text="See Details ▼">See Details ▼</button>
+        <div class="money-back-promise">✓ Get all your money back if you stop before Week 2</div>
       </div>
     </div>
 
@@ -354,48 +348,44 @@
         <span class="chapter-duration">Flexible - Continue as long as you want</span>
       </div>
       <div class="chapter-content">
+        <div class="chapter-what-youll-do">
+          <h4>What's Included:</h4>
+          <ul>
+            <li>Weekly group adventures that continue your story</li>
+            <li>Personal lessons (once per week, 30 minutes)</li>
+            <li>Work on reading and writing skills</li>
+            <li>Practice advanced grammar, fluency, and accuracy</li>
+            <li>Continue your character's journey or start a new one</li>
+          </ul>
+        </div>
+        <div class="chapter-price-box">
+          <div class="price-options">
+            <div class="price-option">
+              <div class="option-title">Option 1: Pay Each Week</div>
+              <div class="price-value">$120 per week</div>
+              <div class="option-details">Stop or pause anytime | Good for busy schedules</div>
+            </div>
+            <div class="price-option recommended">
+              <div class="option-title">Option 2: Pay for 8 Weeks Together ✨</div>
+              <div class="price-value">$880 for 8 weeks (Save $80!)</div>
+              <div class="price-value first-student">First Students: $750 for 8 weeks</div>
+              <div class="option-details">Average $110/week (regular) or $94/week (first students) | Better price for serious learners | Can sign up for 8 more weeks at any time</div>
+            </div>
+          </div>
+        </div>
+        <div class="chapter-included">
+          <h4>What's Included:</h4>
+          <ul>
+            <li>Weekly group adventure session (2 hours)</li>
+            <li>2 personal lessons every week (30 minutes each)</li>
+            <li>Work on reading and writing practice</li>
+            <li>Learn advanced grammar and vocabulary</li>
+            <li>Continue your character's journey</li>
+          </ul>
+        </div>
         <div class="availability-note">Available to students who finish Chapters 0-2. First students get told first when spots open.</div>
       </div>
     </div>
-    <!-- CHAPTER 3 FULL DETAILS — commented out for now, restore when Chapter 3 is closer to launch
-    <div class="chapter-content">
-      <div class="chapter-what-youll-do">
-        <h4>What's Included:</h4>
-        <ul>
-          <li>Weekly group adventures that continue your story</li>
-          <li>Personal lessons (once per week, 30 minutes)</li>
-          <li>Work on reading and writing skills</li>
-          <li>Practice advanced grammar, fluency, and accuracy</li>
-          <li>Continue your character's journey or start a new one</li>
-        </ul>
-      </div>
-      <div class="chapter-price-box">
-        <div class="price-options">
-          <div class="price-option">
-            <div class="option-title">Option 1: Pay Each Week</div>
-            <div class="price-value">$120 per week</div>
-            <div class="option-details">Stop or pause anytime | Good for busy schedules</div>
-          </div>
-          <div class="price-option recommended">
-            <div class="option-title">Option 2: Pay for 8 Weeks Together ✨</div>
-            <div class="price-value">$880 for 8 weeks (Save $80!)</div>
-            <div class="price-value first-student">First Students: $750 for 8 weeks</div>
-            <div class="option-details">Average $110/week (regular) or $94/week (first students) | Better price for serious learners | Can sign up for 8 more weeks at any time</div>
-          </div>
-        </div>
-      </div>
-      <div class="chapter-included">
-        <h4>What's Included:</h4>
-        <ul>
-          <li>Weekly group adventure session (2 hours)</li>
-          <li>2 personal lessons every week (30 minutes each)</li>
-          <li>Work on reading and writing practice</li>
-          <li>Learn advanced grammar and vocabulary</li>
-          <li>Continue your character's journey</li>
-        </ul>
-      </div>
-    </div>
-    -->
   </div>
 </section>
 <!-- END PROGRAM DETAILS SECTION -->
@@ -436,19 +426,17 @@
         <p class="bio-paragraph">I've been teaching for over 10 years in many different ways - from helping students with exams to training business professionals and executives how to use new computer programs. For the past 5+ years, I've focused on teaching English conversation and helping students build real confidence speaking.</p>
       </div>
       
-      <div class="collapsible-content bio-remaining-paragraphs">
+      <div class="bio-remaining-paragraphs">
         <p class="bio-paragraph">I discovered RPGs again in 2023 and immediately saw how perfect they are for language learning. When I run games for fun, most of my players aren't native English speakers - and I watched them grow more confident week by week. I created Dialogue with Dragons to combine my two passions: teaching English and creating stories together.</p>
         
         <p class="bio-paragraph">I believe learning should feel exciting, not stressful. My goal is to create a safe space where you can experiment, make mistakes, and grow - not just in English, but as a person. When you speak as your character, you discover confidence you didn't know you had.</p>
         
         <p class="bio-paragraph">Whether you're saving dragons or fighting princesses, you'll use English naturally because you're focused on the adventure, not the grammar.</p>
       </div>
-      <button class="toggle-link-btn" onclick="toggleCollapsibleAfter(this)" aria-expanded="false" data-collapsed-text="Read More ▼">Read More ▼</button>
     </div>
   </div>
 </section>
 <!-- END ABOUT TEACHER SECTION -->
-
 <!-- BEGIN TESTIMONIAL SECTION -->
 <section class="trust-section" id="testimonials">
   <h2 class="trust-title">What Students Say</h2>
@@ -462,7 +450,6 @@
   </div>
 </section>
 <!-- END TESTIMONIAL SECTION -->
-
 <!-- BEGIN HOW TO START SECTION -->
 <section class="trust-section" id="how-to-begin" style="background: var(--light-blue);">
   <h2 class="trust-title">How to Start</h2>
@@ -495,34 +482,31 @@
 <section class="trust-section" id="first-students-offer">
   <h2 class="trust-title" style="margin-bottom: 20px;">What You Get as One of Our First Students </h2>
   <div id="special-pricing-card-start"></div>
-  <div class="card-white-text-outline special-pricing-card" id="first-students-card" style="text-align: center; border-radius: 16px; padding: 40px;">
-    <button class="subtitle-toggle-btn" onclick="toggleFirstStudentsCard(this)">
-      <span class="subtitle-toggle-text">First Student Pricing - Limited Spots Available</span>
-      <span class="collapsible-arrow">▼</span>
-    </button>
-    <div class="collapsible-content">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 10px;">
-        <div>
-          <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Special Pricing</h4>
-          <p style="color: white; font-family: Alegreya, serif;">Get special lower prices for all chapters - now and forever. Once you join as a first student, you keep these prices even when regular prices go up.</p>
-        </div>
-        <div>
-          <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Bonus Content</h4>
-          <p style="color: white; font-family: Alegreya, serif;">Be the first to try new chapters and get special learning materials that regular students won't receive.</p>
-        </div>
-        <div>
-          <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Extra Attention</h4>
-          <p style="color: white; font-family: Alegreya, serif;">Get additional personal calls with your teacher for extra support.</p>
-        </div>
-        <div>
-          <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Community Creation</h4>
-          <p style="color: white; font-family: Alegreya, serif;">Help us build our international community and share your opinion to affect future chapters.</p>
-        </div>
-        <div>
-          <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Be Part of Creating the World</h4>
-          <p style="color: white; font-family: Alegreya, serif;">Adventure in a brand new fantasy world and leave your mark on the story. Future students will see what you created.</p>
-        </div>
+  <div class="card card-white-text-outline special-pricing-card" style="color: white; text-align: center; border-radius: 16px; box-shadow: none; padding: 40px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px;">
+      <div>
+        <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Special Pricing</h4>
+        <p style="color: white; font-family: Alegreya, serif;">Get special lower prices for all chapters - now and forever. Once you join as a first student, you keep these prices even when regular prices go up.</p>
       </div>
+      <div>
+        <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Bonus Content</h4>
+        <p style="color: white; font-family: Alegreya, serif;">Be the first to try new chapters and get special learning materials that regular students won't receive.</p>
+      </div>
+      <div>
+        <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Extra Attention</h4>
+        <p style="color: white; font-family: Alegreya, serif;">Get additional personal calls with your teacher for extra support.</p>
+      </div>
+      <div>
+        <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Community Creation</h4>
+        <p style="color: white; font-family: Alegreya, serif;">Help us build our international community and share your opinion to affect future chapters.</p>
+      </div>
+      <div>
+        <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 15px; font-size: 1.3em;">Be Part of Creating the World</h4>
+        <p style="color: white; font-family: Alegreya, serif;">Adventure in a brand new fantasy world and leave your mark on the story. Future students will see what you created.</p>
+      </div>
+    </div>
+    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 8px;">
+      <h4 style="color: white; font-family: Almendra, serif; margin-bottom: 10px;">First Student Pricing - Limited Spots Available</h4>
     </div>
   </div>
 </section>
@@ -949,36 +933,6 @@ function toggleCollapsible(btn) {
   } else {
     content.style.display = "block";
     btn.classList.add('active');
-  }
-}
-
-function toggleCollapsibleAfter(btn) {
-  // Button sits AFTER its content (used for chapter/teacher "See Details"/"Read More" pattern)
-  // so the button ends up below the revealed content once expanded, not sandwiched in the middle
-  var content = btn.previousElementSibling;
-  var expanded = content.style.display === "block";
-  if (expanded) {
-    content.style.display = "none";
-    btn.textContent = btn.getAttribute('data-collapsed-text');
-    btn.setAttribute('aria-expanded', 'false');
-  } else {
-    content.style.display = "block";
-    btn.textContent = 'Show Less ▲';
-    btn.setAttribute('aria-expanded', 'true');
-  }
-}
-
-function toggleFirstStudentsCard(btn) {
-  // Subtitle itself is the toggle button. Background image only appears once expanded.
-  var card = document.getElementById('first-students-card');
-  var content = btn.nextElementSibling;
-  var expanded = card.classList.contains('expanded');
-  if (expanded) {
-    card.classList.remove('expanded');
-    content.style.display = 'none';
-  } else {
-    card.classList.add('expanded');
-    content.style.display = 'block';
   }
 }
 
