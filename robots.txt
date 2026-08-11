@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://simoyair.github.io/Dialogue-with-Dragons/sitemap.xml
