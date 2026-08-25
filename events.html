@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Friday Nights at The Hearth in Osaka — Dialogue with Dragons</title>
+  <meta name="description" content="Free English-language story game night every Friday at The Hearth, Osaka. No experience needed. Hosted by Dialogue with Dragons." />
+  <link rel="canonical" href="https://simoyair.github.io/Dialogue-with-Dragons/events.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Alegreya:700|Quattrocento:400,700|Almendra:700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      width: 100vw;
+      overflow-x: hidden;
+      background-color: #1a1440;
+      background-image: url("Assets/page_bg.png");
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: cover;
+      background-attachment: fixed;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: "Quattrocento", serif;
+      color: #2e3b59;
+    }
+
+    .events-page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 24px 0 24px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: "Alegreya", serif;
+      font-weight: 700;
+      font-size: 1em;
+      color: #f8e9ff;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+
+    .back-link:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .events-hero {
+      max-width: 720px;
+      margin: 28px auto 0 auto;
+      text-align: center;
+    }
+
+    .events-hero img.mascot-image {
+      width: 170px;
+      height: auto;
+      margin: 0 auto 24px auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .events-hero h1 {
+      font-family: "Almendra", serif;
+      font-size: 2.3em;
+      line-height: 1.25;
+      color: #f0d9ff;
+      font-weight: 700;
+      margin: 0 0 20px;
+      text-shadow: -1px -1px 2px #1a1440, 1px -1px 2px #1a1440, -1px 1px 2px #1a1440, 1px 1px 2px #1a1440;
+    }
+
+    .events-hero p {
+      font-family: "Alegreya", serif;
+      font-size: 1.15em;
+      color: #f8e9ff;
+      max-width: 600px;
+      margin: 0 auto 18px auto;
+      line-height: 1.65;
+    }
+
+    .events-section-wrap {
+      max-width: 1100px;
+      margin: 48px auto 0 auto;
+      padding: 0 24px 60px 24px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 767px) {
+      .events-page-container { padding: 20px 18px 0 18px; }
+      .events-hero { margin-top: 20px; }
+      .events-hero h1 { font-size: 1.7em; }
+      .events-hero p { font-size: 1.05em; }
+      .events-hero img.mascot-image { width: 140px; margin-bottom: 18px; }
+      .events-section-wrap { padding: 0 18px 50px 18px; margin-top: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="events-page-container">
+    <a href="index.html" class="back-link">&larr; Back to Dialogue with Dragons</a>
+
+    <div class="events-hero">
+      <img src="Assets/mascot-welcome.png" alt="Welcome Mascot" class="mascot-image">
+      <h1>Friday Nights at The Hearth in Osaka</h1>
+      <p>Every Friday, we play a story game in English at The Hearth in Osaka. It's free, and you don't need any experience. You make a character, and you tell a story together with new friends.</p>
+      <p>We play the same fun adventure every week, so you can join any Friday that works for you.</p>
+    </div>
+  </div>
+
+  <!-- BEGIN EVENTS SECTION -->
+  <section class="events-section-wrap" id="events">
+
+    <div class="events-grid">
+
+      <div class="event-card">
+        <h3 class="event-card-title">Friday<br>September 25</h3>
+        <button class="pill-btn event-join-btn" onclick="chooseEvent('Sept 25', 'Friday, September 25')"><span class="text">Join</span></button>
+      </div>
+
+      <div class="event-card">
+        <h3 class="event-card-title">Friday<br>October 2</h3>
+        <button class="pill-btn event-join-btn" onclick="chooseEvent('Oct 2', 'Friday, October 2')"><span class="text">Join</span></button>
+      </div>
+
+      <div class="event-card">
+        <h3 class="event-card-title">Friday<br>October 9</h3>
+        <button class="pill-btn event-join-btn" onclick="chooseEvent('Oct 9', 'Friday, October 9')"><span class="text">Join</span></button>
+      </div>
+
+      <div class="event-card">
+        <h3 class="event-card-title">Friday<br>October 16</h3>
+        <button class="pill-btn event-join-btn" onclick="chooseEvent('Oct 16', 'Friday, October 16')"><span class="text">Join</span></button>
+      </div>
+
+    </div>
+
+    <div class="events-shared-detail">
+      <div>📍 The Hearth, Osaka</div>
+      <div>🕐 6:30 PM to 9:30 PM</div>
+    </div>
+
+    <div style="text-align: center; margin-top: 18px; font-family: 'Alegreya', serif; color: #f8e9ff;">
+      Have a question first? <a href="https://line.me/ti/p/b0jnRWfDN3" target="_blank" rel="noopener" style="color: #f0d9ff; font-weight: 700; text-decoration: underline;">Message us on LINE</a>
+    </div>
+
+    <!-- BEGIN EVENT RSVP FORM (hidden until a card is chosen) -->
+    <div class="card" id="event-rsvp" style="display: none; max-width: 560px; margin: 44px auto 0 auto; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 36px; background: rgba(255, 255, 255, 0.9);">
+      <h3 id="rsvp-heading" style="color: #8a4fbd; font-family: 'Almendra', serif; margin-bottom: 8px; text-align: center;">Save Your Seat</h3>
+      <p style="text-align: center; color: #2e3b59; font-family: 'Alegreya', serif; margin-bottom: 24px;">No account needed. Just tell us you're coming.</p>
+      <form id="eventRsvpForm" action="PASTE_APPS_SCRIPT_URL_HERE" method="POST" target="hidden_rsvp_iframe">
+        <div class="form-group">
+          <label for="rsvpName" class="form-label">Your Name: <span style="color: #d32f2f;">*</span></label>
+          <input type="text" id="rsvpName" name="rsvpName" class="form-input" required>
+        </div>
+
+        <div class="form-group">
+          <label for="eventDate" class="form-label">Which Friday? <span style="color: #d32f2f;">*</span></label>
+          <select id="eventDate" name="eventDate" class="form-select" required>
+            <option value="">Choose one...</option>
+            <option value="Sept 25">Friday, September 25</option>
+            <option value="Oct 2">Friday, October 2</option>
+            <option value="Oct 9">Friday, October 9</option>
+            <option value="Oct 16">Friday, October 16</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvpContact" class="form-label">Email or LINE ID: <span style="color: #888; font-size: 0.9em;">(you don't have to)</span></label>
+          <input type="text" id="rsvpContact" name="rsvpContact" class="form-input">
+        </div>
+
+        <button type="submit" class="form-submit-btn"><span class="text">I'm Coming</span></button>
+      </form>
+    </div>
+    <iframe name="hidden_rsvp_iframe" id="hidden_rsvp_iframe" style="display:none;"></iframe>
+    <!-- END EVENT RSVP FORM -->
+
+  </section>
+  <!-- END EVENTS SECTION -->
+
+  <!-- BEGIN FOLLOW US SECTION -->
+  <div style="text-align: center; padding: 10px 20px 20px 20px;">
+    <h3 style="color: #f0d9ff; font-family: 'Almendra', serif; font-size: 1.3em; margin-bottom: 16px; text-shadow: -1px -1px 2px #1a1440, 1px -1px 2px #1a1440, -1px 1px 2px #1a1440, 1px 1px 2px #1a1440;">Follow Us for More</h3>
+    <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 10px;">
+      <a href="https://www.instagram.com/dialoguewithdragons?igsh=MXkyNGZlYWV2YmxncA==" style="display: inline-block; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="Assets/IG_icon.png" alt="Instagram" style="height: 36px; width: 36px;">
+      </a>
+      <!-- YouTube and TikTok hidden until there's content on those channels. Re-enable by uncommenting below.
+      <a href="https://www.youtube.com/@DialoguewithDragons" style="display: inline-block; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="Assets/YT_icon.png" alt="YouTube" style="height: 36px; width: 36px;">
+      </a>
+      <a href="https://www.tiktok.com/@dialoguewithdragons?_r=1&_t=ZS-93OC9X3PAME" style="display: inline-block; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="Assets/tiktok_icon.png" alt="TikTok" style="height: 36px; width: 36px;">
+      </a>
+      -->
+    </div>
+  </div>
+  <!-- END FOLLOW US SECTION -->
+
+  <div style="text-align: center; padding: 10px 20px 60px 20px;">
+    <a href="index.html" class="back-link">&larr; Back to Dialogue with Dragons</a>
+  </div>
+
+  <script>
+    function chooseEvent(value, label) {
+      document.getElementById('eventDate').value = value;
+      document.getElementById('rsvp-heading').textContent = 'Save Your Seat for ' + label;
+      const form = document.getElementById('event-rsvp');
+      form.style.display = 'block';
+      form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
+
+</body>
+</html>
