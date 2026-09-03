@@ -157,10 +157,8 @@
 
     <!-- BEGIN EVENT RSVP FORM (hidden until a card is chosen) -->
     <div class="card" id="event-rsvp" style="display: none; max-width: 560px; margin: 44px auto 0 auto; border-radius: 16px; box-shadow: 0 2px 14px rgba(138,79,189,0.10); padding: 36px; background: rgba(255, 255, 255, 0.9);">
-      <div id="rsvp-intro">
-        <h3 id="rsvp-heading" style="color: #8a4fbd; font-family: 'Almendra', serif; margin-bottom: 8px; text-align: center;">Save Your Seat</h3>
-        <p style="text-align: center; color: #2e3b59; font-family: 'Alegreya', serif; margin-bottom: 24px;">No account needed. Just tell us you're coming.</p>
-      </div>
+      <h3 id="rsvp-heading" style="color: #8a4fbd; font-family: 'Almendra', serif; margin-bottom: 8px; text-align: center;">Save Your Seat</h3>
+      <p style="text-align: center; color: #2e3b59; font-family: 'Alegreya', serif; margin-bottom: 24px;">No account needed. Just tell us you're coming.</p>
       <form id="eventRsvpForm" action="https://script.google.com/macros/s/AKfycbxxRb5AYliIa7EnlZI4JWuDroiJgahMCLapZIy20Yhl-aFTHy899Pqv7mK8a8XUNHNf/exec" method="POST" target="hidden_rsvp_iframe">
         <div class="form-group">
           <label for="rsvpName" class="form-label">Your Name: <span style="color: #d32f2f;">*</span></label>
@@ -185,10 +183,6 @@
 
         <button type="submit" class="form-submit-btn"><span class="text">I'm Coming</span></button>
       </form>
-      <div id="rsvp-success" style="display: none; text-align: center; color: #2e3b59; font-family: 'Alegreya', serif;">
-        <p style="font-size: 1.2em; font-weight: 700; color: #8a4fbd; margin-bottom: 8px;">Thank you!</p>
-        <p>Excited to meet you on Friday!</p>
-      </div>
     </div>
     <iframe name="hidden_rsvp_iframe" id="hidden_rsvp_iframe" style="display:none;"></iframe>
     <!-- END EVENT RSVP FORM -->
@@ -223,30 +217,10 @@
     function chooseEvent(value, label) {
       document.getElementById('eventDate').value = value;
       document.getElementById('rsvp-heading').textContent = 'Save Your Seat for ' + label;
-
-      document.getElementById('rsvp-intro').style.display = 'block';
-      document.getElementById('eventRsvpForm').style.display = 'block';
-      document.getElementById('rsvp-success').style.display = 'none';
-      rsvpSubmitted = false;
-
       const form = document.getElementById('event-rsvp');
       form.style.display = 'block';
       form.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-
-    let rsvpSubmitted = false;
-
-    document.getElementById('eventRsvpForm').addEventListener('submit', function() {
-      rsvpSubmitted = true;
-    });
-
-    document.getElementById('hidden_rsvp_iframe').addEventListener('load', function() {
-      if (rsvpSubmitted) {
-        document.getElementById('rsvp-intro').style.display = 'none';
-        document.getElementById('eventRsvpForm').style.display = 'none';
-        document.getElementById('rsvp-success').style.display = 'block';
-      }
-    });
   </script>
 
 </body>
